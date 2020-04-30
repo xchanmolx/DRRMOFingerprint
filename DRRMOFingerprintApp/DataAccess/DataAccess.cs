@@ -45,6 +45,72 @@ namespace DRRMOFingerprintApp
             return fingerprints;
         }
 
+        public IEnumerable<PersonInfo> GetPersonInfos()
+        {
+            IEnumerable<PersonInfo> personInfos;
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal(dbString)))
+            {
+                personInfos = connection.Query<PersonInfo>("spPersonInfo_SelectAll", commandType: CommandType.StoredProcedure);
+            }
+
+            return personInfos;
+        }
+
+        public IEnumerable<Contact> GetContacts()
+        {
+            IEnumerable<Contact> contacts;
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal(dbString)))
+            {
+                contacts = connection.Query<Contact>("spContact_SelectAll", commandType: CommandType.StoredProcedure);
+            }
+
+            return contacts;
+        }
+
+        public IEnumerable<Address> GetAddresses()
+        {
+            IEnumerable<Address> addresses;
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal(dbString)))
+            {
+                addresses = connection.Query<Address>("spAddress_SelectAll", commandType: CommandType.StoredProcedure);
+            }
+
+            return addresses;
+        }
+
+        public IEnumerable<Occupation> GetOccupations()
+        {
+            IEnumerable<Occupation> occupations;
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal(dbString)))
+            {
+                occupations = connection.Query<Occupation>("spOccupation_SelectAll", commandType: CommandType.StoredProcedure);
+            }
+
+            return occupations;
+        }
+
+        public IEnumerable<Educational> GetEducationals()
+        {
+            IEnumerable<Educational> educationals;
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal(dbString)))
+            {
+                educationals = connection.Query<Educational>("spEducational_SelectAll", commandType: CommandType.StoredProcedure);
+            }
+
+            return educationals;
+        }
+
+        public IEnumerable<Spouse> GetSpouses()
+        {
+            IEnumerable<Spouse> spouses;
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal(dbString)))
+            {
+                spouses = connection.Query<Spouse>("spSpouse_SelectAll", commandType: CommandType.StoredProcedure);
+            }
+
+            return spouses;
+        }
+
         public async Task InsertFingerprint(Fingerprint fingerprint)
         {
             try

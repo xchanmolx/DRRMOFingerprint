@@ -46,9 +46,7 @@ namespace DRRMOFingerprintApp.UI
                             }
                         }
 
-                        main.ShowDialog();
-
-                        main.Dispose();
+                        main.Show();
                     }
                     else
                     {

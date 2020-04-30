@@ -1,4 +1,6 @@
-﻿namespace DRRMOFingerprintApp.Model
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DRRMOFingerprintApp.Model
 {
     public class Person
     {
@@ -9,7 +11,7 @@
         public string ExtensionName { get; set; }
         public string DateOfBirth { get; set; }
         public string Gender { get; set; }
-        public string StringImage { get; set; }
         public string Remarks { get; set; }
+        public string StringImage { get; set; }
     }
 }

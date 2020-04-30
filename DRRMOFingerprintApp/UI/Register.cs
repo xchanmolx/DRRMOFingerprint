@@ -16,7 +16,6 @@ namespace DRRMOFingerprintApp
 
         readonly DataAccess db = new DataAccess();
         List<Person> people = new List<Person>();
-        List<Fingerprint> fingerprints = new List<Fingerprint>();
 
         public static DateTime Now { get; }
 
@@ -39,6 +38,7 @@ namespace DRRMOFingerprintApp
             txtExtensionName.Text = "";
             txtDateOfBirth.Text = "";
             cmbGender.SelectedIndex = 0;
+            txtRemarks.Text = "";
 
             // Photos
             pctrBoxPhotos.Image = Properties.Resources.default_image;
@@ -65,7 +65,7 @@ namespace DRRMOFingerprintApp
 
             // Occupation
             txtOrganization.Text = "";
-            txtWork.Text = "";
+            txtWorkPosition.Text = "";
             txtWorkAddress.Text = "";
             cmbDesignation.SelectedIndex = 0;
             txtOfficeName.Text = "";
@@ -92,6 +92,9 @@ namespace DRRMOFingerprintApp
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            // Clear error provider
+            errorProviderRegisterForm.SetError(btnRegister, "");
+
             var registerFingerprint = new RegisterFingerprint();
             registerFingerprint.OnTemplate += this.OnTemplate;
             registerFingerprint.ShowDialog();
@@ -218,6 +221,8 @@ namespace DRRMOFingerprintApp
                     gbIfMarried.Enabled = true;
 
                     txtNickName.Focus();
+
+                    errorProviderRegisterForm.SetError(btnRegister, "Please register fingerprint");
                 }
                 catch (Exception ex)
                 {
@@ -279,7 +284,7 @@ namespace DRRMOFingerprintApp
                 var occupation = new Occupation();
                 occupation.PersonId = Convert.ToInt32(txtIdFingerprint.Text);
                 occupation.Organization = txtOrganization.Text;
-                occupation.WorkPosition = txtWork.Text;
+                occupation.WorkPosition = txtWorkPosition.Text;
                 occupation.WorkAddress = txtWorkAddress.Text;
                 occupation.Designation = cmbDesignation.Text;
                 occupation.OfficeName = txtOfficeName.Text;
@@ -402,11 +407,16 @@ namespace DRRMOFingerprintApp
             }
         }
 
-        private void btnBackToHome_Click(object sender, EventArgs e)
+        private void txtDateOfBirth_KeyPress(object sender, KeyPressEventArgs e)
         {
-            this.Hide();
-            var main = new Main();
-            main.Show();
+            txtDateOfBirth.MaxLength = 8;
+
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+
+            if (e.KeyChar == 22)
+            {
+                e.Handled = true;
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)

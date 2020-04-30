@@ -6,8 +6,8 @@
     [ExtensionName] NVARCHAR (50)   NULL,
     [DateOfBirth]   NVARCHAR (50)   NULL,
     [Gender]        NVARCHAR (20)   NULL,
-    [StringImage]   NVARCHAR (MAX)  NULL,
-    [Remarks] NVARCHAR(MAX) NULL, 
+    [Remarks]   NVARCHAR (MAX)  NULL,
+    [StringImage] NVARCHAR (MAX) NULL, 
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 

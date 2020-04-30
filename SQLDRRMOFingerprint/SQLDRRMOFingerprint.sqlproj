@@ -87,6 +87,12 @@
     <Build Include="dbo\Tables\Educational.sql" />
     <Build Include="dbo\Stored Procedures\spPersonInfo_InsertInfo.sql" />
     <Build Include="dbo\Stored Procedures\spEducational_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\spPersonInfo_SelectAll.sql" />
+    <Build Include="dbo\Stored Procedures\spContact_SelectAll.sql" />
+    <Build Include="dbo\Stored Procedures\spAddress_SelectAll.sql" />
+    <Build Include="dbo\Stored Procedures\spOccupation_SelectAll.sql" />
+    <Build Include="dbo\Stored Procedures\spEducational_SelectAll.sql" />
+    <Build Include="dbo\Stored Procedures\spSpouse_SelectAll.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="SQLDRRMOFingerprint.refactorlog" />

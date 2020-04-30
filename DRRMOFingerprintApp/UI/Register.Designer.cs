@@ -34,6 +34,9 @@
             this.btnRegister = new System.Windows.Forms.Button();
             this.gbPersonalInformation = new System.Windows.Forms.GroupBox();
             this.cmbGender = new System.Windows.Forms.ComboBox();
+            this.txtRemarks = new System.Windows.Forms.TextBox();
+            this.lblRemarks = new System.Windows.Forms.Label();
+            this.lblNumberOnly = new System.Windows.Forms.Label();
             this.txtDateOfBirth = new System.Windows.Forms.TextBox();
             this.lblDateOfBirth = new System.Windows.Forms.Label();
             this.lblGender = new System.Windows.Forms.Label();
@@ -70,7 +73,7 @@
             this.lblIdFingerprint = new System.Windows.Forms.Label();
             this.txtFingerprint = new System.Windows.Forms.TextBox();
             this.lblFingerprint = new System.Windows.Forms.Label();
-            this.txtWork = new System.Windows.Forms.TextBox();
+            this.txtWorkPosition = new System.Windows.Forms.TextBox();
             this.lblWork = new System.Windows.Forms.Label();
             this.gbIfMarried = new System.Windows.Forms.GroupBox();
             this.txtNameOfChildren = new System.Windows.Forms.TextBox();
@@ -78,11 +81,22 @@
             this.txtNameOfSpouse = new System.Windows.Forms.TextBox();
             this.lblNameOfSpouse = new System.Windows.Forms.Label();
             this.gbOccupation = new System.Windows.Forms.GroupBox();
+            this.cmbDesignation = new System.Windows.Forms.ComboBox();
+            this.txtOfficeName = new System.Windows.Forms.TextBox();
             this.txtWorkPhoneNumber = new System.Windows.Forms.TextBox();
             this.lblWorkPhoneNumber = new System.Windows.Forms.Label();
+            this.lblOfficeName = new System.Windows.Forms.Label();
+            this.txtOrganization = new System.Windows.Forms.TextBox();
             this.txtWorkAddress = new System.Windows.Forms.TextBox();
+            this.lblDesignation = new System.Windows.Forms.Label();
+            this.lblOrganization = new System.Windows.Forms.Label();
             this.lblWorkAddress = new System.Windows.Forms.Label();
             this.gbPhoto = new System.Windows.Forms.GroupBox();
+            this.lblDateAddedTitle = new System.Windows.Forms.Label();
+            this.lblDateAdded = new System.Windows.Forms.Label();
+            this.lblDateAddedLabel = new System.Windows.Forms.Label();
+            this.lblAge = new System.Windows.Forms.Label();
+            this.lblAgeLabel = new System.Windows.Forms.Label();
             this.btnBrowsePhotos = new System.Windows.Forms.Button();
             this.pctrBoxPhotos = new System.Windows.Forms.PictureBox();
             this.errorProviderRegisterForm = new System.Windows.Forms.ErrorProvider(this.components);
@@ -92,6 +106,8 @@
             this.lblRightHand = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.gbAdditionalInfo = new System.Windows.Forms.GroupBox();
+            this.txtIdentifyingMarks = new System.Windows.Forms.TextBox();
+            this.lblIdentifyingMarks = new System.Windows.Forms.Label();
             this.cmbCivilStatus = new System.Windows.Forms.ComboBox();
             this.txtWeight = new System.Windows.Forms.TextBox();
             this.lblWeight = new System.Windows.Forms.Label();
@@ -104,20 +120,11 @@
             this.lblReligion = new System.Windows.Forms.Label();
             this.txtNickName = new System.Windows.Forms.TextBox();
             this.lblNickName = new System.Windows.Forms.Label();
-            this.txtIdentifyingMarks = new System.Windows.Forms.TextBox();
-            this.lblIdentifyingMarks = new System.Windows.Forms.Label();
-            this.txtOfficeName = new System.Windows.Forms.TextBox();
-            this.lblOfficeName = new System.Windows.Forms.Label();
-            this.txtOrganization = new System.Windows.Forms.TextBox();
-            this.lblOrganization = new System.Windows.Forms.Label();
-            this.lblDesignation = new System.Windows.Forms.Label();
-            this.cmbDesignation = new System.Windows.Forms.ComboBox();
-            this.lblNumberOnly = new System.Windows.Forms.Label();
             this.gbHighestEducationalQualification = new System.Windows.Forms.GroupBox();
+            this.cmbLevelOfEducation = new System.Windows.Forms.ComboBox();
             this.txtNameOfSchool = new System.Windows.Forms.TextBox();
             this.lblNameOfSchool = new System.Windows.Forms.Label();
             this.lblLevelOfEducation = new System.Windows.Forms.Label();
-            this.cmbLevelOfEducation = new System.Windows.Forms.ComboBox();
             this.gbPersonalInformation.SuspendLayout();
             this.gbContact.SuspendLayout();
             this.gbAddress.SuspendLayout();
@@ -179,8 +186,10 @@
             // 
             // gbPersonalInformation
             // 
-            this.gbPersonalInformation.Controls.Add(this.lblNumberOnly);
             this.gbPersonalInformation.Controls.Add(this.cmbGender);
+            this.gbPersonalInformation.Controls.Add(this.txtRemarks);
+            this.gbPersonalInformation.Controls.Add(this.lblRemarks);
+            this.gbPersonalInformation.Controls.Add(this.lblNumberOnly);
             this.gbPersonalInformation.Controls.Add(this.txtDateOfBirth);
             this.gbPersonalInformation.Controls.Add(this.lblDateOfBirth);
             this.gbPersonalInformation.Controls.Add(this.lblGender);
@@ -195,13 +204,18 @@
             this.gbPersonalInformation.ForeColor = System.Drawing.Color.Black;
             this.gbPersonalInformation.Location = new System.Drawing.Point(12, 12);
             this.gbPersonalInformation.Name = "gbPersonalInformation";
-            this.gbPersonalInformation.Size = new System.Drawing.Size(350, 223);
+            this.gbPersonalInformation.Size = new System.Drawing.Size(350, 253);
             this.gbPersonalInformation.TabIndex = 0;
             this.gbPersonalInformation.TabStop = false;
             this.gbPersonalInformation.Text = "PERSONAL INFORMATION";
             // 
             // cmbGender
             // 
+            this.cmbGender.BackColor = System.Drawing.Color.RoyalBlue;
+            this.cmbGender.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbGender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbGender.ForeColor = System.Drawing.Color.White;
             this.cmbGender.FormattingEnabled = true;
             this.cmbGender.Items.AddRange(new object[] {
             "SELECT GENDER",
@@ -214,6 +228,35 @@
             this.cmbGender.TabIndex = 5;
             this.cmbGender.SelectedIndexChanged += new System.EventHandler(this.cmbGender_SelectedIndexChanged);
             // 
+            // txtRemarks
+            // 
+            this.txtRemarks.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtRemarks.Location = new System.Drawing.Point(84, 223);
+            this.txtRemarks.Name = "txtRemarks";
+            this.txtRemarks.Size = new System.Drawing.Size(223, 20);
+            this.txtRemarks.TabIndex = 6;
+            this.txtRemarks.Visible = false;
+            // 
+            // lblRemarks
+            // 
+            this.lblRemarks.AutoSize = true;
+            this.lblRemarks.Location = new System.Drawing.Point(26, 230);
+            this.lblRemarks.Name = "lblRemarks";
+            this.lblRemarks.Size = new System.Drawing.Size(52, 13);
+            this.lblRemarks.TabIndex = 33;
+            this.lblRemarks.Text = "Remarks:";
+            this.lblRemarks.Visible = false;
+            // 
+            // lblNumberOnly
+            // 
+            this.lblNumberOnly.AutoSize = true;
+            this.lblNumberOnly.Font = new System.Drawing.Font("Roboto Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumberOnly.Location = new System.Drawing.Point(118, 170);
+            this.lblNumberOnly.Name = "lblNumberOnly";
+            this.lblNumberOnly.Size = new System.Drawing.Size(139, 13);
+            this.lblNumberOnly.TabIndex = 31;
+            this.lblNumberOnly.Text = "number only   |   yyyyMMdd";
+            // 
             // txtDateOfBirth
             // 
             this.txtDateOfBirth.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -222,6 +265,7 @@
             this.txtDateOfBirth.Size = new System.Drawing.Size(223, 20);
             this.txtDateOfBirth.TabIndex = 4;
             this.txtDateOfBirth.TextChanged += new System.EventHandler(this.txtDateOfBirth_TextChanged);
+            this.txtDateOfBirth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDateOfBirth_KeyPress);
             // 
             // lblDateOfBirth
             // 
@@ -557,18 +601,18 @@
             this.lblFingerprint.TabIndex = 3;
             this.lblFingerprint.Text = "Fingerprint:";
             // 
-            // txtWork
+            // txtWorkPosition
             // 
-            this.txtWork.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtWork.Location = new System.Drawing.Point(122, 52);
-            this.txtWork.Name = "txtWork";
-            this.txtWork.Size = new System.Drawing.Size(309, 20);
-            this.txtWork.TabIndex = 1;
+            this.txtWorkPosition.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtWorkPosition.Location = new System.Drawing.Point(122, 56);
+            this.txtWorkPosition.Name = "txtWorkPosition";
+            this.txtWorkPosition.Size = new System.Drawing.Size(309, 20);
+            this.txtWorkPosition.TabIndex = 1;
             // 
             // lblWork
             // 
             this.lblWork.AutoSize = true;
-            this.lblWork.Location = new System.Drawing.Point(40, 59);
+            this.lblWork.Location = new System.Drawing.Point(40, 63);
             this.lblWork.Name = "lblWork";
             this.lblWork.Size = new System.Drawing.Size(76, 13);
             this.lblWork.TabIndex = 28;
@@ -630,7 +674,7 @@
             this.gbOccupation.Controls.Add(this.txtWorkPhoneNumber);
             this.gbOccupation.Controls.Add(this.lblWorkPhoneNumber);
             this.gbOccupation.Controls.Add(this.lblOfficeName);
-            this.gbOccupation.Controls.Add(this.txtWork);
+            this.gbOccupation.Controls.Add(this.txtWorkPosition);
             this.gbOccupation.Controls.Add(this.lblWork);
             this.gbOccupation.Controls.Add(this.txtOrganization);
             this.gbOccupation.Controls.Add(this.txtWorkAddress);
@@ -641,15 +685,40 @@
             this.gbOccupation.ForeColor = System.Drawing.Color.Black;
             this.gbOccupation.Location = new System.Drawing.Point(368, 421);
             this.gbOccupation.Name = "gbOccupation";
-            this.gbOccupation.Size = new System.Drawing.Size(437, 217);
+            this.gbOccupation.Size = new System.Drawing.Size(437, 247);
             this.gbOccupation.TabIndex = 5;
             this.gbOccupation.TabStop = false;
             this.gbOccupation.Text = "OCCUPATION";
             // 
+            // cmbDesignation
+            // 
+            this.cmbDesignation.BackColor = System.Drawing.Color.RoyalBlue;
+            this.cmbDesignation.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmbDesignation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDesignation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbDesignation.ForeColor = System.Drawing.Color.White;
+            this.cmbDesignation.FormattingEnabled = true;
+            this.cmbDesignation.Items.AddRange(new object[] {
+            "SELECT DESIGNATION",
+            "JOB ORDER",
+            "REGULAR"});
+            this.cmbDesignation.Location = new System.Drawing.Point(122, 130);
+            this.cmbDesignation.Name = "cmbDesignation";
+            this.cmbDesignation.Size = new System.Drawing.Size(309, 21);
+            this.cmbDesignation.TabIndex = 3;
+            // 
+            // txtOfficeName
+            // 
+            this.txtOfficeName.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtOfficeName.Location = new System.Drawing.Point(122, 169);
+            this.txtOfficeName.Name = "txtOfficeName";
+            this.txtOfficeName.Size = new System.Drawing.Size(309, 20);
+            this.txtOfficeName.TabIndex = 4;
+            // 
             // txtWorkPhoneNumber
             // 
             this.txtWorkPhoneNumber.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtWorkPhoneNumber.Location = new System.Drawing.Point(122, 183);
+            this.txtWorkPhoneNumber.Location = new System.Drawing.Point(122, 206);
             this.txtWorkPhoneNumber.Name = "txtWorkPhoneNumber";
             this.txtWorkPhoneNumber.Size = new System.Drawing.Size(309, 20);
             this.txtWorkPhoneNumber.TabIndex = 5;
@@ -657,24 +726,59 @@
             // lblWorkPhoneNumber
             // 
             this.lblWorkPhoneNumber.AutoSize = true;
-            this.lblWorkPhoneNumber.Location = new System.Drawing.Point(6, 190);
+            this.lblWorkPhoneNumber.Location = new System.Drawing.Point(6, 213);
             this.lblWorkPhoneNumber.Name = "lblWorkPhoneNumber";
             this.lblWorkPhoneNumber.Size = new System.Drawing.Size(110, 13);
             this.lblWorkPhoneNumber.TabIndex = 38;
             this.lblWorkPhoneNumber.Text = "Work Phone Number:";
             // 
+            // lblOfficeName
+            // 
+            this.lblOfficeName.AutoSize = true;
+            this.lblOfficeName.Location = new System.Drawing.Point(47, 176);
+            this.lblOfficeName.Name = "lblOfficeName";
+            this.lblOfficeName.Size = new System.Drawing.Size(69, 13);
+            this.lblOfficeName.TabIndex = 44;
+            this.lblOfficeName.Text = "Office Name:";
+            // 
+            // txtOrganization
+            // 
+            this.txtOrganization.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtOrganization.Location = new System.Drawing.Point(122, 19);
+            this.txtOrganization.Name = "txtOrganization";
+            this.txtOrganization.Size = new System.Drawing.Size(309, 20);
+            this.txtOrganization.TabIndex = 0;
+            // 
             // txtWorkAddress
             // 
             this.txtWorkAddress.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtWorkAddress.Location = new System.Drawing.Point(122, 86);
+            this.txtWorkAddress.Location = new System.Drawing.Point(122, 93);
             this.txtWorkAddress.Name = "txtWorkAddress";
             this.txtWorkAddress.Size = new System.Drawing.Size(309, 20);
             this.txtWorkAddress.TabIndex = 2;
             // 
+            // lblDesignation
+            // 
+            this.lblDesignation.AutoSize = true;
+            this.lblDesignation.Location = new System.Drawing.Point(50, 138);
+            this.lblDesignation.Name = "lblDesignation";
+            this.lblDesignation.Size = new System.Drawing.Size(66, 13);
+            this.lblDesignation.TabIndex = 43;
+            this.lblDesignation.Text = "Designation:";
+            // 
+            // lblOrganization
+            // 
+            this.lblOrganization.AutoSize = true;
+            this.lblOrganization.Location = new System.Drawing.Point(47, 26);
+            this.lblOrganization.Name = "lblOrganization";
+            this.lblOrganization.Size = new System.Drawing.Size(69, 13);
+            this.lblOrganization.TabIndex = 42;
+            this.lblOrganization.Text = "Organization:";
+            // 
             // lblWorkAddress
             // 
             this.lblWorkAddress.AutoSize = true;
-            this.lblWorkAddress.Location = new System.Drawing.Point(39, 93);
+            this.lblWorkAddress.Location = new System.Drawing.Point(39, 100);
             this.lblWorkAddress.Name = "lblWorkAddress";
             this.lblWorkAddress.Size = new System.Drawing.Size(77, 13);
             this.lblWorkAddress.TabIndex = 37;
@@ -682,14 +786,70 @@
             // 
             // gbPhoto
             // 
+            this.gbPhoto.Controls.Add(this.lblDateAddedTitle);
+            this.gbPhoto.Controls.Add(this.lblDateAdded);
+            this.gbPhoto.Controls.Add(this.lblDateAddedLabel);
+            this.gbPhoto.Controls.Add(this.lblAge);
+            this.gbPhoto.Controls.Add(this.lblAgeLabel);
             this.gbPhoto.Controls.Add(this.btnBrowsePhotos);
             this.gbPhoto.Controls.Add(this.pctrBoxPhotos);
-            this.gbPhoto.Location = new System.Drawing.Point(12, 241);
+            this.gbPhoto.Location = new System.Drawing.Point(12, 271);
             this.gbPhoto.Name = "gbPhoto";
             this.gbPhoto.Size = new System.Drawing.Size(350, 129);
             this.gbPhoto.TabIndex = 1;
             this.gbPhoto.TabStop = false;
             this.gbPhoto.Text = "PHOTOS";
+            // 
+            // lblDateAddedTitle
+            // 
+            this.lblDateAddedTitle.AutoSize = true;
+            this.lblDateAddedTitle.Font = new System.Drawing.Font("Roboto Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateAddedTitle.Location = new System.Drawing.Point(238, 25);
+            this.lblDateAddedTitle.Name = "lblDateAddedTitle";
+            this.lblDateAddedTitle.Size = new System.Drawing.Size(85, 13);
+            this.lblDateAddedTitle.TabIndex = 34;
+            this.lblDateAddedTitle.Text = "month/day/year";
+            this.lblDateAddedTitle.Visible = false;
+            // 
+            // lblDateAdded
+            // 
+            this.lblDateAdded.AutoSize = true;
+            this.lblDateAdded.Location = new System.Drawing.Point(219, 42);
+            this.lblDateAdded.Name = "lblDateAdded";
+            this.lblDateAdded.Size = new System.Drawing.Size(13, 13);
+            this.lblDateAdded.TabIndex = 4;
+            this.lblDateAdded.Text = "?";
+            this.lblDateAdded.Visible = false;
+            // 
+            // lblDateAddedLabel
+            // 
+            this.lblDateAddedLabel.AutoSize = true;
+            this.lblDateAddedLabel.Location = new System.Drawing.Point(146, 42);
+            this.lblDateAddedLabel.Name = "lblDateAddedLabel";
+            this.lblDateAddedLabel.Size = new System.Drawing.Size(67, 13);
+            this.lblDateAddedLabel.TabIndex = 3;
+            this.lblDateAddedLabel.Text = "Date Added:";
+            this.lblDateAddedLabel.Visible = false;
+            // 
+            // lblAge
+            // 
+            this.lblAge.AutoSize = true;
+            this.lblAge.Location = new System.Drawing.Point(181, 19);
+            this.lblAge.Name = "lblAge";
+            this.lblAge.Size = new System.Drawing.Size(13, 13);
+            this.lblAge.TabIndex = 2;
+            this.lblAge.Text = "?";
+            this.lblAge.Visible = false;
+            // 
+            // lblAgeLabel
+            // 
+            this.lblAgeLabel.AutoSize = true;
+            this.lblAgeLabel.Location = new System.Drawing.Point(146, 19);
+            this.lblAgeLabel.Name = "lblAgeLabel";
+            this.lblAgeLabel.Size = new System.Drawing.Size(29, 13);
+            this.lblAgeLabel.TabIndex = 1;
+            this.lblAgeLabel.Text = "Age:";
+            this.lblAgeLabel.Visible = false;
             // 
             // btnBrowsePhotos
             // 
@@ -817,15 +977,37 @@
             this.gbAdditionalInfo.Controls.Add(this.txtNickName);
             this.gbAdditionalInfo.Controls.Add(this.lblNickName);
             this.gbAdditionalInfo.Enabled = false;
-            this.gbAdditionalInfo.Location = new System.Drawing.Point(12, 376);
+            this.gbAdditionalInfo.Location = new System.Drawing.Point(12, 406);
             this.gbAdditionalInfo.Name = "gbAdditionalInfo";
             this.gbAdditionalInfo.Size = new System.Drawing.Size(350, 262);
             this.gbAdditionalInfo.TabIndex = 2;
             this.gbAdditionalInfo.TabStop = false;
             this.gbAdditionalInfo.Text = "Additional Info";
             // 
+            // txtIdentifyingMarks
+            // 
+            this.txtIdentifyingMarks.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtIdentifyingMarks.Location = new System.Drawing.Point(110, 227);
+            this.txtIdentifyingMarks.Name = "txtIdentifyingMarks";
+            this.txtIdentifyingMarks.Size = new System.Drawing.Size(223, 20);
+            this.txtIdentifyingMarks.TabIndex = 6;
+            // 
+            // lblIdentifyingMarks
+            // 
+            this.lblIdentifyingMarks.AutoSize = true;
+            this.lblIdentifyingMarks.Location = new System.Drawing.Point(14, 235);
+            this.lblIdentifyingMarks.Name = "lblIdentifyingMarks";
+            this.lblIdentifyingMarks.Size = new System.Drawing.Size(90, 13);
+            this.lblIdentifyingMarks.TabIndex = 44;
+            this.lblIdentifyingMarks.Text = "Identifying Marks:";
+            // 
             // cmbCivilStatus
             // 
+            this.cmbCivilStatus.BackColor = System.Drawing.Color.RoyalBlue;
+            this.cmbCivilStatus.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmbCivilStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCivilStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbCivilStatus.ForeColor = System.Drawing.Color.White;
             this.cmbCivilStatus.FormattingEnabled = true;
             this.cmbCivilStatus.Items.AddRange(new object[] {
             "SELECT CIVIL STATUS",
@@ -933,88 +1115,6 @@
             this.lblNickName.TabIndex = 37;
             this.lblNickName.Text = "Nick Name:";
             // 
-            // txtIdentifyingMarks
-            // 
-            this.txtIdentifyingMarks.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtIdentifyingMarks.Location = new System.Drawing.Point(110, 227);
-            this.txtIdentifyingMarks.Name = "txtIdentifyingMarks";
-            this.txtIdentifyingMarks.Size = new System.Drawing.Size(223, 20);
-            this.txtIdentifyingMarks.TabIndex = 6;
-            // 
-            // lblIdentifyingMarks
-            // 
-            this.lblIdentifyingMarks.AutoSize = true;
-            this.lblIdentifyingMarks.Location = new System.Drawing.Point(14, 235);
-            this.lblIdentifyingMarks.Name = "lblIdentifyingMarks";
-            this.lblIdentifyingMarks.Size = new System.Drawing.Size(90, 13);
-            this.lblIdentifyingMarks.TabIndex = 44;
-            this.lblIdentifyingMarks.Text = "Identifying Marks:";
-            // 
-            // txtOfficeName
-            // 
-            this.txtOfficeName.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtOfficeName.Location = new System.Drawing.Point(122, 151);
-            this.txtOfficeName.Name = "txtOfficeName";
-            this.txtOfficeName.Size = new System.Drawing.Size(309, 20);
-            this.txtOfficeName.TabIndex = 4;
-            // 
-            // lblOfficeName
-            // 
-            this.lblOfficeName.AutoSize = true;
-            this.lblOfficeName.Location = new System.Drawing.Point(47, 158);
-            this.lblOfficeName.Name = "lblOfficeName";
-            this.lblOfficeName.Size = new System.Drawing.Size(69, 13);
-            this.lblOfficeName.TabIndex = 44;
-            this.lblOfficeName.Text = "Office Name:";
-            // 
-            // txtOrganization
-            // 
-            this.txtOrganization.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtOrganization.Location = new System.Drawing.Point(122, 19);
-            this.txtOrganization.Name = "txtOrganization";
-            this.txtOrganization.Size = new System.Drawing.Size(309, 20);
-            this.txtOrganization.TabIndex = 0;
-            // 
-            // lblOrganization
-            // 
-            this.lblOrganization.AutoSize = true;
-            this.lblOrganization.Location = new System.Drawing.Point(47, 26);
-            this.lblOrganization.Name = "lblOrganization";
-            this.lblOrganization.Size = new System.Drawing.Size(69, 13);
-            this.lblOrganization.TabIndex = 42;
-            this.lblOrganization.Text = "Organization:";
-            // 
-            // lblDesignation
-            // 
-            this.lblDesignation.AutoSize = true;
-            this.lblDesignation.Location = new System.Drawing.Point(50, 125);
-            this.lblDesignation.Name = "lblDesignation";
-            this.lblDesignation.Size = new System.Drawing.Size(66, 13);
-            this.lblDesignation.TabIndex = 43;
-            this.lblDesignation.Text = "Designation:";
-            // 
-            // cmbDesignation
-            // 
-            this.cmbDesignation.FormattingEnabled = true;
-            this.cmbDesignation.Items.AddRange(new object[] {
-            "SELECT DESIGNATION",
-            "JOB ORDER",
-            "REGULAR"});
-            this.cmbDesignation.Location = new System.Drawing.Point(122, 117);
-            this.cmbDesignation.Name = "cmbDesignation";
-            this.cmbDesignation.Size = new System.Drawing.Size(309, 21);
-            this.cmbDesignation.TabIndex = 3;
-            // 
-            // lblNumberOnly
-            // 
-            this.lblNumberOnly.AutoSize = true;
-            this.lblNumberOnly.Font = new System.Drawing.Font("Roboto Light", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumberOnly.Location = new System.Drawing.Point(118, 170);
-            this.lblNumberOnly.Name = "lblNumberOnly";
-            this.lblNumberOnly.Size = new System.Drawing.Size(148, 13);
-            this.lblNumberOnly.TabIndex = 31;
-            this.lblNumberOnly.Text = "number only e.g. | yyyyMMdd";
-            // 
             // gbHighestEducationalQualification
             // 
             this.gbHighestEducationalQualification.Controls.Add(this.cmbLevelOfEducation);
@@ -1029,6 +1129,26 @@
             this.gbHighestEducationalQualification.TabIndex = 6;
             this.gbHighestEducationalQualification.TabStop = false;
             this.gbHighestEducationalQualification.Text = "HIGHEST EDUCATIONAL QUALIFICATION";
+            // 
+            // cmbLevelOfEducation
+            // 
+            this.cmbLevelOfEducation.BackColor = System.Drawing.Color.RoyalBlue;
+            this.cmbLevelOfEducation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbLevelOfEducation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbLevelOfEducation.ForeColor = System.Drawing.Color.White;
+            this.cmbLevelOfEducation.FormattingEnabled = true;
+            this.cmbLevelOfEducation.Items.AddRange(new object[] {
+            "SELECT LEVEL OF EDUCATION",
+            "COLLEGE",
+            "POST-GRADUATE",
+            "VOCATIONAL",
+            "HIGH SCHOOL",
+            "ELEMENTARY",
+            "OTHERS"});
+            this.cmbLevelOfEducation.Location = new System.Drawing.Point(106, 27);
+            this.cmbLevelOfEducation.Name = "cmbLevelOfEducation";
+            this.cmbLevelOfEducation.Size = new System.Drawing.Size(367, 21);
+            this.cmbLevelOfEducation.TabIndex = 0;
             // 
             // txtNameOfSchool
             // 
@@ -1055,22 +1175,6 @@
             this.lblLevelOfEducation.Size = new System.Drawing.Size(99, 13);
             this.lblLevelOfEducation.TabIndex = 37;
             this.lblLevelOfEducation.Text = "Level of Education:";
-            // 
-            // cmbLevelOfEducation
-            // 
-            this.cmbLevelOfEducation.FormattingEnabled = true;
-            this.cmbLevelOfEducation.Items.AddRange(new object[] {
-            "SELECT LEVEL OF EDUCATION",
-            "COLLEGE",
-            "POST-GRADUATE",
-            "VOCATIONAL",
-            "HIGH SCHOOL",
-            "ELEMENTARY",
-            "OTHERS"});
-            this.cmbLevelOfEducation.Location = new System.Drawing.Point(106, 27);
-            this.cmbLevelOfEducation.Name = "cmbLevelOfEducation";
-            this.cmbLevelOfEducation.Size = new System.Drawing.Size(367, 21);
-            this.cmbLevelOfEducation.TabIndex = 0;
             // 
             // Register
             // 
@@ -1113,6 +1217,7 @@
             this.gbOccupation.ResumeLayout(false);
             this.gbOccupation.PerformLayout();
             this.gbPhoto.ResumeLayout(false);
+            this.gbPhoto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctrBoxPhotos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderRegisterForm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctrBoxIndex)).EndInit();
@@ -1127,93 +1232,100 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnRegister;
+        public System.Windows.Forms.Button btnSave;
+        public System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.GroupBox gbPersonalInformation;
-        private System.Windows.Forms.TextBox txtDateOfBirth;
+        public System.Windows.Forms.TextBox txtDateOfBirth;
         private System.Windows.Forms.Label lblDateOfBirth;
         private System.Windows.Forms.Label lblGender;
-        private System.Windows.Forms.TextBox txtExtensionName;
+        public System.Windows.Forms.TextBox txtExtensionName;
         private System.Windows.Forms.Label lblExtensionName;
-        private System.Windows.Forms.TextBox txtLastName;
+        public System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.Label lblLastName;
-        private System.Windows.Forms.TextBox txtMiddleName;
+        public System.Windows.Forms.TextBox txtMiddleName;
         private System.Windows.Forms.Label lblMiddleName;
-        private System.Windows.Forms.TextBox txtFirstName;
+        public System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.Label lblFirstName;
-        private System.Windows.Forms.GroupBox gbContact;
-        private System.Windows.Forms.TextBox txtEmailAddress;
+        public System.Windows.Forms.GroupBox gbContact;
+        public System.Windows.Forms.TextBox txtEmailAddress;
         private System.Windows.Forms.Label lblEmailAddress;
-        private System.Windows.Forms.TextBox txtPhoneNumber;
+        public System.Windows.Forms.TextBox txtPhoneNumber;
         private System.Windows.Forms.Label lblPhoneNumber;
-        private System.Windows.Forms.GroupBox gbAddress;
-        private System.Windows.Forms.TextBox txtZipCode;
+        public System.Windows.Forms.GroupBox gbAddress;
+        public System.Windows.Forms.TextBox txtZipCode;
         private System.Windows.Forms.Label lblZipCode;
-        private System.Windows.Forms.TextBox txtSitio;
+        public System.Windows.Forms.TextBox txtSitio;
         private System.Windows.Forms.Label lblSitio;
-        private System.Windows.Forms.TextBox txtBarangay;
+        public System.Windows.Forms.TextBox txtBarangay;
         private System.Windows.Forms.Label lblBarangay;
-        private System.Windows.Forms.TextBox txtCountry;
+        public System.Windows.Forms.TextBox txtCountry;
         private System.Windows.Forms.Label lblCountry;
-        private System.Windows.Forms.TextBox txtProvince;
+        public System.Windows.Forms.TextBox txtProvince;
         private System.Windows.Forms.Label lblProvince;
-        private System.Windows.Forms.TextBox txtTown;
+        public System.Windows.Forms.TextBox txtTown;
         private System.Windows.Forms.Label lblTown;
-        private System.Windows.Forms.TextBox txtHomeAddress;
+        public System.Windows.Forms.TextBox txtHomeAddress;
         private System.Windows.Forms.Label lblHomeAddress;
         private System.Windows.Forms.GroupBox gbFingerprint;
-        private System.Windows.Forms.TextBox txtFingerprint;
+        public System.Windows.Forms.TextBox txtFingerprint;
         private System.Windows.Forms.Label lblFingerprint;
-        private System.Windows.Forms.TextBox txtWork;
+        public System.Windows.Forms.TextBox txtWorkPosition;
         private System.Windows.Forms.Label lblWork;
-        private System.Windows.Forms.GroupBox gbIfMarried;
-        private System.Windows.Forms.TextBox txtNameOfChildren;
+        public System.Windows.Forms.GroupBox gbIfMarried;
+        public System.Windows.Forms.TextBox txtNameOfChildren;
         private System.Windows.Forms.Label lblNameOfChildren;
-        private System.Windows.Forms.TextBox txtNameOfSpouse;
+        public System.Windows.Forms.TextBox txtNameOfSpouse;
         private System.Windows.Forms.Label lblNameOfSpouse;
-        private System.Windows.Forms.GroupBox gbOccupation;
-        private System.Windows.Forms.TextBox txtWorkPhoneNumber;
+        public System.Windows.Forms.GroupBox gbOccupation;
+        public System.Windows.Forms.TextBox txtWorkPhoneNumber;
         private System.Windows.Forms.Label lblWorkPhoneNumber;
-        private System.Windows.Forms.TextBox txtWorkAddress;
+        public System.Windows.Forms.TextBox txtWorkAddress;
         private System.Windows.Forms.Label lblWorkAddress;
-        private System.Windows.Forms.TextBox txtIdFingerprint;
+        public System.Windows.Forms.TextBox txtIdFingerprint;
         private System.Windows.Forms.Label lblIdFingerprint;
-        private System.Windows.Forms.ComboBox cmbGender;
+        public System.Windows.Forms.ComboBox cmbGender;
         private System.Windows.Forms.GroupBox gbPhoto;
         private System.Windows.Forms.Button btnBrowsePhotos;
-        private System.Windows.Forms.PictureBox pctrBoxPhotos;
-        private System.Windows.Forms.ErrorProvider errorProviderRegisterForm;
-        private System.Windows.Forms.Button btnAddAnotherPerson;
+        public System.Windows.Forms.PictureBox pctrBoxPhotos;
+        public System.Windows.Forms.ErrorProvider errorProviderRegisterForm;
+        public System.Windows.Forms.Button btnAddAnotherPerson;
         private System.Windows.Forms.Label lblRightHand;
         private System.Windows.Forms.PictureBox pctrBoxThumb;
         private System.Windows.Forms.PictureBox pctrBoxIndex;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.GroupBox gbAdditionalInfo;
-        private System.Windows.Forms.ComboBox cmbCivilStatus;
-        private System.Windows.Forms.TextBox txtWeight;
+        public System.Windows.Forms.GroupBox gbAdditionalInfo;
+        public System.Windows.Forms.ComboBox cmbCivilStatus;
+        public System.Windows.Forms.TextBox txtWeight;
         private System.Windows.Forms.Label lblWeight;
         private System.Windows.Forms.Label lblCivilStatus;
-        private System.Windows.Forms.TextBox txtHeight;
+        public System.Windows.Forms.TextBox txtHeight;
         private System.Windows.Forms.Label lblHeight;
-        private System.Windows.Forms.TextBox txtBirthPlace;
+        public System.Windows.Forms.TextBox txtBirthPlace;
         private System.Windows.Forms.Label lblBirthPlace;
-        private System.Windows.Forms.TextBox txtReligion;
+        public System.Windows.Forms.TextBox txtReligion;
         private System.Windows.Forms.Label lblReligion;
-        private System.Windows.Forms.TextBox txtNickName;
+        public System.Windows.Forms.TextBox txtNickName;
         private System.Windows.Forms.Label lblNickName;
-        private System.Windows.Forms.TextBox txtIdentifyingMarks;
+        public System.Windows.Forms.TextBox txtIdentifyingMarks;
         private System.Windows.Forms.Label lblIdentifyingMarks;
-        private System.Windows.Forms.TextBox txtOfficeName;
+        public System.Windows.Forms.TextBox txtOfficeName;
         private System.Windows.Forms.Label lblOfficeName;
-        private System.Windows.Forms.TextBox txtOrganization;
+        public System.Windows.Forms.TextBox txtOrganization;
         private System.Windows.Forms.Label lblOrganization;
         private System.Windows.Forms.Label lblDesignation;
-        private System.Windows.Forms.ComboBox cmbDesignation;
+        public System.Windows.Forms.ComboBox cmbDesignation;
         private System.Windows.Forms.Label lblNumberOnly;
-        private System.Windows.Forms.GroupBox gbHighestEducationalQualification;
-        private System.Windows.Forms.TextBox txtNameOfSchool;
+        public System.Windows.Forms.GroupBox gbHighestEducationalQualification;
+        public System.Windows.Forms.TextBox txtNameOfSchool;
         private System.Windows.Forms.Label lblNameOfSchool;
         private System.Windows.Forms.Label lblLevelOfEducation;
-        private System.Windows.Forms.ComboBox cmbLevelOfEducation;
+        public System.Windows.Forms.ComboBox cmbLevelOfEducation;
+        public System.Windows.Forms.TextBox txtRemarks;
+        public System.Windows.Forms.Label lblRemarks;
+        public System.Windows.Forms.Label lblAge;
+        public System.Windows.Forms.Label lblAgeLabel;
+        public System.Windows.Forms.Label lblDateAdded;
+        public System.Windows.Forms.Label lblDateAddedLabel;
+        public System.Windows.Forms.Label lblDateAddedTitle;
     }
 }

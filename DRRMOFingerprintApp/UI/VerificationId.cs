@@ -87,8 +87,6 @@ namespace DRRMOFingerprintApp.UI
                                     verifiedPerson.lblExName.Text = person.ExtensionName;
 
                                     verifiedPerson.ShowDialog();
-
-                                    verifiedPerson.Dispose();
                                 }
                                 catch (Exception ex)
                                 {

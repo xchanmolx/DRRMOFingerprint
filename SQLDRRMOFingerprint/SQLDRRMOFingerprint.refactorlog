@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="2ca560e9-839a-4d79-b81b-7dd69664d2e6" ChangeDateTime="04/21/2020 11:14:35">
+    <Property Name="ElementName" Value="[dbo].[Contact].[PhoneNumber]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Contact]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PersonId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b2653f18-abdc-4425-873d-45d79bdd627d" ChangeDateTime="04/21/2020 11:14:43">
+    <Property Name="ElementName" Value="[dbo].[Contact].[EmailAddress]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Contact]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PhoneNumber" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="26f34dbd-1002-487e-9fc2-876d9ff1a6ca" ChangeDateTime="04/21/2020 12:23:49">
+    <Property Name="ElementName" Value="[dbo].[Person].[LastName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Person]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MiddleName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="df12bac2-0be4-466a-8cc9-91f71d35d03d" ChangeDateTime="04/23/2020 09:55:27">
+    <Property Name="ElementName" Value="[dbo].[Fingerprint].[Fingerprint]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Fingerprint]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FingerprintPerson]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0ed111df-b18b-4908-963d-fdfdd1279a83" ChangeDateTime="04/27/2020 02:51:32">
+    <Property Name="ElementName" Value="[dbo].[Account].[Fingerprint]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Account]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="StringImage" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="65220088-9d49-47bb-84f6-656b3e4693b6" ChangeDateTime="04/27/2020 04:13:24">
+    <Property Name="ElementName" Value="[dbo].[Account].[Username]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Account]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="FirstName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="daccbb85-821d-4782-82ee-349b0694bbe5" ChangeDateTime="04/27/2020 04:13:31">
+    <Property Name="ElementName" Value="[dbo].[Account].[Password]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Account]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LastName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="4afef14c-2a37-43cc-8f64-f0600ce22b8f" ChangeDateTime="04/27/2020 04:13:43">
+    <Property Name="ElementName" Value="[dbo].[Account].[StringImage]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Account]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Username" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8f9555ae-3d69-41b5-8dfe-246efe0c7b45" ChangeDateTime="04/29/2020 00:39:19">
+    <Property Name="ElementName" Value="[dbo].[Occupation].[Work]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Occupation]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="WorkPosition" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ebf06bd0-c536-4374-8bc7-108776062bbd" ChangeDateTime="04/29/2020 00:42:27">
+    <Property Name="ElementName" Value="[dbo].[Educational].[NameOfSchool]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Educational]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Level" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f95800e8-1bb6-43eb-aed4-49d79d10f263" ChangeDateTime="04/29/2020 10:20:32">
+    <Property Name="ElementName" Value="[dbo].[Educational].[Level]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Educational]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LevelOfEducation" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a43f5908-a158-4011-8e0e-ff20bd01e3a4" ChangeDateTime="04/29/2020 10:33:49">
+    <Property Name="ElementName" Value="[dbo].[Person].[StringImage]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Person]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Remarks" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a09d60f5-0822-4392-b9d1-ac7c95247421" ChangeDateTime="04/29/2020 10:35:07">
+    <Property Name="ElementName" Value="[dbo].[Person].[Remarks]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Person]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="StringImage" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="bf9b69b7-874e-494c-b2b4-4784fa3371f4" ChangeDateTime="04/29/2020 11:30:11">
+    <Property Name="ElementName" Value="[dbo].[Occupation].[Office]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Occupation]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OfficeName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3834f973-4046-49bd-aa93-628b7f013996" ChangeDateTime="04/29/2020 23:13:02">
+    <Property Name="ElementName" Value="[dbo].[PersonInfo].[Age]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PersonInfo]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="DateAdded" />
+  </Operation>
+</Operations>

@@ -12,6 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>fingerprint-final.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.35\lib\net461\Dapper.dll</HintPath>
@@ -51,12 +56,6 @@
     <Reference Include="DPFPVerNET, Version=1.6.1.0, Culture=neutral, PublicKeyToken=4de0a9c4dcc83984, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files\DigitalPersona\One Touch SDK\.NET\Bin\DPFPVerNET.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -93,12 +92,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UI\CaptureFingerprint.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\CaptureFingerprint.Designer.cs">
-      <DependentUpon>CaptureFingerprint.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\Address.cs" />
+    <Compile Include="Model\Contact.cs" />
+    <Compile Include="Model\Educational.cs" />
+    <Compile Include="Model\Fingerprint.cs" />
+    <Compile Include="Model\Occupation.cs" />
+    <Compile Include="Model\PersonInfo.cs" />
+    <Compile Include="Model\Spouse.cs" />
     <Compile Include="UI\CaptureForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,17 +107,23 @@
       <DependentUpon>CaptureForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\DataAccess.cs" />
+    <Compile Include="UI\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Register.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Verification.cs">
+    <Compile Include="UI\RegisterAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Verification.Designer.cs">
-      <DependentUpon>Verification.cs</DependentUpon>
+    <Compile Include="UI\RegisterAccount.Designer.cs">
+      <DependentUpon>RegisterAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\Helper.cs" />
     <Compile Include="UI\Main.cs">
@@ -126,20 +133,43 @@
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Person.cs" />
-    <Compile Include="Model\PersonTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="UI\CaptureFingerprint.resx">
-      <DependentUpon>CaptureFingerprint.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="UI\RegisterFingerprint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RegisterFingerprint.Designer.cs">
+      <DependentUpon>RegisterFingerprint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\VerificationId.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\VerificationId.Designer.cs">
+      <DependentUpon>VerificationId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\VerifiedPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\VerifiedPerson.Designer.cs">
+      <DependentUpon>VerifiedPerson.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="UI\CaptureForm.resx">
       <DependentUpon>CaptureForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Verification.resx">
-      <DependentUpon>Verification.cs</DependentUpon>
+    <EmbeddedResource Include="UI\RegisterAccount.resx">
+      <DependentUpon>RegisterAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -152,7 +182,17 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\VerifiedPerson.resx">
+      <DependentUpon>VerifiedPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -169,6 +209,13 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Document\" />
+    <Folder Include="Images\Persons\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fingerprint-final.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

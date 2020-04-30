@@ -1,9 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace DRRMOFingerprintApp
@@ -24,10 +20,10 @@ namespace DRRMOFingerprintApp
 		{
             try
             {
-                Capturer = new DPFP.Capture.Capture();				// Create a capture operation.
+                Capturer = new DPFP.Capture.Capture(); // Create a capture operation.
 
                 if ( null != Capturer )
-                    Capturer.EventHandler = this;					// Subscribe for capturing events.
+                    Capturer.EventHandler = this; // Subscribe for capturing events.
                 else
                     SetPrompt("Capture operation failed to start");
             }
@@ -79,7 +75,7 @@ namespace DRRMOFingerprintApp
 		private void CaptureForm_Load(object sender, EventArgs e)
 		{
 			Init();
-			Start();                                                // Start capture operation.
+			Start(); // Start capture operation.
 		}
 
 		private void CaptureForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -128,18 +124,18 @@ namespace DRRMOFingerprintApp
 
 		protected Bitmap ConvertSampleToBitmap(DPFP.Sample Sample)
 		{
-			DPFP.Capture.SampleConversion Convertor = new DPFP.Capture.SampleConversion();	// Create a sample convertor.
-			Bitmap bitmap = null;												            // TODO: the size doesn't matter
-			Convertor.ConvertToPicture(Sample, ref bitmap);									// TODO: return bitmap as a result
+			DPFP.Capture.SampleConversion Convertor = new DPFP.Capture.SampleConversion(); // Create a sample convertor.
+			Bitmap bitmap = null;												           // TODO: the size doesn't matter
+			Convertor.ConvertToPicture(Sample, ref bitmap);								   // TODO: return bitmap as a result
 			return bitmap;
 		}
 
 		protected DPFP.FeatureSet ExtractFeatures(DPFP.Sample Sample, DPFP.Processing.DataPurpose Purpose)
 		{
-			DPFP.Processing.FeatureExtraction Extractor = new DPFP.Processing.FeatureExtraction();	// Create a feature extractor
+			DPFP.Processing.FeatureExtraction Extractor = new DPFP.Processing.FeatureExtraction(); // Create a feature extractor
 			DPFP.Capture.CaptureFeedback feedback = DPFP.Capture.CaptureFeedback.None;
 			DPFP.FeatureSet features = new DPFP.FeatureSet();
-			Extractor.CreateFeatureSet(Sample, Purpose, ref feedback, ref features);			// TODO: return features as a result?
+			Extractor.CreateFeatureSet(Sample, Purpose, ref feedback, ref features); // TODO: return features as a result?
 			if (feedback == DPFP.Capture.CaptureFeedback.Good)
 				return features;
 			else
@@ -170,7 +166,7 @@ namespace DRRMOFingerprintApp
 		private void DrawPicture(Bitmap bitmap)
 		{
 			this.Invoke(new Function(delegate() {
-				Picture.Image = new Bitmap(bitmap, Picture.Size);	// fit the image into the picture box
+				Picture.Image = new Bitmap(bitmap, Picture.Size); // fit the image into the picture box
 			}));
 		}
 

@@ -1,24 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using DPFP;
 
-namespace DRRMOFingerprintApp
+namespace DRRMOFingerprintApp.UI
 {
-    public partial class CaptureFingerprint : CaptureForm
+    public partial class RegisterFingerprint : CaptureForm
     {
-        public delegate void OnTemplateEventHandler(DPFP.Template template);
+        public delegate void OnTemplateEventHandler(Template template);
 
         public event OnTemplateEventHandler OnTemplate;
 
         private DPFP.Processing.Enrollment Enroller;
-        
+
         protected override void Init()
         {
             base.Init();
@@ -27,17 +19,17 @@ namespace DRRMOFingerprintApp
             UpdateStatus();
         }
 
-        protected override void Process(DPFP.Sample Sample)
+        protected override void Process(Sample Sample)
         {
             base.Process(Sample);
 
             // Process the sample and create a feature set for the enrollment purpose.
-            DPFP.FeatureSet features = ExtractFeatures(Sample, DPFP.Processing.DataPurpose.Enrollment);
+            FeatureSet features = ExtractFeatures(Sample, DPFP.Processing.DataPurpose.Enrollment);
 
             // Check quality of the sample and add to enroller if it's good.
             if (features != null) try
                 {
-                    MakeReport("The fingerprint feature set was created1.");
+                    MakeReport(String.Format("The fingerprint feature set was created {0}", Enroller.FeaturesNeeded));
                     Enroller.AddFeatures(features); // Add feature set to template.
                 }
                 finally
@@ -63,14 +55,14 @@ namespace DRRMOFingerprintApp
                     }
                 }
         }
-        
+
         private void UpdateStatus()
         {
             // Show number of samples needed.
             SetStatus(String.Format("Fingerprint samples needed: {0}", Enroller.FeaturesNeeded));
         }
 
-        public CaptureFingerprint()
+        public RegisterFingerprint()
         {
             InitializeComponent();
         }

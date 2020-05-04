@@ -63,6 +63,8 @@
     <Folder Include="dbo\Stored Procedures" />
     <Folder Include="Compares" />
     <Folder Include="PostPublishScripts" />
+    <Folder Include="dbo\Service Broker" />
+    <Folder Include="dbo\Pagination" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Person.sql" />
@@ -101,6 +103,9 @@
     <Build Include="dbo\Stored Procedures\spEducational_Update.sql" />
     <Build Include="dbo\Stored Procedures\spSpouse_Update.sql" />
     <Build Include="dbo\Stored Procedures\spPerson_DeletePerson.sql" />
+    <Build Include="dbo\Stored Procedures\spAccount_Update.sql" />
+    <Build Include="dbo\Stored Procedures\spAccount_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\spPerson_Pagination.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="SQLDRRMOFingerprint.refactorlog" />
@@ -108,6 +113,8 @@
   <ItemGroup>
     <None Include="PublishLocations\LocalDRRMOFingerprintDB.publish.xml" />
     <None Include="Compares\LocalSQLFingerprintDBCompare.scmp" />
+    <None Include="dbo\Service Broker\Enable_Broker.sql" />
+    <None Include="dbo\Pagination\Pagination.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="PostPublishScripts\Script.PostDeployPerson.sql" />

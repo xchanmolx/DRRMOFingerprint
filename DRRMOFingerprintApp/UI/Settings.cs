@@ -132,11 +132,6 @@ namespace DRRMOFingerprintApp.UI
             registerAccount.ShowDialog();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void dgvAccount_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
@@ -151,11 +146,15 @@ namespace DRRMOFingerprintApp.UI
 
                 // Get the index of particular row
                 int rowIndex = e.RowIndex;
+                registerAccount.lblId.Text = dgvAccount.Rows[rowIndex].Cells[0].Value.ToString();
                 registerAccount.txtFirstName.Text = dgvAccount.Rows[rowIndex].Cells[1].Value.ToString();
                 registerAccount.txtLastName.Text = dgvAccount.Rows[rowIndex].Cells[2].Value.ToString();
                 registerAccount.txtUsername.Text = dgvAccount.Rows[rowIndex].Cells[3].Value.ToString();
                 registerAccount.txtPassword.Text = dgvAccount.Rows[rowIndex].Cells[4].Value.ToString();
                 registerAccount.pctrBoxPhotos.Image = Image.FromFile(paths + dgvAccount.Rows[rowIndex].Cells[5].Value.ToString());
+
+                // Path image
+                registerAccount.txtPathImage.Text = dgvAccount.Rows[rowIndex].Cells[5].Value.ToString();
 
                 registerAccount.lblRegisterAccount.Visible = false;
                 registerAccount.btnSave.Visible = false;
@@ -164,11 +163,35 @@ namespace DRRMOFingerprintApp.UI
                 registerAccount.errorProviderRegisterAccount.Clear();
 
                 registerAccount.ShowDialog();
+                txtSearch.Focus();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error, row header mouse click, fetch account data", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            // Get the keywords
+            string keywords = txtSearch.Text.Trim();
+
+            // Filter the items based on keywords
+            if (keywords != null)
+            {
+                // Use search method to display items
+                DataTable dt = db.SearchAccounts(keywords);
+                dgvAccount.DataSource = dt;
+
+                DataView dv = dt.DefaultView;
+                dv.Sort = "Id DESC";
+                DataTable sortedDT = dv.ToTable();
+            }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -48,6 +48,9 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.lblAccountId = new System.Windows.Forms.Label();
+            this.lblId = new System.Windows.Forms.Label();
+            this.txtPathImage = new System.Windows.Forms.TextBox();
             this.gbPhoto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctrBoxPhotos)).BeginInit();
             this.gbAccount.SuspendLayout();
@@ -261,6 +264,7 @@
             this.btnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Visible = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
@@ -282,6 +286,34 @@
             this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // lblAccountId
+            // 
+            this.lblAccountId.AutoSize = true;
+            this.lblAccountId.Location = new System.Drawing.Point(15, 21);
+            this.lblAccountId.Name = "lblAccountId";
+            this.lblAccountId.Size = new System.Drawing.Size(62, 13);
+            this.lblAccountId.TabIndex = 27;
+            this.lblAccountId.Text = "Account Id:";
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(83, 21);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(13, 13);
+            this.lblId.TabIndex = 44;
+            this.lblId.Text = "?";
+            // 
+            // txtPathImage
+            // 
+            this.txtPathImage.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPathImage.Location = new System.Drawing.Point(123, 18);
+            this.txtPathImage.Name = "txtPathImage";
+            this.txtPathImage.Size = new System.Drawing.Size(233, 20);
+            this.txtPathImage.TabIndex = 27;
+            this.txtPathImage.Visible = false;
             // 
             // RegisterAccount
             // 
@@ -290,13 +322,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(412, 446);
+            this.Controls.Add(this.lblRegisterAccount);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.lblRegisterAccount);
             this.Controls.Add(this.gbPhoto);
             this.Controls.Add(this.gbAccount);
             this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.lblId);
+            this.Controls.Add(this.lblAccountId);
+            this.Controls.Add(this.txtPathImage);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegisterAccount";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -331,5 +366,8 @@
         private System.Windows.Forms.Button btnExit;
         public System.Windows.Forms.Button btnUpdate;
         public System.Windows.Forms.Button btnDelete;
+        public System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.Label lblAccountId;
+        public System.Windows.Forms.TextBox txtPathImage;
     }
 }

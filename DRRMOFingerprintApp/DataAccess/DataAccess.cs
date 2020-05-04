@@ -451,6 +451,29 @@ namespace DRRMOFingerprintApp
             }
         }
 
+        public async Task UpdateAccount(Account account)
+        {
+            try
+            {
+                var parameters = new DynamicParameters();
+                parameters.Add("Id", account.Id, DbType.Int32);
+                parameters.Add("FirstName", account.FirstName, DbType.String);
+                parameters.Add("LastName", account.LastName, DbType.String);
+                parameters.Add("Username", account.Username, DbType.String);
+                parameters.Add("Password", account.Password, DbType.String);
+                parameters.Add("StringImage", account.StringImage, DbType.String);
+
+                using (IDbConnection connection = new SqlConnection(Helper.CnnVal(dbString)))
+                {
+                    await connection.ExecuteAsync("spAccount_Update", parameters, commandType: CommandType.StoredProcedure);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error, update account", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         public async Task DeletePerson(Person person)
         {
             try
@@ -466,6 +489,24 @@ namespace DRRMOFingerprintApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error, delete person", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public async Task DeleteAccount(Account account)
+        {
+            try
+            {
+                var parameters = new DynamicParameters();
+                parameters.Add("Id", account.Id, DbType.Int32);
+
+                using (IDbConnection connection = new SqlConnection(Helper.CnnVal(dbString)))
+                {
+                    await connection.ExecuteAsync("spAccount_Delete", parameters, commandType: CommandType.StoredProcedure);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error, delete account", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -497,6 +538,43 @@ namespace DRRMOFingerprintApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Search Persons!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dt;
+        }
+
+        public DataTable SearchAccounts(string keywords)
+        {
+            // SQL connection for database connection
+            SqlConnection conn = new SqlConnection(Helper.CnnVal(dbString));
+
+            // Creating data table to hold the data from database temporarily
+            DataTable dt = new DataTable();
+
+            try
+            {
+                // SQL Query to Search items from database
+                String sql = "SELECT * FROM dbo.Account WHERE Id LIKE '%" + keywords + "%' OR FirstName LIKE '%" + keywords + "%' OR LastName LIKE '%" + keywords + "%' ";
+
+                // Creating SQL Commant to execute the query
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                // Getting data from database
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+
+                // Open database connection
+                conn.Open();
+
+                // Passing values from adapter to Data Table dt
+                sda.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Search Accounts!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

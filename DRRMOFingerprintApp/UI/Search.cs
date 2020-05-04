@@ -296,6 +296,7 @@ namespace DRRMOFingerprintApp.UI
                 }
              
                 register.ShowDialog();
+                txtSearch.Focus();
             }
             catch (Exception ex)
             {

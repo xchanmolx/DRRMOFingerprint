@@ -93,6 +93,14 @@
     <Build Include="dbo\Stored Procedures\spOccupation_SelectAll.sql" />
     <Build Include="dbo\Stored Procedures\spEducational_SelectAll.sql" />
     <Build Include="dbo\Stored Procedures\spSpouse_SelectAll.sql" />
+    <Build Include="dbo\Stored Procedures\spPerson_Update.sql" />
+    <Build Include="dbo\Stored Procedures\spPersonInfo_Update.sql" />
+    <Build Include="dbo\Stored Procedures\spContact_Update.sql" />
+    <Build Include="dbo\Stored Procedures\spAddress_Update.sql" />
+    <Build Include="dbo\Stored Procedures\spOccupation_Update.sql" />
+    <Build Include="dbo\Stored Procedures\spEducational_Update.sql" />
+    <Build Include="dbo\Stored Procedures\spSpouse_Update.sql" />
+    <Build Include="dbo\Stored Procedures\spPerson_DeletePerson.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="SQLDRRMOFingerprint.refactorlog" />

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Windows.Forms;
@@ -11,6 +13,88 @@ namespace DRRMOFingerprintApp
         private const string dbString = "DRRMOFingerprintDB";
         public static DateTime Now { get; }
 
+        private DataSet dataToWatch = null;
+        private SqlConnection connection = null;
+        private SqlCommand command = null;
+
+        public string GetConnectionString()
+        {
+            return Helper.CnnVal(dbString);
+        }
+
+        private string GetSQL()
+        {
+            return "SELECT [FirstName] FROM dbo.Person";
+        }
+
+        private void dependency_OnChange(object sender, SqlNotificationEventArgs e)
+        {
+            //MessageBox.Show("modification Occurred");
+            ISynchronizeInvoke i = (ISynchronizeInvoke)this;
+            if (i.InvokeRequired)
+            {
+                OnChangeEventHandler tempDelegate = new OnChangeEventHandler(dependency_OnChange);
+                object[] args = { sender, e };
+                i.BeginInvoke(tempDelegate, args);
+                return;
+            }
+
+            SqlDependency dependency = (SqlDependency)sender;
+            dependency.OnChange -= dependency_OnChange;
+            //++changeCount;
+            //lblChanges.Text = String.Format(statusMessage, changeCount);
+
+            GetData();
+
+            GetPersonRows();
+        }
+
+        private void GetData()
+        {
+            //dataToWatch.Clear();
+            //command.Notification = null;
+            dataToWatch.Clear();
+            command.Notification = null;
+            SqlDependency dependency = new SqlDependency(command);
+            if (connection.State != ConnectionState.Open) connection.Open();
+            using (var dr = command.ExecuteReader())
+            {
+                dependency.OnChange += new OnChangeEventHandler(dependency_OnChange);
+            }
+        }
+
+        public void RealtimeData()
+        {
+            try
+            {
+                //changeCount = 0;
+                //lblChanges.Text = String.Format(statusMessage, changeCount);
+
+                SqlDependency.Stop(GetConnectionString());
+                SqlDependency.Start(GetConnectionString());
+
+                if (connection == null)
+                {
+                    connection = new SqlConnection(GetConnectionString());
+                }
+
+                if (command == null)
+                {
+                    command = new SqlCommand(GetSQL(), connection);
+                }
+                if (dataToWatch == null)
+                {
+                    dataToWatch = new DataSet();
+                }
+
+                GetData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Start Realtime Button Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
         public Main()
         {
             InitializeComponent();
@@ -18,9 +102,8 @@ namespace DRRMOFingerprintApp
             // Get person rows
             GetPersonRows();
 
-            // As of Date
-            var localDate = DateTime.Now;
-            lblDate.Text = Convert.ToString(localDate);
+            // Realtime data
+            RealtimeData();
         }
 
         public void GetPersonRows()
@@ -43,15 +126,10 @@ namespace DRRMOFingerprintApp
             lblDate.Text = Convert.ToString(localDate);
         }
 
-        private void btnUpdatePersonRows_Click(object sender, EventArgs e)
-        {
-            GetPersonRows();
-        }
-
         private void btnRegister_Click(object sender, EventArgs e)
         {
             var register = new Register();
-            register.ShowDialog();
+            register.Show();
         }
 
         private void btnVerification_Click(object sender, EventArgs e)
@@ -66,10 +144,10 @@ namespace DRRMOFingerprintApp
             registerAccount.ShowDialog();
         }
 
-        private void pctrBoxSettings_Click(object sender, EventArgs e)
+        private void pctrBoxSearch_Click(object sender, EventArgs e)
         {
-            var settings = new Settings();
-            settings.ShowDialog();
+            var search = new Search();
+            search.ShowDialog();
         }
 
         private void btnRegistrationForm_Click(object sender, EventArgs e)
@@ -87,13 +165,19 @@ namespace DRRMOFingerprintApp
             }
         }
 
+        private void pctrBoxSettings_Click(object sender, EventArgs e)
+        {
+            var settings = new Settings();
+            settings.ShowDialog();
+        }
+
         private void btnExit_Click(object sender, EventArgs e)
         {
-            //DialogResult result = MessageBox.Show("Are your sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            //if (result == DialogResult.Yes)
-            //{
+            DialogResult result = MessageBox.Show("Are your sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
                 Application.Exit();
-            //}
+            }
         }
     }
 }

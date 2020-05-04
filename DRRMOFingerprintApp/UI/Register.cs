@@ -108,10 +108,6 @@ namespace DRRMOFingerprintApp
                 btnSave.Enabled = (Template != null);
                 if (Template != null)
                 {
-                    MessageBox.Show("The fingerprint template is ready for fingerprint verification.", "Fingerprint Enrollment", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtFingerprint.Text = "Fingerprint captured correctly";
-                    btnSave.Enabled = false;
-
                     try
                     {
                         // Save fingerprint
@@ -122,6 +118,13 @@ namespace DRRMOFingerprintApp
                         fingerprint.FingerprintPerson = streamFingerprint;
 
                         await db.InsertFingerprint(fingerprint);
+
+                        MessageBox.Show("The fingerprint template is ready for fingerprint verification.", "Fingerprint Enrollment", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtFingerprint.Text = "Fingerprint captured correctly";
+                        btnSave.Enabled = false;
+
+                        // Register the fingerprint to change label
+                        lblAlreadyRegistered.BringToFront();
                     }
                     catch (Exception ex)
                     {
@@ -149,6 +152,11 @@ namespace DRRMOFingerprintApp
                 errorProviderRegisterForm.SetError(txtDateOfBirth, "Required Date of Birth");
                 bStatus = false;
             }
+            else if (txtDateOfBirth.Text.Length < 8 || txtDateOfBirth.Text.Length > 8)
+            {
+                errorProviderRegisterForm.SetError(txtDateOfBirth, "Please specify 8 characters");
+                bStatus = false;
+            }
             else if (String.IsNullOrWhiteSpace(txtLastName.Text))
             {
                 errorProviderRegisterForm.SetError(txtLastName, "Required Last Name");
@@ -169,6 +177,7 @@ namespace DRRMOFingerprintApp
             {
                 try
                 {
+                    // Save person table
                     string defaultPathImage = @"\Images\Persons\";
                     string defaultImage = "default-image.jpg";
                     string correctFileName = Path.GetFileName(ofd.FileName);
@@ -235,96 +244,102 @@ namespace DRRMOFingerprintApp
         {
             try
             {
-                // Local date of PC
-                var localDate = DateTime.Now;
+                DialogResult result = MessageBox.Show("Haven't you finished register the fingerprint?", "Register Fingerprint", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    // Local date of PC
+                    var localDate = DateTime.Now;
 
-                // Get age of person
-                string birthDate = txtDateOfBirth.Text;
-                int now = int.Parse(DateTime.Now.ToString("yyyyMMdd"));
-                int dob = int.Parse(birthDate);
-                int age = (now - dob) / 10000;
+                    // Get age of person
+                    string birthDate = txtDateOfBirth.Text;
+                    int now = int.Parse(DateTime.Now.ToString("yyyyMMdd"));
+                    int dob = int.Parse(birthDate);
+                    int age = (now - dob) / 10000;
 
-                // Save additional info
-                var personInfo = new PersonInfo();
-                personInfo.PersonId = Convert.ToInt32(txtIdFingerprint.Text);
-                personInfo.Nickname = txtNickName.Text;
-                personInfo.CivilStatus = cmbCivilStatus.Text;
-                personInfo.BirthPlace = txtBirthPlace.Text;
-                personInfo.Height = txtHeight.Text;
-                personInfo.Weight = txtWeight.Text;
-                personInfo.Religion = txtReligion.Text;
-                personInfo.IdentifyingMarks = txtIdentifyingMarks.Text;
-                personInfo.DateAdded = Convert.ToString(localDate);
-                personInfo.Age = age;
+                    // Save additional info
+                    var personInfo = new PersonInfo();
+                    personInfo.PersonId = Convert.ToInt32(txtIdFingerprint.Text);
+                    personInfo.Nickname = txtNickName.Text;
+                    personInfo.CivilStatus = cmbCivilStatus.Text;
+                    personInfo.BirthPlace = txtBirthPlace.Text;
+                    personInfo.Height = txtHeight.Text;
+                    personInfo.Weight = txtWeight.Text;
+                    personInfo.Religion = txtReligion.Text;
+                    personInfo.IdentifyingMarks = txtIdentifyingMarks.Text;
+                    personInfo.DateAdded = Convert.ToString(localDate);
+                    personInfo.Age = age;
 
-                await db.InsertPersonAdditionalInfo(personInfo);
+                    await db.InsertPersonAdditionalInfo(personInfo);
 
-                // Save contact to table
-                var contact = new Contact();
-                contact.PersonId = Convert.ToInt32(txtIdFingerprint.Text);
-                contact.PhoneNumber = txtPhoneNumber.Text;
-                contact.EmailAddress = txtEmailAddress.Text;
+                    // Save contact to table
+                    var contact = new Contact();
+                    contact.PersonId = Convert.ToInt32(txtIdFingerprint.Text);
+                    contact.PhoneNumber = txtPhoneNumber.Text;
+                    contact.EmailAddress = txtEmailAddress.Text;
 
-                await db.InsertContact(contact);
+                    await db.InsertContact(contact);
 
-                // Save address to table
-                var address = new Address();
-                address.PersonId = Convert.ToInt32(txtIdFingerprint.Text);
-                address.HomeAddress = txtHomeAddress.Text;
-                address.Town = txtTown.Text;
-                address.Barangay = txtBarangay.Text;
-                address.Sitio = txtSitio.Text;
-                address.Province = txtProvince.Text;
-                address.Country = txtCountry.Text;
-                address.ZipCode = txtZipCode.Text;
+                    // Save address to table
+                    var address = new Address();
+                    address.PersonId = Convert.ToInt32(txtIdFingerprint.Text);
+                    address.HomeAddress = txtHomeAddress.Text;
+                    address.Town = txtTown.Text;
+                    address.Barangay = txtBarangay.Text;
+                    address.Sitio = txtSitio.Text;
+                    address.Province = txtProvince.Text;
+                    address.Country = txtCountry.Text;
+                    address.ZipCode = txtZipCode.Text;
 
-                await db.InsertAddress(address);
+                    await db.InsertAddress(address);
 
-                // Save occupation to table
-                var occupation = new Occupation();
-                occupation.PersonId = Convert.ToInt32(txtIdFingerprint.Text);
-                occupation.Organization = txtOrganization.Text;
-                occupation.WorkPosition = txtWorkPosition.Text;
-                occupation.WorkAddress = txtWorkAddress.Text;
-                occupation.Designation = cmbDesignation.Text;
-                occupation.OfficeName = txtOfficeName.Text;
-                occupation.WorkPhoneNumber = txtWorkPhoneNumber.Text;
+                    // Save occupation to table
+                    var occupation = new Occupation();
+                    occupation.PersonId = Convert.ToInt32(txtIdFingerprint.Text);
+                    occupation.Organization = txtOrganization.Text;
+                    occupation.WorkPosition = txtWorkPosition.Text;
+                    occupation.WorkAddress = txtWorkAddress.Text;
+                    occupation.Designation = cmbDesignation.Text;
+                    occupation.OfficeName = txtOfficeName.Text;
+                    occupation.WorkPhoneNumber = txtWorkPhoneNumber.Text;
 
-                await db.InsertOccupation(occupation);
+                    await db.InsertOccupation(occupation);
 
-                // Save educational to table
-                var educational = new Educational();
-                educational.PersonId = Convert.ToInt32(txtIdFingerprint.Text);
-                educational.LevelOfEducation = cmbLevelOfEducation.Text;
-                educational.NameOfSchool = txtNameOfSchool.Text;
+                    // Save educational to table
+                    var educational = new Educational();
+                    educational.PersonId = Convert.ToInt32(txtIdFingerprint.Text);
+                    educational.LevelOfEducation = cmbLevelOfEducation.Text;
+                    educational.NameOfSchool = txtNameOfSchool.Text;
 
-                await db.InsertEducationalQualification(educational);
+                    await db.InsertEducationalQualification(educational);
 
-                // Save spouse to table
-                var spouse = new Spouse();
-                spouse.PersonId = Convert.ToInt32(txtIdFingerprint.Text);
-                spouse.NameOfSpouse = txtNameOfSpouse.Text;
-                spouse.NameOfChildren = txtNameOfChildren.Text;
+                    // Save spouse to table
+                    var spouse = new Spouse();
+                    spouse.PersonId = Convert.ToInt32(txtIdFingerprint.Text);
+                    spouse.NameOfSpouse = txtNameOfSpouse.Text;
+                    spouse.NameOfChildren = txtNameOfChildren.Text;
 
-                await db.InsertSpouse(spouse);
+                    await db.InsertSpouse(spouse);
 
-                // Change Controls
-                gbPersonalInformation.Enabled = true;
-                gbPhoto.Enabled = true;
+                    // Change Controls
+                    gbPersonalInformation.Enabled = true;
+                    gbPhoto.Enabled = true;
 
-                gbAdditionalInfo.Enabled = false;
-                gbContact.Enabled = false;
-                gbAddress.Enabled = false;
-                gbOccupation.Enabled = false;
-                gbHighestEducationalQualification.Enabled = false;
-                gbIfMarried.Enabled = false;
+                    gbAdditionalInfo.Enabled = false;
+                    gbContact.Enabled = false;
+                    gbAddress.Enabled = false;
+                    gbOccupation.Enabled = false;
+                    gbHighestEducationalQualification.Enabled = false;
+                    gbIfMarried.Enabled = false;
 
-                btnSave.Enabled = false;
-                btnAddAnotherPerson.Enabled = false;
-                btnRegister.Enabled = false;
+                    btnSave.Enabled = false;
+                    btnAddAnotherPerson.Enabled = false;
+                    btnRegister.Enabled = false;
 
-                // Clear Text Boxes
-                Clean();
+                    // Clear Text Boxes
+                    Clean();
+
+                    lblNotYetRegistered.BringToFront();
+                }
             }
             catch (Exception ex)
             {
@@ -333,7 +348,6 @@ namespace DRRMOFingerprintApp
         }
 
         OpenFileDialog ofd = new OpenFileDialog();
-        string imageUrl = null;
         private bool btnBrowseWasClick = false;
         private void btnBrowsePhotos_Click(object sender, EventArgs e)
         {
@@ -357,7 +371,6 @@ namespace DRRMOFingerprintApp
                         string correctFileName = Path.GetFileName(ofd.FileName);
                         File.Copy(ofd.FileName, paths + defaultPathImage + correctFileName, true);
 
-                        imageUrl = ofd.FileName;
                         pctrBoxPhotos.Image = Image.FromFile(ofd.FileName);
                     }
                 }
@@ -409,7 +422,7 @@ namespace DRRMOFingerprintApp
 
         private void txtDateOfBirth_KeyPress(object sender, KeyPressEventArgs e)
         {
-            txtDateOfBirth.MaxLength = 8;
+            txtDateOfBirth.MaxLength = 10;
 
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
 
@@ -419,9 +432,164 @@ namespace DRRMOFingerprintApp
             }
         }
 
+        private async void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show($"Are your sure you want to update {txtFirstName.Text} {txtLastName.Text}?", "Update personal data", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    // Remove "-" to date of birth textbox
+                    txtDateOfBirth.Text = txtDateOfBirth.Text.Remove(4, 1);
+                    txtDateOfBirth.Text = txtDateOfBirth.Text.Remove(6, 1);
+
+                    string dateOfBirth = txtDateOfBirth.Text;
+
+                    int now = int.Parse(DateTime.Now.ToString("yyyyMMdd"));
+                    int dob = int.Parse(dateOfBirth);
+                    int age = (now - dob) / 10000;
+
+                    // Get file name of the image & default image path
+                    string defaultPathImage = @"\Images\Persons\";
+                    string correctFileName = Path.GetFileName(ofd.FileName);
+
+                    int id = Convert.ToInt32(txtIdFingerprint.Text);
+
+                    // Get the values from User Form | Person table
+                    var person = new Person();
+                    person.Id = id;
+                    person.FirstName = txtFirstName.Text;
+                    person.MiddleName = txtMiddleName.Text;
+                    person.LastName = txtLastName.Text;
+                    person.ExtensionName = txtExtensionName.Text;
+                    person.DateOfBirth = dateOfBirth;
+                    person.Gender = Convert.ToString(cmbGender.SelectedItem);
+                    person.Remarks = txtRemarks.Text;
+
+                    if (btnBrowseWasClick == true)
+                    {
+                        person.StringImage = defaultPathImage + correctFileName;
+                    }
+                    else if (btnBrowseWasClick == false)
+                    {
+                        person.StringImage = txtPathImage.Text;
+                    }
+                    btnBrowseWasClick = false;
+
+                    await db.UpdatePerson(person);
+
+                    // Get the values from User Form | PersonInfo table
+                    var personInfo = new PersonInfo();
+                    personInfo.PersonId = id;
+                    personInfo.Nickname = txtNickName.Text;
+                    personInfo.CivilStatus = Convert.ToString(cmbCivilStatus.SelectedItem);
+                    personInfo.BirthPlace = txtBirthPlace.Text;
+                    personInfo.Height = txtHeight.Text;
+                    personInfo.Weight = txtWeight.Text;
+                    personInfo.Religion = txtReligion.Text;
+                    personInfo.IdentifyingMarks = txtIdentifyingMarks.Text;
+                    personInfo.DateAdded = lblDateAdded.Text;
+                    personInfo.Age = Convert.ToInt32(lblAge.Text);
+
+                    await db.UpdatePersonInfo(personInfo);
+
+                    // Get the values from User Form | Contact table
+                    var contact = new Contact();
+                    contact.PersonId = id;
+                    contact.PhoneNumber = txtPhoneNumber.Text;
+                    contact.EmailAddress = txtEmailAddress.Text;
+
+                    await db.UpdateContact(contact);
+
+                    // Get the values from User Form | Address table
+                    var address = new Address();
+                    address.PersonId = id;
+                    address.HomeAddress = txtHomeAddress.Text;
+                    address.Town = txtTown.Text;
+                    address.Barangay = txtBarangay.Text;
+                    address.Sitio = txtSitio.Text;
+                    address.Province = txtProvince.Text;
+                    address.Country = txtCountry.Text;
+                    address.ZipCode = txtZipCode.Text;
+
+                    await db.UpdateAddress(address);
+
+                    // Get the values from User Form | Occupation table
+                    var occupation = new Occupation();
+                    occupation.PersonId = id;
+                    occupation.WorkPosition = txtWorkPosition.Text;
+                    occupation.WorkAddress = txtWorkAddress.Text;
+                    occupation.WorkPhoneNumber = txtWorkPhoneNumber.Text;
+                    occupation.Organization = txtOrganization.Text;
+                    occupation.Designation = Convert.ToString(cmbDesignation.SelectedItem);
+                    occupation.OfficeName = txtOfficeName.Text;
+
+                    await db.UpdateOccupation(occupation);
+
+                    // Get the values from User Form | Educational table
+                    var educational = new Educational();
+                    educational.PersonId = id;
+                    educational.LevelOfEducation = Convert.ToString(cmbLevelOfEducation.SelectedItem);
+                    educational.NameOfSchool = txtNameOfSchool.Text;
+
+                    await db.UpdateEducational(educational);
+
+                    // Get the values from User Form | Spouse table
+                    var spouse = new Spouse();
+                    spouse.PersonId = id;
+                    spouse.NameOfSpouse = txtNameOfSpouse.Text;
+                    spouse.NameOfChildren = txtNameOfChildren.Text;
+
+                    await db.UpdateSpouse(spouse);
+
+                    // Insert "-" date of birth textbox
+                    txtDateOfBirth.Text = txtDateOfBirth.Text.Insert(4, "-");
+                    txtDateOfBirth.Text = txtDateOfBirth.Text.Insert(7, "-");
+
+                    MessageBox.Show($"Update successfully for {txtFirstName.Text} {txtLastName.Text}", "Update successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    txtFirstName.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error, update person data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show($"Are your sure you want to delete {txtFirstName.Text} {txtLastName.Text}?", "Delete personal data", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    var person = new Person();
+                    person.Id = Convert.ToInt32(txtIdFingerprint.Text);
+
+                    await db.DeletePerson(person);
+
+                    MessageBox.Show($"Delete successfully for {txtFirstName.Text} {txtLastName.Text}", "Delete successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Delete individual personal data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (btnAddAnotherPerson.Enabled == false)
+            {
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Please click Add Another Profile button before you close the form, so that it will save the additional personal informaiton", "Save the additional personal information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

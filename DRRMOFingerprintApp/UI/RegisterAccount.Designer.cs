@@ -45,6 +45,9 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.lblRegisterAccount = new System.Windows.Forms.Label();
             this.errorProviderRegisterAccount = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.gbPhoto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctrBoxPhotos)).BeginInit();
             this.gbAccount.SuspendLayout();
@@ -57,7 +60,7 @@
             this.gbPhoto.Controls.Add(this.pctrBoxPhotos);
             this.gbPhoto.Location = new System.Drawing.Point(12, 229);
             this.gbPhoto.Name = "gbPhoto";
-            this.gbPhoto.Size = new System.Drawing.Size(350, 129);
+            this.gbPhoto.Size = new System.Drawing.Size(387, 129);
             this.gbPhoto.TabIndex = 1;
             this.gbPhoto.TabStop = false;
             this.gbPhoto.Text = "PHOTOS";
@@ -107,7 +110,7 @@
             this.gbAccount.ForeColor = System.Drawing.Color.Black;
             this.gbAccount.Location = new System.Drawing.Point(12, 49);
             this.gbAccount.Name = "gbAccount";
-            this.gbAccount.Size = new System.Drawing.Size(351, 174);
+            this.gbAccount.Size = new System.Drawing.Size(388, 174);
             this.gbAccount.TabIndex = 0;
             this.gbAccount.TabStop = false;
             this.gbAccount.Text = "ACCOUNT INFORMATION";
@@ -197,9 +200,9 @@
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSave.Location = new System.Drawing.Point(12, 366);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(351, 68);
+            this.btnSave.Size = new System.Drawing.Size(388, 68);
             this.btnSave.TabIndex = 2;
-            this.btnSave.Text = "&Save Account";
+            this.btnSave.Text = "   &Save Account";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -219,11 +222,77 @@
             // 
             this.errorProviderRegisterAccount.ContainerControl = this;
             // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.SystemColors.Control;
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.OrangeRed;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.Crimson;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.Location = new System.Drawing.Point(360, 1);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(51, 45);
+            this.btnExit.TabIndex = 16;
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
+            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Font = new System.Drawing.Font("Roboto Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
+            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnUpdate.Location = new System.Drawing.Point(12, 366);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(184, 67);
+            this.btnUpdate.TabIndex = 42;
+            this.btnUpdate.Text = " &UPDATE";
+            this.btnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Visible = false;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.DarkRed;
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
+            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Roboto Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnDelete.Location = new System.Drawing.Point(224, 366);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(175, 67);
+            this.btnDelete.TabIndex = 43;
+            this.btnDelete.Text = " &DELETE";
+            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Visible = false;
+            // 
             // RegisterAccount
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(382, 446);
+            this.CancelButton = this.btnExit;
+            this.ClientSize = new System.Drawing.Size(412, 446);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lblRegisterAccount);
             this.Controls.Add(this.gbPhoto);
             this.Controls.Add(this.gbAccount);
@@ -246,18 +315,21 @@
 
         private System.Windows.Forms.GroupBox gbPhoto;
         private System.Windows.Forms.Button btnBrowsePhotos;
-        private System.Windows.Forms.PictureBox pctrBoxPhotos;
+        public System.Windows.Forms.PictureBox pctrBoxPhotos;
         private System.Windows.Forms.GroupBox gbAccount;
-        private System.Windows.Forms.TextBox txtLastName;
+        public System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.Label lblLastName;
-        private System.Windows.Forms.TextBox txtFirstName;
+        public System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.Label lblFirstName;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox txtPassword;
+        public System.Windows.Forms.Button btnSave;
+        public System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.TextBox txtUsername;
+        public System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.Label lblRegisterAccount;
-        private System.Windows.Forms.ErrorProvider errorProviderRegisterAccount;
+        public System.Windows.Forms.Label lblRegisterAccount;
+        public System.Windows.Forms.ErrorProvider errorProviderRegisterAccount;
+        private System.Windows.Forms.Button btnExit;
+        public System.Windows.Forms.Button btnUpdate;
+        public System.Windows.Forms.Button btnDelete;
     }
 }

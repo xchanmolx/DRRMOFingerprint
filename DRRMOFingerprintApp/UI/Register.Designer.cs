@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnRegister = new System.Windows.Forms.Button();
             this.gbPersonalInformation = new System.Windows.Forms.GroupBox();
             this.cmbGender = new System.Windows.Forms.ComboBox();
             this.txtRemarks = new System.Windows.Forms.TextBox();
@@ -100,11 +98,7 @@
             this.btnBrowsePhotos = new System.Windows.Forms.Button();
             this.pctrBoxPhotos = new System.Windows.Forms.PictureBox();
             this.errorProviderRegisterForm = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnAddAnotherPerson = new System.Windows.Forms.Button();
-            this.pctrBoxIndex = new System.Windows.Forms.PictureBox();
-            this.pctrBoxThumb = new System.Windows.Forms.PictureBox();
             this.lblRightHand = new System.Windows.Forms.Label();
-            this.btnExit = new System.Windows.Forms.Button();
             this.gbAdditionalInfo = new System.Windows.Forms.GroupBox();
             this.txtIdentifyingMarks = new System.Windows.Forms.TextBox();
             this.lblIdentifyingMarks = new System.Windows.Forms.Label();
@@ -125,6 +119,18 @@
             this.txtNameOfSchool = new System.Windows.Forms.TextBox();
             this.lblNameOfSchool = new System.Windows.Forms.Label();
             this.lblLevelOfEducation = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.pctrBoxThumb = new System.Windows.Forms.PictureBox();
+            this.pctrBoxIndex = new System.Windows.Forms.PictureBox();
+            this.btnAddAnotherPerson = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnRegister = new System.Windows.Forms.Button();
+            this.txtPathImage = new System.Windows.Forms.TextBox();
+            this.lblFingerprintRegister = new System.Windows.Forms.Label();
+            this.lblNotYetRegistered = new System.Windows.Forms.Label();
+            this.lblAlreadyRegistered = new System.Windows.Forms.Label();
             this.gbPersonalInformation.SuspendLayout();
             this.gbContact.SuspendLayout();
             this.gbAddress.SuspendLayout();
@@ -134,55 +140,11 @@
             this.gbPhoto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctrBoxPhotos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderRegisterForm)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctrBoxIndex)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctrBoxThumb)).BeginInit();
             this.gbAdditionalInfo.SuspendLayout();
             this.gbHighestEducationalQualification.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctrBoxThumb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctrBoxIndex)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.Enabled = false;
-            this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
-            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Roboto Light", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(811, 298);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(183, 127);
-            this.btnSave.TabIndex = 8;
-            this.btnSave.Text = "&Save";
-            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnRegister
-            // 
-            this.btnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnRegister.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegister.Enabled = false;
-            this.btnRegister.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnRegister.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
-            this.btnRegister.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegister.Font = new System.Drawing.Font("Roboto Condensed", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegister.ForeColor = System.Drawing.Color.White;
-            this.btnRegister.Image = ((System.Drawing.Image)(resources.GetObject("btnRegister.Image")));
-            this.btnRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegister.Location = new System.Drawing.Point(811, 433);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(393, 127);
-            this.btnRegister.TabIndex = 10;
-            this.btnRegister.Text = "  &Register Fingerprint";
-            this.btnRegister.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRegister.UseVisualStyleBackColor = false;
-            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // gbPersonalInformation
             // 
@@ -887,48 +849,6 @@
             // 
             this.errorProviderRegisterForm.ContainerControl = this;
             // 
-            // btnAddAnotherPerson
-            // 
-            this.btnAddAnotherPerson.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnAddAnotherPerson.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddAnotherPerson.Enabled = false;
-            this.btnAddAnotherPerson.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnAddAnotherPerson.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
-            this.btnAddAnotherPerson.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btnAddAnotherPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddAnotherPerson.Font = new System.Drawing.Font("Roboto Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddAnotherPerson.ForeColor = System.Drawing.Color.White;
-            this.btnAddAnotherPerson.Image = ((System.Drawing.Image)(resources.GetObject("btnAddAnotherPerson.Image")));
-            this.btnAddAnotherPerson.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddAnotherPerson.Location = new System.Drawing.Point(1108, 298);
-            this.btnAddAnotherPerson.Name = "btnAddAnotherPerson";
-            this.btnAddAnotherPerson.Size = new System.Drawing.Size(183, 127);
-            this.btnAddAnotherPerson.TabIndex = 9;
-            this.btnAddAnotherPerson.Text = "&Add Another Profile";
-            this.btnAddAnotherPerson.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAddAnotherPerson.UseVisualStyleBackColor = false;
-            this.btnAddAnotherPerson.Click += new System.EventHandler(this.btnAddAnotherPerson_Click);
-            // 
-            // pctrBoxIndex
-            // 
-            this.pctrBoxIndex.Image = ((System.Drawing.Image)(resources.GetObject("pctrBoxIndex.Image")));
-            this.pctrBoxIndex.Location = new System.Drawing.Point(1222, 454);
-            this.pctrBoxIndex.Name = "pctrBoxIndex";
-            this.pctrBoxIndex.Size = new System.Drawing.Size(57, 50);
-            this.pctrBoxIndex.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pctrBoxIndex.TabIndex = 11;
-            this.pctrBoxIndex.TabStop = false;
-            // 
-            // pctrBoxThumb
-            // 
-            this.pctrBoxThumb.Image = ((System.Drawing.Image)(resources.GetObject("pctrBoxThumb.Image")));
-            this.pctrBoxThumb.Location = new System.Drawing.Point(1222, 510);
-            this.pctrBoxThumb.Name = "pctrBoxThumb";
-            this.pctrBoxThumb.Size = new System.Drawing.Size(57, 50);
-            this.pctrBoxThumb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pctrBoxThumb.TabIndex = 12;
-            this.pctrBoxThumb.TabStop = false;
-            // 
             // lblRightHand
             // 
             this.lblRightHand.AutoSize = true;
@@ -940,25 +860,6 @@
             this.lblRightHand.Size = new System.Drawing.Size(81, 18);
             this.lblRightHand.TabIndex = 39;
             this.lblRightHand.Text = "Right Hand";
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackColor = System.Drawing.SystemColors.Control;
-            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.OrangeRed;
-            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.ForeColor = System.Drawing.Color.Crimson;
-            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(1297, 1);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(51, 45);
-            this.btnExit.TabIndex = 11;
-            this.btnExit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // gbAdditionalInfo
             // 
@@ -982,7 +883,7 @@
             this.gbAdditionalInfo.Size = new System.Drawing.Size(350, 262);
             this.gbAdditionalInfo.TabIndex = 2;
             this.gbAdditionalInfo.TabStop = false;
-            this.gbAdditionalInfo.Text = "Additional Info";
+            this.gbAdditionalInfo.Text = "ADDITIONAL PERSONAL INFORMATION";
             // 
             // txtIdentifyingMarks
             // 
@@ -1176,6 +1077,202 @@
             this.lblLevelOfEducation.TabIndex = 37;
             this.lblLevelOfEducation.Text = "Level of Education:";
             // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.Enabled = false;
+            this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
+            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Roboto Light", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(811, 298);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(183, 127);
+            this.btnSave.TabIndex = 8;
+            this.btnSave.Text = "&Save";
+            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.SystemColors.Control;
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.OrangeRed;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.ForeColor = System.Drawing.Color.Crimson;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.Location = new System.Drawing.Point(1297, 1);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(51, 45);
+            this.btnExit.TabIndex = 11;
+            this.btnExit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // pctrBoxThumb
+            // 
+            this.pctrBoxThumb.Image = ((System.Drawing.Image)(resources.GetObject("pctrBoxThumb.Image")));
+            this.pctrBoxThumb.Location = new System.Drawing.Point(1222, 510);
+            this.pctrBoxThumb.Name = "pctrBoxThumb";
+            this.pctrBoxThumb.Size = new System.Drawing.Size(57, 50);
+            this.pctrBoxThumb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pctrBoxThumb.TabIndex = 12;
+            this.pctrBoxThumb.TabStop = false;
+            // 
+            // pctrBoxIndex
+            // 
+            this.pctrBoxIndex.Image = ((System.Drawing.Image)(resources.GetObject("pctrBoxIndex.Image")));
+            this.pctrBoxIndex.Location = new System.Drawing.Point(1222, 454);
+            this.pctrBoxIndex.Name = "pctrBoxIndex";
+            this.pctrBoxIndex.Size = new System.Drawing.Size(57, 50);
+            this.pctrBoxIndex.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pctrBoxIndex.TabIndex = 11;
+            this.pctrBoxIndex.TabStop = false;
+            // 
+            // btnAddAnotherPerson
+            // 
+            this.btnAddAnotherPerson.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnAddAnotherPerson.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddAnotherPerson.Enabled = false;
+            this.btnAddAnotherPerson.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnAddAnotherPerson.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
+            this.btnAddAnotherPerson.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnAddAnotherPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddAnotherPerson.Font = new System.Drawing.Font("Roboto Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddAnotherPerson.ForeColor = System.Drawing.Color.White;
+            this.btnAddAnotherPerson.Image = ((System.Drawing.Image)(resources.GetObject("btnAddAnotherPerson.Image")));
+            this.btnAddAnotherPerson.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddAnotherPerson.Location = new System.Drawing.Point(1108, 298);
+            this.btnAddAnotherPerson.Name = "btnAddAnotherPerson";
+            this.btnAddAnotherPerson.Size = new System.Drawing.Size(183, 127);
+            this.btnAddAnotherPerson.TabIndex = 9;
+            this.btnAddAnotherPerson.Text = "&Add Another Profile";
+            this.btnAddAnotherPerson.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddAnotherPerson.UseVisualStyleBackColor = false;
+            this.btnAddAnotherPerson.Click += new System.EventHandler(this.btnAddAnotherPerson_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.DarkGreen;
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
+            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Font = new System.Drawing.Font("Roboto Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
+            this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdate.Location = new System.Drawing.Point(811, 299);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(183, 127);
+            this.btnUpdate.TabIndex = 40;
+            this.btnUpdate.Text = " &UPDATE";
+            this.btnUpdate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Visible = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.DarkRed;
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
+            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Roboto Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelete.Location = new System.Drawing.Point(1108, 298);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(183, 127);
+            this.btnDelete.TabIndex = 41;
+            this.btnDelete.Text = " &DELETE";
+            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Visible = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnRegister
+            // 
+            this.btnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnRegister.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegister.Enabled = false;
+            this.btnRegister.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnRegister.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
+            this.btnRegister.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegister.Font = new System.Drawing.Font("Roboto Condensed", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegister.ForeColor = System.Drawing.Color.White;
+            this.btnRegister.Image = ((System.Drawing.Image)(resources.GetObject("btnRegister.Image")));
+            this.btnRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegister.Location = new System.Drawing.Point(811, 433);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(393, 127);
+            this.btnRegister.TabIndex = 10;
+            this.btnRegister.Text = "  &Register Fingerprint";
+            this.btnRegister.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRegister.UseVisualStyleBackColor = false;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            // 
+            // txtPathImage
+            // 
+            this.txtPathImage.Location = new System.Drawing.Point(12, 674);
+            this.txtPathImage.Name = "txtPathImage";
+            this.txtPathImage.Size = new System.Drawing.Size(793, 20);
+            this.txtPathImage.TabIndex = 45;
+            this.txtPathImage.Visible = false;
+            // 
+            // lblFingerprintRegister
+            // 
+            this.lblFingerprintRegister.AutoSize = true;
+            this.lblFingerprintRegister.Font = new System.Drawing.Font("Roboto Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFingerprintRegister.ForeColor = System.Drawing.Color.Red;
+            this.lblFingerprintRegister.Location = new System.Drawing.Point(812, 563);
+            this.lblFingerprintRegister.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFingerprintRegister.Name = "lblFingerprintRegister";
+            this.lblFingerprintRegister.Size = new System.Drawing.Size(156, 33);
+            this.lblFingerprintRegister.TabIndex = 46;
+            this.lblFingerprintRegister.Text = "Fingerprint: ";
+            this.lblFingerprintRegister.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblNotYetRegistered
+            // 
+            this.lblNotYetRegistered.AutoSize = true;
+            this.lblNotYetRegistered.Font = new System.Drawing.Font("Roboto Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNotYetRegistered.ForeColor = System.Drawing.Color.Red;
+            this.lblNotYetRegistered.Location = new System.Drawing.Point(976, 563);
+            this.lblNotYetRegistered.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNotYetRegistered.Name = "lblNotYetRegistered";
+            this.lblNotYetRegistered.Size = new System.Drawing.Size(223, 33);
+            this.lblNotYetRegistered.TabIndex = 47;
+            this.lblNotYetRegistered.Text = "not yet registered";
+            this.lblNotYetRegistered.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblAlreadyRegistered
+            // 
+            this.lblAlreadyRegistered.AutoSize = true;
+            this.lblAlreadyRegistered.Font = new System.Drawing.Font("Roboto Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlreadyRegistered.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblAlreadyRegistered.Location = new System.Drawing.Point(981, 563);
+            this.lblAlreadyRegistered.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAlreadyRegistered.Name = "lblAlreadyRegistered";
+            this.lblAlreadyRegistered.Size = new System.Drawing.Size(226, 33);
+            this.lblAlreadyRegistered.TabIndex = 50;
+            this.lblAlreadyRegistered.Text = "already registered";
+            this.lblAlreadyRegistered.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Register
             // 
             this.AcceptButton = this.btnSave;
@@ -1183,22 +1280,28 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.Controls.Add(this.lblFingerprintRegister);
+            this.Controls.Add(this.txtPathImage);
             this.Controls.Add(this.gbHighestEducationalQualification);
             this.Controls.Add(this.gbAdditionalInfo);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lblRightHand);
             this.Controls.Add(this.pctrBoxThumb);
             this.Controls.Add(this.pctrBoxIndex);
-            this.Controls.Add(this.btnAddAnotherPerson);
             this.Controls.Add(this.gbPhoto);
             this.Controls.Add(this.gbOccupation);
             this.Controls.Add(this.gbIfMarried);
             this.Controls.Add(this.gbFingerprint);
             this.Controls.Add(this.gbContact);
             this.Controls.Add(this.gbPersonalInformation);
-            this.Controls.Add(this.btnRegister);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.gbAddress);
+            this.Controls.Add(this.btnRegister);
+            this.Controls.Add(this.lblNotYetRegistered);
+            this.Controls.Add(this.lblAlreadyRegistered);
+            this.Controls.Add(this.btnAddAnotherPerson);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnUpdate);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1220,12 +1323,12 @@
             this.gbPhoto.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctrBoxPhotos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderRegisterForm)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctrBoxIndex)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctrBoxThumb)).EndInit();
             this.gbAdditionalInfo.ResumeLayout(false);
             this.gbAdditionalInfo.PerformLayout();
             this.gbHighestEducationalQualification.ResumeLayout(false);
             this.gbHighestEducationalQualification.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctrBoxThumb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctrBoxIndex)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1289,9 +1392,9 @@
         public System.Windows.Forms.PictureBox pctrBoxPhotos;
         public System.Windows.Forms.ErrorProvider errorProviderRegisterForm;
         public System.Windows.Forms.Button btnAddAnotherPerson;
-        private System.Windows.Forms.Label lblRightHand;
-        private System.Windows.Forms.PictureBox pctrBoxThumb;
-        private System.Windows.Forms.PictureBox pctrBoxIndex;
+        public System.Windows.Forms.Label lblRightHand;
+        public System.Windows.Forms.PictureBox pctrBoxThumb;
+        public System.Windows.Forms.PictureBox pctrBoxIndex;
         private System.Windows.Forms.Button btnExit;
         public System.Windows.Forms.GroupBox gbAdditionalInfo;
         public System.Windows.Forms.ComboBox cmbCivilStatus;
@@ -1327,5 +1430,11 @@
         public System.Windows.Forms.Label lblDateAdded;
         public System.Windows.Forms.Label lblDateAddedLabel;
         public System.Windows.Forms.Label lblDateAddedTitle;
+        public System.Windows.Forms.Button btnDelete;
+        public System.Windows.Forms.Button btnUpdate;
+        public System.Windows.Forms.TextBox txtPathImage;
+        public System.Windows.Forms.Label lblNotYetRegistered;
+        public System.Windows.Forms.Label lblFingerprintRegister;
+        public System.Windows.Forms.Label lblAlreadyRegistered;
     }
 }

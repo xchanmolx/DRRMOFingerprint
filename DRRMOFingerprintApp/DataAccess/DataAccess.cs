@@ -112,6 +112,17 @@ namespace DRRMOFingerprintApp
             return spouses;
         }
 
+        public IEnumerable<Attendance> GetAttendances()
+        {
+            IEnumerable<Attendance> attendances;
+            using (IDbConnection connection = new SqlConnection(Helper.CnnVal(dbString)))
+            {
+                attendances = connection.Query<Attendance>("spAttendance_SelectAll", commandType: CommandType.StoredProcedure);
+            }
+
+            return attendances;
+        }
+
         public async Task InsertFingerprint(Fingerprint fingerprint)
         {
             try
@@ -286,6 +297,29 @@ namespace DRRMOFingerprintApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error, insert highest educational qualification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public async Task InsertAttendance(Attendance attendance)
+        {
+            try
+            {
+                var parameters = new DynamicParameters();
+                parameters.Add("FirstName", attendance.FirstName, DbType.String);
+                parameters.Add("LastName", attendance.LastName, DbType.String);
+                parameters.Add("Gender", attendance.Gender, DbType.String);
+                parameters.Add("OfficeName", attendance.OfficeName, DbType.String);
+                parameters.Add("Designation", attendance.Designation, DbType.String);
+                parameters.Add("LocalDate", attendance.LocalDate, DbType.String);
+
+                using (IDbConnection connection = new SqlConnection(Helper.CnnVal(dbString)))
+                {
+                    await connection.ExecuteAsync("spAttendance_Insert", parameters, commandType: CommandType.StoredProcedure);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error, insert attendance", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -474,6 +508,30 @@ namespace DRRMOFingerprintApp
             }
         }
 
+        public async Task UpdateAttendance(Attendance attendance)
+        {
+            try
+            {
+                var parameters = new DynamicParameters();
+                parameters.Add("Id", attendance.Id, DbType.Int32);
+                parameters.Add("FirstName", attendance.FirstName, DbType.String);
+                parameters.Add("LastName", attendance.LastName, DbType.String);
+                parameters.Add("Gender", attendance.Gender, DbType.String);
+                parameters.Add("OfficeName", attendance.OfficeName, DbType.String);
+                parameters.Add("Designation", attendance.Designation, DbType.String);
+                parameters.Add("LocalDate", attendance.LocalDate, DbType.String);
+
+                using (IDbConnection connection = new SqlConnection(Helper.CnnVal(dbString)))
+                {
+                    await connection.ExecuteAsync("spAttendance_Update", parameters, commandType: CommandType.StoredProcedure);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error, update attendance", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         public async Task DeletePerson(Person person)
         {
             try
@@ -510,6 +568,113 @@ namespace DRRMOFingerprintApp
             }
         }
 
+        public async Task DeleteAllAttendance()
+        {
+            try
+            {
+                using (IDbConnection connection = new SqlConnection(Helper.CnnVal(dbString)))
+                {
+                    await connection.ExecuteAsync("spAttendance_DeleteAll", commandType: CommandType.StoredProcedure);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error, delete all attendance", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public async Task DeleteAttendance(Attendance attendance)
+        {
+            try
+            {
+                var parameters = new DynamicParameters();
+                parameters.Add("Id", attendance.Id, DbType.Int32);
+
+                using (IDbConnection connection = new SqlConnection(Helper.CnnVal(dbString)))
+                {
+                    await connection.ExecuteAsync("spAttendance_Delete", parameters, commandType: CommandType.StoredProcedure);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error, delete attendance", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public DataTable PersonsPagination(int pageNumber, int pageSize)
+        {
+            // Creating data table to hold the data from database temporarily
+            DataTable dt = new DataTable();
+
+            using (SqlConnection conn = new SqlConnection(Helper.CnnVal(dbString)))
+            {
+                try
+                {
+                    // Sql queries
+                    string sql = $"SELECT * FROM dbo.Person ORDER BY Id DESC OFFSET {pageNumber - 1} * {pageSize} ROWS FETCH NEXT {pageSize} ROWS ONLY";
+
+                    // Creating SQL Commant to execute the query
+                    SqlCommand cmd = new SqlCommand(Convert.ToString(sql), conn);
+
+                    // Getting data from database
+                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
+
+                    // Open database connection
+                    conn.Open();
+
+                    // Passing values from adapter to Data Table dt
+                    sda.Fill(dt);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Search Persons!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+
+                return dt;
+            }
+        }
+
+        public DataTable AttendancesPagination(int pageNumber, int pageSize)
+        {
+            // Creating data table to hold the data from database temporarily
+            DataTable dt = new DataTable();
+
+            using (SqlConnection conn = new SqlConnection(Helper.CnnVal(dbString)))
+            {
+                try
+                {
+                    // Sql queries
+                    string sql = $"SELECT * FROM dbo.Attendance ORDER BY Id DESC OFFSET {pageNumber - 1} * {pageSize} ROWS FETCH NEXT {pageSize} ROWS ONLY";
+
+                    // Creating SQL Commant to execute the query
+                    SqlCommand cmd = new SqlCommand(Convert.ToString(sql), conn);
+
+                    // Getting data from database
+                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
+
+                    // Open database connection
+                    conn.Open();
+
+                    // Passing values from adapter to Data Table dt
+                    sda.Fill(dt);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Search Attendance!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+
+                return dt;
+            }
+        }
+
         public DataTable SearchPersons(string keywords)
         {
             // SQL connection for database connection
@@ -538,6 +703,43 @@ namespace DRRMOFingerprintApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Search Persons!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dt;
+        }
+
+        public DataTable SearchAttendances(string keywords)
+        {
+            // SQL connection for database connection
+            SqlConnection conn = new SqlConnection(Helper.CnnVal(dbString));
+
+            // Creating data table to hold the data from database temporarily
+            DataTable dt = new DataTable();
+
+            try
+            {
+                // SQL Query to Search items from database
+                String sql = "SELECT * FROM dbo.Attendance WHERE Id LIKE '%" + keywords + "%' OR FirstName LIKE '%" + keywords + "%' OR LastName LIKE '%" + keywords + "%' OR OfficeName LIKE '%" + keywords + "%' OR Designation LIKE '%" + keywords + "%' OR LocalDate LIKE '%" + keywords + "%' ";
+
+                // Creating SQL Commant to execute the query
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                // Getting data from database
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+
+                // Open database connection
+                conn.Open();
+
+                // Passing values from adapter to Data Table dt
+                sda.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Search Attendances!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

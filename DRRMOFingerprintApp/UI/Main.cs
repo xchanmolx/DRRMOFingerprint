@@ -134,8 +134,8 @@ namespace DRRMOFingerprintApp
 
         private void btnVerification_Click(object sender, EventArgs e)
         {
-            var verificationId = new VerificationId();
-            verificationId.ShowDialog();
+            var verification = new Verification();
+            verification.ShowDialog();
         }
 
         private void btnRegisterAccount_Click(object sender, EventArgs e)
@@ -171,9 +171,31 @@ namespace DRRMOFingerprintApp
             settings.ShowDialog();
         }
 
+        private void btnOn_Click(object sender, EventArgs e)
+        {
+            // Button btnOff = On
+            Button off = (Button)btnOff;
+            off.Enabled = true;
+
+            // Button btnOn = Off
+            Button on = (Button)btnOn;
+            on.Enabled = false;
+        }
+
+        private void btnOff_Click(object sender, EventArgs e)
+        {
+            // Button btnOn = On
+            Button on = (Button)btnOn;
+            on.Enabled = true;
+
+            // Button btnOff = Off
+            Button off = (Button)btnOff;
+            off.Enabled = false;
+        }
+
         private void btnExit_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Are your sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 Application.Exit();

@@ -103,8 +103,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ByteArrayToBitmap\ByteArrayToBitmap.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Address.cs" />
+    <Compile Include="Model\Attendance.cs" />
     <Compile Include="Model\Contact.cs" />
     <Compile Include="Model\Educational.cs" />
     <Compile Include="Model\Fingerprint.cs" />
@@ -164,11 +166,11 @@
     <Compile Include="UI\Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\VerificationId.cs">
+    <Compile Include="UI\Verification.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\VerificationId.Designer.cs">
-      <DependentUpon>VerificationId.cs</DependentUpon>
+    <Compile Include="UI\Verification.Designer.cs">
+      <DependentUpon>Verification.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\VerifiedPerson.cs">
       <SubType>Form</SubType>

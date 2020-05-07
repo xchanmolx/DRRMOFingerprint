@@ -64,7 +64,6 @@
             this.lblProvince = new System.Windows.Forms.Label();
             this.txtTown = new System.Windows.Forms.TextBox();
             this.lblTown = new System.Windows.Forms.Label();
-            this.txtHomeAddress = new System.Windows.Forms.TextBox();
             this.lblHomeAddress = new System.Windows.Forms.Label();
             this.gbFingerprint = new System.Windows.Forms.GroupBox();
             this.txtIdFingerprint = new System.Windows.Forms.TextBox();
@@ -131,6 +130,7 @@
             this.lblFingerprintRegister = new System.Windows.Forms.Label();
             this.lblNotYetRegistered = new System.Windows.Forms.Label();
             this.lblAlreadyRegistered = new System.Windows.Forms.Label();
+            this.txtHomeAddress = new System.Windows.Forms.TextBox();
             this.gbPersonalInformation.SuspendLayout();
             this.gbContact.SuspendLayout();
             this.gbAddress.SuspendLayout();
@@ -368,6 +368,7 @@
             // 
             // gbAddress
             // 
+            this.gbAddress.Controls.Add(this.txtHomeAddress);
             this.gbAddress.Controls.Add(this.txtZipCode);
             this.gbAddress.Controls.Add(this.lblZipCode);
             this.gbAddress.Controls.Add(this.txtSitio);
@@ -380,7 +381,6 @@
             this.gbAddress.Controls.Add(this.lblProvince);
             this.gbAddress.Controls.Add(this.txtTown);
             this.gbAddress.Controls.Add(this.lblTown);
-            this.gbAddress.Controls.Add(this.txtHomeAddress);
             this.gbAddress.Controls.Add(this.lblHomeAddress);
             this.gbAddress.Enabled = false;
             this.gbAddress.ForeColor = System.Drawing.Color.Black;
@@ -494,14 +494,6 @@
             this.lblTown.Size = new System.Drawing.Size(37, 13);
             this.lblTown.TabIndex = 34;
             this.lblTown.Text = "Town:";
-            // 
-            // txtHomeAddress
-            // 
-            this.txtHomeAddress.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtHomeAddress.Location = new System.Drawing.Point(106, 26);
-            this.txtHomeAddress.Name = "txtHomeAddress";
-            this.txtHomeAddress.Size = new System.Drawing.Size(325, 20);
-            this.txtHomeAddress.TabIndex = 0;
             // 
             // lblHomeAddress
             // 
@@ -1154,7 +1146,7 @@
             this.btnAddAnotherPerson.Location = new System.Drawing.Point(1108, 298);
             this.btnAddAnotherPerson.Name = "btnAddAnotherPerson";
             this.btnAddAnotherPerson.Size = new System.Drawing.Size(183, 127);
-            this.btnAddAnotherPerson.TabIndex = 9;
+            this.btnAddAnotherPerson.TabIndex = 10;
             this.btnAddAnotherPerson.Text = "&Add Another Profile";
             this.btnAddAnotherPerson.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddAnotherPerson.UseVisualStyleBackColor = false;
@@ -1220,7 +1212,7 @@
             this.btnRegister.Location = new System.Drawing.Point(811, 433);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(393, 127);
-            this.btnRegister.TabIndex = 10;
+            this.btnRegister.TabIndex = 9;
             this.btnRegister.Text = "  &Register Fingerprint";
             this.btnRegister.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRegister.UseVisualStyleBackColor = false;
@@ -1272,6 +1264,14 @@
             this.lblAlreadyRegistered.TabIndex = 50;
             this.lblAlreadyRegistered.Text = "already registered";
             this.lblAlreadyRegistered.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtHomeAddress
+            // 
+            this.txtHomeAddress.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtHomeAddress.Location = new System.Drawing.Point(106, 26);
+            this.txtHomeAddress.Name = "txtHomeAddress";
+            this.txtHomeAddress.Size = new System.Drawing.Size(325, 20);
+            this.txtHomeAddress.TabIndex = 0;
             // 
             // Register
             // 
@@ -1367,7 +1367,6 @@
         private System.Windows.Forms.Label lblProvince;
         public System.Windows.Forms.TextBox txtTown;
         private System.Windows.Forms.Label lblTown;
-        public System.Windows.Forms.TextBox txtHomeAddress;
         private System.Windows.Forms.Label lblHomeAddress;
         private System.Windows.Forms.GroupBox gbFingerprint;
         public System.Windows.Forms.TextBox txtFingerprint;
@@ -1436,5 +1435,6 @@
         public System.Windows.Forms.Label lblNotYetRegistered;
         public System.Windows.Forms.Label lblFingerprintRegister;
         public System.Windows.Forms.Label lblAlreadyRegistered;
+        public System.Windows.Forms.TextBox txtHomeAddress;
     }
 }

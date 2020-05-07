@@ -217,9 +217,9 @@
             this.lblRegisterAccount.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lblRegisterAccount.Location = new System.Drawing.Point(13, 9);
             this.lblRegisterAccount.Name = "lblRegisterAccount";
-            this.lblRegisterAccount.Size = new System.Drawing.Size(355, 25);
+            this.lblRegisterAccount.Size = new System.Drawing.Size(347, 25);
             this.lblRegisterAccount.TabIndex = 15;
-            this.lblRegisterAccount.Text = "Register Account --------------------";
+            this.lblRegisterAccount.Text = "Register Account -------------------";
             // 
             // errorProviderRegisterAccount
             // 

@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[spAddress_Update]
 	@PersonId INT,
-	@HomeAddress NVARCHAR(25),
+	@HomeAddress NVARCHAR(250),
 	@Town NVARCHAR(150),
 	@Barangay NVARCHAR(50),
 	@Sitio NVARCHAR(50),

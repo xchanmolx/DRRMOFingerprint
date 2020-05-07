@@ -7,7 +7,7 @@ using DRRMOFingerprintApp.Model;
 
 namespace DRRMOFingerprintApp.UI
 {
-    public partial class VerificationId : CaptureForm
+    public partial class Verification : CaptureForm
     {
         private DPFP.Template Template;
         private DPFP.Verification.Verification Verifier;
@@ -15,8 +15,9 @@ namespace DRRMOFingerprintApp.UI
         readonly DataAccess db = new DataAccess();
         IEnumerable<Person> people;
         IEnumerable<Fingerprint> fingerprints;
+        IEnumerable<Occupation> occupations;
 
-        public VerificationId()
+        public Verification()
         {
             InitializeComponent();
         }
@@ -60,6 +61,7 @@ namespace DRRMOFingerprintApp.UI
 
                 people = db.GetPeople();
                 fingerprints = db.GetFingerprints();
+                occupations = db.GetOccupations();
 
                 foreach (var fingerprint in fingerprints)
                 {
@@ -84,7 +86,17 @@ namespace DRRMOFingerprintApp.UI
                                     verifiedPerson.lblFName.Text = person.FirstName;
                                     verifiedPerson.lblMName.Text = person.MiddleName;
                                     verifiedPerson.lblLName.Text = person.LastName;
+                                    verifiedPerson.lblGender.Text = person.Gender;
                                     verifiedPerson.lblExName.Text = person.ExtensionName;
+
+                                    foreach (var occupation in occupations)
+                                    {
+                                        if (person.Id == occupation.PersonId)
+                                        {
+                                            verifiedPerson.lblOfficeName.Text = occupation.OfficeName;
+                                            verifiedPerson.lblDesignation.Text = occupation.Designation;
+                                        }
+                                    }
 
                                     verifiedPerson.ShowDialog();
                                 }

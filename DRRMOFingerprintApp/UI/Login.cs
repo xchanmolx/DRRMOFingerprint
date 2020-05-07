@@ -22,7 +22,7 @@ namespace DRRMOFingerprintApp.UI
             {
                 using (SqlConnection connection = new SqlConnection(Helper.CnnVal(dbString)))
                 {
-                    string query = "SELECT * FROM dbo.Account WHERE Username = '" + txtUsername.Text.Trim() + "' AND Password = '" + txtPassword.Text.Trim() + "'";
+                    string query = $"SELECT * FROM dbo.Account WHERE Username = '{txtUsername.Text.Trim()}' AND Password = '{txtPassword.Text.Trim()}' ";
                     SqlDataAdapter sda = new SqlDataAdapter(query, connection);
                     DataTable dtbl = new DataTable();
                     await Task.Run(() => sda.Fill(dtbl));

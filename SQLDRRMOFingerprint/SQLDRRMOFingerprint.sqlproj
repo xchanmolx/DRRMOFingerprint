@@ -106,6 +106,12 @@
     <Build Include="dbo\Stored Procedures\spAccount_Update.sql" />
     <Build Include="dbo\Stored Procedures\spAccount_Delete.sql" />
     <Build Include="dbo\Stored Procedures\spPerson_Pagination.sql" />
+    <Build Include="dbo\Tables\Attendance.sql" />
+    <Build Include="dbo\Stored Procedures\spAttendance_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\spAttendance_DeleteAll.sql" />
+    <Build Include="dbo\Stored Procedures\spAttendance_Update.sql" />
+    <Build Include="dbo\Stored Procedures\spAttendance_Delete.sql" />
+    <Build Include="dbo\Stored Procedures\spAttendance_SelectAll.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="SQLDRRMOFingerprint.refactorlog" />

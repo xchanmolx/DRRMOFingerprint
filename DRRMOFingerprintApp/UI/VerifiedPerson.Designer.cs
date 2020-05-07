@@ -41,6 +41,10 @@
             this.lblExName = new System.Windows.Forms.Label();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
+            this.lblLocalDateNow = new System.Windows.Forms.Label();
+            this.lblOfficeName = new System.Windows.Forms.Label();
+            this.lblDesignation = new System.Windows.Forms.Label();
+            this.lblGender = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pctrBoxProfile)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,6 +105,7 @@
             // 
             // btnClose
             // 
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClose.Location = new System.Drawing.Point(685, 405);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClose.Name = "btnClose";
@@ -184,11 +189,63 @@
             this.lblName.Text = "?";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // lblLocalDateNow
+            // 
+            this.lblLocalDateNow.AutoSize = true;
+            this.lblLocalDateNow.Font = new System.Drawing.Font("Roboto Thin", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLocalDateNow.Location = new System.Drawing.Point(629, 9);
+            this.lblLocalDateNow.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLocalDateNow.Name = "lblLocalDateNow";
+            this.lblLocalDateNow.Size = new System.Drawing.Size(15, 18);
+            this.lblLocalDateNow.TabIndex = 15;
+            this.lblLocalDateNow.Text = "?";
+            // 
+            // lblOfficeName
+            // 
+            this.lblOfficeName.AutoSize = true;
+            this.lblOfficeName.Font = new System.Drawing.Font("Roboto Thin", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOfficeName.Location = new System.Drawing.Point(342, 61);
+            this.lblOfficeName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblOfficeName.Name = "lblOfficeName";
+            this.lblOfficeName.Size = new System.Drawing.Size(15, 18);
+            this.lblOfficeName.TabIndex = 16;
+            this.lblOfficeName.Text = "?";
+            this.lblOfficeName.Visible = false;
+            // 
+            // lblDesignation
+            // 
+            this.lblDesignation.AutoSize = true;
+            this.lblDesignation.Font = new System.Drawing.Font("Roboto Thin", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDesignation.Location = new System.Drawing.Point(342, 161);
+            this.lblDesignation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDesignation.Name = "lblDesignation";
+            this.lblDesignation.Size = new System.Drawing.Size(15, 18);
+            this.lblDesignation.TabIndex = 17;
+            this.lblDesignation.Text = "?";
+            this.lblDesignation.Visible = false;
+            // 
+            // lblGender
+            // 
+            this.lblGender.AutoSize = true;
+            this.lblGender.Font = new System.Drawing.Font("Roboto Thin", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGender.Location = new System.Drawing.Point(342, 110);
+            this.lblGender.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblGender.Name = "lblGender";
+            this.lblGender.Size = new System.Drawing.Size(15, 18);
+            this.lblGender.TabIndex = 18;
+            this.lblGender.Text = "?";
+            this.lblGender.Visible = false;
+            // 
             // VerifiedPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(810, 454);
+            this.Controls.Add(this.lblGender);
+            this.Controls.Add(this.lblDesignation);
+            this.Controls.Add(this.lblOfficeName);
+            this.Controls.Add(this.lblLocalDateNow);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.btnClose);
@@ -207,6 +264,7 @@
             this.Name = "VerifiedPerson";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Verified Person";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.VerifiedPerson_FormClosed);
             this.Load += new System.EventHandler(this.VerifiedPerson_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pctrBoxProfile)).EndInit();
             this.ResumeLayout(false);
@@ -228,5 +286,9 @@
         public System.Windows.Forms.Label lblExName;
         public System.Windows.Forms.Label lblWelcome;
         public System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblLocalDateNow;
+        public System.Windows.Forms.Label lblOfficeName;
+        public System.Windows.Forms.Label lblDesignation;
+        public System.Windows.Forms.Label lblGender;
     }
 }

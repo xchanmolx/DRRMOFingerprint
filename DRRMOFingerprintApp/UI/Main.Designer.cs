@@ -42,6 +42,8 @@
             this.pctrBoxSearch = new System.Windows.Forms.PictureBox();
             this.pctrBoxProfile = new System.Windows.Forms.PictureBox();
             this.btnVerification = new System.Windows.Forms.Button();
+            this.btnOff = new System.Windows.Forms.Button();
+            this.btnOn = new System.Windows.Forms.Button();
             this.gbDRRMODataRecords.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctrBoxSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctrBoxSearch)).BeginInit();
@@ -245,6 +247,45 @@
             this.btnVerification.UseVisualStyleBackColor = false;
             this.btnVerification.Click += new System.EventHandler(this.btnVerification_Click);
             // 
+            // btnOff
+            // 
+            this.btnOff.BackColor = System.Drawing.SystemColors.Control;
+            this.btnOff.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOff.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnOff.FlatAppearance.BorderSize = 0;
+            this.btnOff.FlatAppearance.MouseDownBackColor = System.Drawing.Color.OrangeRed;
+            this.btnOff.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.btnOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOff.ForeColor = System.Drawing.Color.Crimson;
+            this.btnOff.Image = ((System.Drawing.Image)(resources.GetObject("btnOff.Image")));
+            this.btnOff.Location = new System.Drawing.Point(355, 129);
+            this.btnOff.Name = "btnOff";
+            this.btnOff.Size = new System.Drawing.Size(51, 25);
+            this.btnOff.TabIndex = 34;
+            this.btnOff.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnOff.UseVisualStyleBackColor = false;
+            this.btnOff.Click += new System.EventHandler(this.btnOff_Click);
+            // 
+            // btnOn
+            // 
+            this.btnOn.BackColor = System.Drawing.SystemColors.Control;
+            this.btnOn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnOn.Enabled = false;
+            this.btnOn.FlatAppearance.BorderSize = 0;
+            this.btnOn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.OrangeRed;
+            this.btnOn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.btnOn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOn.ForeColor = System.Drawing.Color.Crimson;
+            this.btnOn.Image = ((System.Drawing.Image)(resources.GetObject("btnOn.Image")));
+            this.btnOn.Location = new System.Drawing.Point(397, 129);
+            this.btnOn.Name = "btnOn";
+            this.btnOn.Size = new System.Drawing.Size(51, 25);
+            this.btnOn.TabIndex = 33;
+            this.btnOn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnOn.UseVisualStyleBackColor = false;
+            this.btnOn.Click += new System.EventHandler(this.btnOn_Click);
+            // 
             // Main
             // 
             this.AcceptButton = this.btnRegistration;
@@ -252,6 +293,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(461, 440);
+            this.Controls.Add(this.btnOn);
             this.Controls.Add(this.pctrBoxSettings);
             this.Controls.Add(this.btnRegistrationForm);
             this.Controls.Add(this.btnExit);
@@ -262,6 +304,7 @@
             this.Controls.Add(this.pctrBoxProfile);
             this.Controls.Add(this.btnVerification);
             this.Controls.Add(this.btnRegistration);
+            this.Controls.Add(this.btnOff);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -291,6 +334,8 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnRegistrationForm;
         public System.Windows.Forms.PictureBox pctrBoxSettings;
+        public System.Windows.Forms.Button btnOff;
+        public System.Windows.Forms.Button btnOn;
     }
 }
 

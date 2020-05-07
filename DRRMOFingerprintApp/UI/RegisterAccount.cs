@@ -149,7 +149,7 @@ namespace DRRMOFingerprintApp.UI
         {
             try
             {
-                DialogResult result = MessageBox.Show($"Are your sure you want to update {txtFirstName.Text} {txtLastName.Text}?", "Update personal data", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show($"Are your sure you want to update {txtFirstName.Text} {txtLastName.Text}?", "Update account data", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     // Get file name of the image & default image path
@@ -185,7 +185,7 @@ namespace DRRMOFingerprintApp.UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error, update person data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error, update account data", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -193,7 +193,7 @@ namespace DRRMOFingerprintApp.UI
         {
             try
             {
-                DialogResult result = MessageBox.Show($"Are your sure you want to delete {txtFirstName.Text} {txtLastName.Text}?", "Delete personal data", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show($"Are your sure you want to delete {txtFirstName.Text} {txtLastName.Text}?", "Delete account data", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     var account = new Account();

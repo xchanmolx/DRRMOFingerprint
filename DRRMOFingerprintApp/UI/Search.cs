@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using DRRMOFingerprintApp.Model;
 
@@ -56,7 +57,7 @@ namespace DRRMOFingerprintApp.UI
 
             GetData();
 
-            GetPersons();   
+            GetPersonsPagination(1, 10);  
         }
 
         private void GetData()
@@ -109,16 +110,39 @@ namespace DRRMOFingerprintApp.UI
         {
             InitializeComponent();
 
-            GetPersons();
+            // Get the keywords
+            string keywords = txtSearch.Text.Trim();
+
+            // Filter the items based on keywords
+            if (keywords.Length > 0)
+            {
+                // Use search method to display items
+                DataTable dt = db.SearchPersons(keywords);
+                dgvPeople.DataSource = dt;
+
+                DataView dv = dt.DefaultView;
+                dv.Sort = "Id DESC";
+                DataTable sortedDT = dv.ToTable();
+            }
+            else if (keywords.Length <= 0)
+            {
+                int pageNumber, pageSize;
+                int.TryParse(txtPrevious.Text, out pageNumber);
+                int.TryParse(txtNext.Text, out pageSize);
+
+                GetPersonsPagination(pageNumber, pageSize);
+            }
 
             // Realtime data
             RealtimeData();
         }
 
-        public void GetPersons()
+        public void GetPersonsPagination(int pageNumber, int pageSize)
         {
-            people = db.GetPeople().ToList();
-            dgvPeople.DataSource = people;
+            int.TryParse(txtPrevious.Text, out pageNumber);
+            int.TryParse(txtNext.Text, out pageSize);
+
+            dgvPeople.DataSource = db.PersonsPagination(pageNumber, pageSize);
 
             // Change column name
             dgvPeople.Columns[0].HeaderText = "Person Id";
@@ -130,6 +154,41 @@ namespace DRRMOFingerprintApp.UI
 
             // Hide string image column
             dgvPeople.Columns["StringImage"].Visible = false;
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            // Get the keywords
+            string keywords = txtSearch.Text.Trim();
+
+            // Filter the items based on keywords
+            if (keywords.Length > 0)
+            {
+                // Use search method to display items
+                DataTable dt = db.SearchPersons(keywords);
+                dgvPeople.DataSource = dt;
+
+                DataView dv = dt.DefaultView;
+                dv.Sort = "Id DESC";
+                DataTable sortedDT = dv.ToTable();
+            }
+            else if (keywords.Length <= 0)
+            {
+                int pageNumber, pageSize;
+                int.TryParse(txtPrevious.Text, out pageNumber);
+                int.TryParse(txtNext.Text, out pageSize);
+
+                if (pageNumber <= 0 || pageSize <= 0)
+                {
+                    pageNumber = 1;
+                    pageSize = 10;
+                    dgvPeople.DataSource = db.PersonsPagination(pageNumber, pageSize);
+                }
+                else
+                {
+                    dgvPeople.DataSource = db.PersonsPagination(pageNumber, pageSize);
+                }
+            }
         }
 
         private void btnRegisterAccount_Click(object sender, EventArgs e)
@@ -296,6 +355,7 @@ namespace DRRMOFingerprintApp.UI
                 }
              
                 register.ShowDialog();
+                txtSearch.Text = "";
                 txtSearch.Focus();
             }
             catch (Exception ex)
@@ -304,22 +364,60 @@ namespace DRRMOFingerprintApp.UI
             }
         }
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
+        private void txtPrevious_TextChanged(object sender, EventArgs e)
         {
-            // Get the keywords
-            string keywords = txtSearch.Text.Trim();
+            int pageNumber, pageSize;
+            int.TryParse(txtPrevious.Text, out pageNumber);
+            int.TryParse(txtNext.Text, out pageSize);
 
-            // Filter the items based on keywords
-            if (keywords != null)
+            if (pageNumber <= 0)
             {
-                // Use search method to display items
-                DataTable dt = db.SearchPersons(keywords);
-                dgvPeople.DataSource = dt;
-
-                DataView dv = dt.DefaultView;
-                dv.Sort = "Id DESC";
-                DataTable sortedDT = dv.ToTable();
+                pageNumber = 1;
+                dgvPeople.DataSource = db.PersonsPagination(pageNumber, pageSize);
             }
+            else
+            {
+                dgvPeople.DataSource = db.PersonsPagination(pageNumber, pageSize);
+            }
+        }
+
+        private void txtNext_TextChanged(object sender, EventArgs e)
+        {
+            int pageNumber, pageSize;
+            int.TryParse(txtPrevious.Text, out pageNumber);
+            int.TryParse(txtNext.Text, out pageSize);
+
+            if (pageSize <= 0)
+            {
+                pageSize = 10;
+                dgvPeople.DataSource = db.PersonsPagination(pageNumber, pageSize);
+            }
+            else
+            {
+                dgvPeople.DataSource = db.PersonsPagination(pageNumber, pageSize);
+            }
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            int pageNumber;
+            int.TryParse(txtPrevious.Text, out pageNumber);
+
+            pageNumber--;
+            txtPrevious.Text = pageNumber.ToString();
+
+            txtSearch.Focus();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            int pageNumber;
+            int.TryParse(txtPrevious.Text, out pageNumber);
+            
+            pageNumber++;
+            txtPrevious.Text = pageNumber.ToString();
+
+            txtSearch.Focus();
         }
 
         private void btnExit_Click(object sender, EventArgs e)

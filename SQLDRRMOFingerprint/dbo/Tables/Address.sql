@@ -2,7 +2,7 @@
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [PersonId] INT NOT NULL, 
-    [HomeAddress] NVARCHAR(250) NULL, 
+    [HomeAddress] NVARCHAR(250) NULL,
     [Town] NVARCHAR(150) NULL, 
     [Barangay] NVARCHAR(50) NULL, 
     [Sitio] NVARCHAR(50) NULL, 

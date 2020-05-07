@@ -16,6 +16,7 @@ namespace DRRMOFingerprintApp.UI
     {
         DataAccess db = new DataAccess();
         List<Account> accounts = new List<Account>();
+        List<Attendance> attendances = new List<Attendance>();
 
         private const string dbString = "DRRMOFingerprintDB";
         private DataSet dataToWatch = null;
@@ -29,7 +30,7 @@ namespace DRRMOFingerprintApp.UI
 
         private string GetSQL()
         {
-            return "SELECT [FirstName] FROM dbo.Account";
+            return "SELECT [FirstName] FROM dbo.Account" + " SELECT [FirstName] FROM dbo.Attendance";
         }
 
         private void dependency_OnChange(object sender, SqlNotificationEventArgs e)
@@ -52,6 +53,7 @@ namespace DRRMOFingerprintApp.UI
             GetData();
 
             GetAccounts();
+            SearchAndPaginationAttendance();
         }
 
         private void GetData()
@@ -104,10 +106,40 @@ namespace DRRMOFingerprintApp.UI
         {
             InitializeComponent();
 
+            // Get accounts
             GetAccounts();
+
+            // Search and pagination
+            SearchAndPaginationAttendance();
 
             // Realtime fetch data
             RealtimeData();
+        }
+
+        public void SearchAndPaginationAttendance()
+        {
+            // Get the keywords
+            string keywords = txtSearchAttendance.Text.Trim();
+
+            // Filter the items based on keywords
+            if (keywords.Length > 0)
+            {
+                // Use search method to display items
+                DataTable dt = db.SearchAttendances(keywords);
+                dgvAttendance.DataSource = dt;
+
+                DataView dv = dt.DefaultView;
+                dv.Sort = "Id DESC";
+                DataTable sortedDT = dv.ToTable();
+            }
+            else if (keywords.Length <= 0)
+            {
+                int pageNumber, pageSize;
+                int.TryParse(txtPrevious.Text, out pageNumber);
+                int.TryParse(txtNext.Text, out pageSize);
+
+                GetAttendancesPagination(pageNumber, pageSize);
+            }
         }
 
         public void GetAccounts()
@@ -126,10 +158,65 @@ namespace DRRMOFingerprintApp.UI
             dgvAccount.Columns["StringImage"].Visible = false;
         }
 
+        public void GetAttendancesPagination(int pageNumber, int pageSize)
+        {
+            int.TryParse(txtPrevious.Text, out pageNumber);
+            int.TryParse(txtNext.Text, out pageSize);
+
+            dgvAttendance.DataSource = db.AttendancesPagination(pageNumber, pageSize);
+
+            // Change column name
+            dgvAttendance.Columns[1].HeaderText = "First Name";
+            dgvAttendance.Columns[2].HeaderText = "Last Name";
+            dgvAttendance.Columns[4].HeaderText = "Office Name";
+            dgvAttendance.Columns[6].HeaderText = "Date & Time";
+
+            // Hide string image column
+            dgvAttendance.Columns["Id"].Visible = false;
+            dgvAttendance.Columns["Signature"].Visible = false;
+        }
+
+        private void txtSearchAttendance_TextChanged(object sender, EventArgs e)
+        {
+            // Get the keywords
+            string keywords = txtSearchAttendance.Text.Trim();
+
+            // Filter the items based on keywords
+            if (keywords.Length > 0)
+            {
+                // Use search method to display items
+                DataTable dt = db.SearchAttendances(keywords);
+                dgvAttendance.DataSource = dt;
+
+                DataView dv = dt.DefaultView;
+                dv.Sort = "Id DESC";
+                DataTable sortedDT = dv.ToTable();
+            }
+            else if (keywords.Length <= 0)
+            {
+                int pageNumber, pageSize;
+                int.TryParse(txtPrevious.Text, out pageNumber);
+                int.TryParse(txtNext.Text, out pageSize);
+
+                if (pageNumber <= 0 || pageSize <= 0)
+                {
+                    pageNumber = 1;
+                    pageSize = 10;
+                    dgvAttendance.DataSource = db.AttendancesPagination(pageNumber, pageSize);
+                }
+                else
+                {
+                    dgvAttendance.DataSource = db.AttendancesPagination(pageNumber, pageSize);
+                }
+            }
+        }
+
         private void btnRegisterAccount_Click(object sender, EventArgs e)
         {
             var registerAccount = new RegisterAccount();
             registerAccount.ShowDialog();
+
+            txtSearchAttendance.Focus();
         }
 
         private void dgvAccount_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -186,6 +273,153 @@ namespace DRRMOFingerprintApp.UI
                 DataView dv = dt.DefaultView;
                 dv.Sort = "Id DESC";
                 DataTable sortedDT = dv.ToTable();
+            }
+        }
+
+        private void btnShow_Click(object sender, EventArgs e)
+        {
+            lblSearch.Visible = true;
+            txtSearch.Visible = true;
+            dgvAccount.Visible = true;
+
+            btnShow.Visible = false;
+
+            txtSearch.Focus();
+        }
+
+        private void btnHide_Click(object sender, EventArgs e)
+        {
+            lblSearch.Visible = false;
+            txtSearch.Visible = false;
+            dgvAccount.Visible = false;
+
+            btnShow.Visible = true;
+
+            txtSearchAttendance.Focus();
+        }
+
+        private void txtPrevious_TextChanged(object sender, EventArgs e)
+        {
+            int pageNumber, pageSize;
+            int.TryParse(txtPrevious.Text, out pageNumber);
+            int.TryParse(txtNext.Text, out pageSize);
+
+            if (pageNumber <= 0)
+            {
+                pageNumber = 1;
+                dgvAttendance.DataSource = db.AttendancesPagination(pageNumber, pageSize);
+            }
+            else
+            {
+                dgvAttendance.DataSource = db.AttendancesPagination(pageNumber, pageSize);
+            }
+        }
+
+        private void txtNext_TextChanged(object sender, EventArgs e)
+        {
+            int pageNumber, pageSize;
+            int.TryParse(txtPrevious.Text, out pageNumber);
+            int.TryParse(txtNext.Text, out pageSize);
+
+            if (pageSize <= 0)
+            {
+                pageSize = 10;
+                dgvAttendance.DataSource = db.AttendancesPagination(pageNumber, pageSize);
+            }
+            else
+            {
+                dgvAttendance.DataSource = db.AttendancesPagination(pageNumber, pageSize);
+            }
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            int pageNumber;
+            int.TryParse(txtPrevious.Text, out pageNumber);
+
+            pageNumber--;
+            txtPrevious.Text = pageNumber.ToString();
+
+            txtSearchAttendance.Focus();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            int pageNumber;
+            int.TryParse(txtPrevious.Text, out pageNumber);
+
+            pageNumber++;
+            txtPrevious.Text = pageNumber.ToString();
+
+            txtSearchAttendance.Focus();
+        }
+
+        private async void btnDeleteAll_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to delete all attendance?", "Delete All Attendance", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                await db.DeleteAllAttendance();
+                MessageBox.Show("Deleted all attendance successfully!", "Deleted successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void dgvAttendance_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                attendances = db.GetAttendances().ToList();
+
+                foreach (var attendance in attendances)
+                {
+                    // Get row index
+                    int rowIndex = e.RowIndex;
+                    int id = Convert.ToInt32(dgvAttendance.Rows[rowIndex].Cells[0].Value.ToString());
+                    
+                    if (attendance.Id == id)
+                    {
+                        DialogResult result = MessageBox.Show($"Are you sure you want to delete {attendance.FirstName} {attendance.LastName} attendance?", "Delete Attendance", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            await db.DeleteAttendance(attendance);
+
+                            txtSearchAttendance.Focus();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error, deleting attendance", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void dgvAttendance_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                // Get row index
+                int rowIndex = e.RowIndex;
+
+                var attendance = new Attendance();
+                attendance.Id = Convert.ToInt32(dgvAttendance.Rows[rowIndex].Cells[0].Value.ToString());
+                attendance.FirstName = dgvAttendance.Rows[rowIndex].Cells[1].Value.ToString();
+                attendance.LastName = dgvAttendance.Rows[rowIndex].Cells[2].Value.ToString();
+                attendance.Gender = dgvAttendance.Rows[rowIndex].Cells[3].Value.ToString();
+                attendance.OfficeName = dgvAttendance.Rows[rowIndex].Cells[4].Value.ToString();
+                attendance.Designation = dgvAttendance.Rows[rowIndex].Cells[5].Value.ToString();
+                attendance.LocalDate = dgvAttendance.Rows[rowIndex].Cells[6].Value.ToString();
+
+                await db.UpdateAttendance(attendance);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error, update datagridview attendance", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

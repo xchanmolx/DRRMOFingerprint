@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -114,6 +115,8 @@ namespace DRRMOFingerprintApp.UI
 
             // Realtime fetch data
             RealtimeData();
+
+            pctrBoxPhotos.Image = Properties.Resources.aloguinsan_logo;
         }
 
         public void SearchAndPaginationAttendance()
@@ -366,7 +369,37 @@ namespace DRRMOFingerprintApp.UI
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string defaultImage = "aloguinsan-logo.png";
+                string defaultPathImage = @"\Images\Logos\";
+                string paths = Application.StartupPath.Substring(0, (Application.StartupPath.Length - 10));
+                string correctFileName = Path.GetFileName(ofd.FileName);
+                if (btnBrowsePhotosWasClicked == true)
+                {
+                    imageUrl = correctFileName;
+                }
+                else if (btnBrowsePhotosWasClicked == false)
+                {
+                    if (!btnClearPhotosWasClicked)
+                    {
+                        imageUrl = defaultImage;
+                    }
+                    else
+                    {
+                        imageUrl = null;
+                    }
+                }
+                AttendancePrintAll frm = new AttendancePrintAll(txtHeader1.Text, txtHeader2.Text, txtHeader3.Text, txtTitle.Text, DateTime.Now.ToString("dddd, MMMM dd, yyyy"), paths + defaultPathImage + imageUrl);
 
+                frm.ShowDialog();
+
+                txtSearchAttendance.Focus();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error, print all attendance", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private async void dgvAttendance_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -421,6 +454,63 @@ namespace DRRMOFingerprintApp.UI
             {
                 MessageBox.Show(ex.Message, "Error, update datagridview attendance", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void dgvAttendance_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            lblTotalPerson.Text = "Total Person: " + dgvAttendance.Rows.Count.ToString();
+        }
+
+        private void dgvAttendance_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            lblTotalPerson.Text = "Total Person: " + dgvAttendance.Rows.Count.ToString();
+        }
+
+        OpenFileDialog ofd = new OpenFileDialog();
+        string imageUrl = null;
+        bool btnBrowsePhotosWasClicked = false;
+        private void btnBrowsePhotos_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnBrowsePhotosWasClicked = true;
+
+                // OpenFileDialog
+                ofd.Filter = @"All Images Files (*.png;*.jpeg;*.gif;*.jpg;*.bmp;*.tiff;*.tif)|*.png;*.jpeg;*.gif;*.jpg;*.bmp;*.tiff;*.tif" +
+                                "|PNG Portable Network Graphics (*.png)|*.png" +
+                                "|JPEG File Interchange Format (*.jpg *.jpeg *jfif)|*.jpg;*.jpeg;*.jfif" +
+                                "|BMP Windows Bitmap (*.bmp)|*.bmp" +
+                                "|TIF Tagged Imaged File Format (*.tif *.tiff)|*.tif;*.tiff" +
+                                "|GIF Graphics Interchange Format (*.gif)|*.gif";
+                ofd.FilterIndex = 1;
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    if (ofd.CheckFileExists)
+                    {
+                        string paths = Application.StartupPath.Substring(0, (Application.StartupPath.Length - 10));
+                        string correctFileName = Path.GetFileName(ofd.FileName);
+                        File.Copy(ofd.FileName, paths + @"\Images\Logos\" + correctFileName, true);
+
+                        pctrBoxPhotos.Image = Image.FromFile(ofd.FileName);
+
+                        imageUrl = correctFileName;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error, browse image", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        bool btnClearPhotosWasClicked = false;
+        private void btnClearPhotos_Click(object sender, EventArgs e)
+        {
+            btnClearPhotosWasClicked = true;
+
+            pctrBoxPhotos.Image = null;
+            imageUrl = null;
         }
 
         private void btnExit_Click(object sender, EventArgs e)

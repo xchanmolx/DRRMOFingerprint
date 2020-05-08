@@ -104,6 +104,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ByteArrayToBitmap\ByteArrayToBitmap.cs" />
+    <Compile Include="DS\dsAttendance_PrintAll.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsAttendance_PrintAll.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\Attendance.cs" />
@@ -113,6 +118,12 @@
     <Compile Include="Model\Occupation.cs" />
     <Compile Include="Model\PersonInfo.cs" />
     <Compile Include="Model\Spouse.cs" />
+    <Compile Include="UI\AttendancePrintAll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AttendancePrintAll.Designer.cs">
+      <DependentUpon>AttendancePrintAll.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\CaptureForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +189,10 @@
     <Compile Include="UI\VerifiedPerson.Designer.cs">
       <DependentUpon>VerifiedPerson.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Report\rptAttendance_PrintAll.rdlc" />
+    <EmbeddedResource Include="UI\AttendancePrintAll.resx">
+      <DependentUpon>AttendancePrintAll.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\CaptureForm.resx">
       <DependentUpon>CaptureForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -215,6 +230,17 @@
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </None>
+    <None Include="DS\dsAttendance_PrintAll.xsc">
+      <DependentUpon>dsAttendance_PrintAll.xsd</DependentUpon>
+    </None>
+    <None Include="DS\dsAttendance_PrintAll.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsAttendance_PrintAll.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\dsAttendance_PrintAll.xss">
+      <DependentUpon>dsAttendance_PrintAll.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -234,10 +260,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Document\" />
+    <Folder Include="Images\Logos\" />
     <Folder Include="Images\Persons\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fingerprint-final.ico" />
+    <None Include="Resources\aloguinsan-logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

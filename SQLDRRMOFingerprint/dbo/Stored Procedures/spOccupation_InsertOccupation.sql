@@ -2,7 +2,7 @@
 	@PersonId INT,
 	@WorkPosition NVARCHAR(150),
 	@WorkAddress NVARCHAR(250),
-	@WorkPhoneNumber NVARCHAR(20),
+	@WorkPhoneNumber NVARCHAR(200),
 	@Organization NVARCHAR(150),
 	@Designation NVARCHAR(150),
 	@OfficeName NVARCHAR(100)

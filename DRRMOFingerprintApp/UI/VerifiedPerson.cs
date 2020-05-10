@@ -1,7 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Threading;
-using System.Timers;
 using System.Windows.Forms;
 using DRRMOFingerprintApp.Model;
 
@@ -21,11 +18,15 @@ namespace DRRMOFingerprintApp.UI
             Button button = Application.OpenForms["Main"].Controls["btnOn"] as Button;
             if (button.Enabled == true)
             {
-                System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
+                Timer timer = new Timer();
                 timer.Tick += new EventHandler(btnClose_Click);
                 timer.Interval = 2000; // 2 seconds
                 timer.Start();
             }
+
+            // Get textbox from Main form
+            TextBox txtEvent = Application.OpenForms["Main"].Controls["txtEvent"] as TextBox;
+            lblEvent.Text = txtEvent.Text;
         }
 
         private void VerifiedPerson_Load(object sender, EventArgs e)

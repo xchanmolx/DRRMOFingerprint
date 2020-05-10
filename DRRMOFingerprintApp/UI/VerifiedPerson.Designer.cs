@@ -45,13 +45,14 @@
             this.lblOfficeName = new System.Windows.Forms.Label();
             this.lblDesignation = new System.Windows.Forms.Label();
             this.lblGender = new System.Windows.Forms.Label();
+            this.lblEvent = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pctrBoxProfile)).BeginInit();
             this.SuspendLayout();
             // 
             // pctrBoxProfile
             // 
             this.pctrBoxProfile.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pctrBoxProfile.Location = new System.Drawing.Point(192, 61);
+            this.pctrBoxProfile.Location = new System.Drawing.Point(152, 61);
             this.pctrBoxProfile.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pctrBoxProfile.Name = "pctrBoxProfile";
             this.pctrBoxProfile.Size = new System.Drawing.Size(142, 118);
@@ -63,7 +64,7 @@
             // 
             this.lblFirstName.AutoSize = true;
             this.lblFirstName.Font = new System.Drawing.Font("Roboto Thin", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFirstName.Location = new System.Drawing.Point(56, 189);
+            this.lblFirstName.Location = new System.Drawing.Point(16, 189);
             this.lblFirstName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(81, 18);
@@ -74,7 +75,7 @@
             // 
             this.lblMiddleName.AutoSize = true;
             this.lblMiddleName.Font = new System.Drawing.Font("Roboto Thin", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMiddleName.Location = new System.Drawing.Point(56, 251);
+            this.lblMiddleName.Location = new System.Drawing.Point(16, 251);
             this.lblMiddleName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMiddleName.Name = "lblMiddleName";
             this.lblMiddleName.Size = new System.Drawing.Size(95, 18);
@@ -85,7 +86,7 @@
             // 
             this.lblLastName.AutoSize = true;
             this.lblLastName.Font = new System.Drawing.Font("Roboto Thin", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastName.Location = new System.Drawing.Point(56, 313);
+            this.lblLastName.Location = new System.Drawing.Point(16, 313);
             this.lblLastName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(80, 18);
@@ -96,7 +97,7 @@
             // 
             this.lblExtensionName.AutoSize = true;
             this.lblExtensionName.Font = new System.Drawing.Font("Roboto Thin", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExtensionName.Location = new System.Drawing.Point(56, 375);
+            this.lblExtensionName.Location = new System.Drawing.Point(16, 375);
             this.lblExtensionName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblExtensionName.Name = "lblExtensionName";
             this.lblExtensionName.Size = new System.Drawing.Size(115, 18);
@@ -119,7 +120,7 @@
             // 
             this.lblFName.AutoSize = true;
             this.lblFName.Font = new System.Drawing.Font("Roboto Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFName.Location = new System.Drawing.Point(187, 182);
+            this.lblFName.Location = new System.Drawing.Point(147, 182);
             this.lblFName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFName.Name = "lblFName";
             this.lblFName.Size = new System.Drawing.Size(23, 25);
@@ -131,7 +132,7 @@
             // 
             this.lblMName.AutoSize = true;
             this.lblMName.Font = new System.Drawing.Font("Roboto Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMName.Location = new System.Drawing.Point(187, 244);
+            this.lblMName.Location = new System.Drawing.Point(147, 244);
             this.lblMName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMName.Name = "lblMName";
             this.lblMName.Size = new System.Drawing.Size(23, 25);
@@ -143,7 +144,7 @@
             // 
             this.lblLName.AutoSize = true;
             this.lblLName.Font = new System.Drawing.Font("Roboto Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLName.Location = new System.Drawing.Point(187, 306);
+            this.lblLName.Location = new System.Drawing.Point(147, 306);
             this.lblLName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLName.Name = "lblLName";
             this.lblLName.Size = new System.Drawing.Size(23, 25);
@@ -155,7 +156,7 @@
             // 
             this.lblExName.AutoSize = true;
             this.lblExName.Font = new System.Drawing.Font("Roboto Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExName.Location = new System.Drawing.Point(187, 368);
+            this.lblExName.Location = new System.Drawing.Point(147, 368);
             this.lblExName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblExName.Name = "lblExName";
             this.lblExName.Size = new System.Drawing.Size(23, 25);
@@ -168,7 +169,7 @@
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.Font = new System.Drawing.Font("Roboto Black", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWelcome.ForeColor = System.Drawing.Color.Crimson;
-            this.lblWelcome.Location = new System.Drawing.Point(53, 9);
+            this.lblWelcome.Location = new System.Drawing.Point(13, 9);
             this.lblWelcome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblWelcome.Name = "lblWelcome";
             this.lblWelcome.Size = new System.Drawing.Size(125, 33);
@@ -181,7 +182,7 @@
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Roboto Black", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblName.Location = new System.Drawing.Point(186, 9);
+            this.lblName.Location = new System.Drawing.Point(146, 9);
             this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(28, 33);
@@ -204,7 +205,7 @@
             // 
             this.lblOfficeName.AutoSize = true;
             this.lblOfficeName.Font = new System.Drawing.Font("Roboto Thin", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOfficeName.Location = new System.Drawing.Point(342, 61);
+            this.lblOfficeName.Location = new System.Drawing.Point(302, 61);
             this.lblOfficeName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOfficeName.Name = "lblOfficeName";
             this.lblOfficeName.Size = new System.Drawing.Size(15, 18);
@@ -216,7 +217,7 @@
             // 
             this.lblDesignation.AutoSize = true;
             this.lblDesignation.Font = new System.Drawing.Font("Roboto Thin", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDesignation.Location = new System.Drawing.Point(342, 161);
+            this.lblDesignation.Location = new System.Drawing.Point(302, 161);
             this.lblDesignation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDesignation.Name = "lblDesignation";
             this.lblDesignation.Size = new System.Drawing.Size(15, 18);
@@ -228,7 +229,7 @@
             // 
             this.lblGender.AutoSize = true;
             this.lblGender.Font = new System.Drawing.Font("Roboto Thin", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGender.Location = new System.Drawing.Point(342, 110);
+            this.lblGender.Location = new System.Drawing.Point(302, 110);
             this.lblGender.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGender.Name = "lblGender";
             this.lblGender.Size = new System.Drawing.Size(15, 18);
@@ -236,12 +237,25 @@
             this.lblGender.Text = "?";
             this.lblGender.Visible = false;
             // 
+            // lblEvent
+            // 
+            this.lblEvent.Font = new System.Drawing.Font("Roboto Black", 23.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEvent.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblEvent.Location = new System.Drawing.Point(293, 208);
+            this.lblEvent.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEvent.Name = "lblEvent";
+            this.lblEvent.Size = new System.Drawing.Size(504, 33);
+            this.lblEvent.TabIndex = 19;
+            this.lblEvent.Text = "?";
+            this.lblEvent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // VerifiedPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(810, 454);
+            this.Controls.Add(this.lblEvent);
             this.Controls.Add(this.lblGender);
             this.Controls.Add(this.lblDesignation);
             this.Controls.Add(this.lblOfficeName);
@@ -290,5 +304,6 @@
         public System.Windows.Forms.Label lblOfficeName;
         public System.Windows.Forms.Label lblDesignation;
         public System.Windows.Forms.Label lblGender;
+        public System.Windows.Forms.Label lblEvent;
     }
 }

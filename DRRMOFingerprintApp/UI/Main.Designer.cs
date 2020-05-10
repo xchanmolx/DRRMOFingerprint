@@ -44,6 +44,9 @@
             this.btnVerification = new System.Windows.Forms.Button();
             this.btnOff = new System.Windows.Forms.Button();
             this.btnOn = new System.Windows.Forms.Button();
+            this.txtEvent = new System.Windows.Forms.TextBox();
+            this.lblEvent = new System.Windows.Forms.Label();
+            this.lblLinkLogout = new System.Windows.Forms.LinkLabel();
             this.gbDRRMODataRecords.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctrBoxSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctrBoxSearch)).BeginInit();
@@ -286,6 +289,44 @@
             this.btnOn.UseVisualStyleBackColor = false;
             this.btnOn.Click += new System.EventHandler(this.btnOn_Click);
             // 
+            // txtEvent
+            // 
+            this.txtEvent.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtEvent.Location = new System.Drawing.Point(13, 124);
+            this.txtEvent.Name = "txtEvent";
+            this.txtEvent.Size = new System.Drawing.Size(282, 20);
+            this.txtEvent.TabIndex = 35;
+            this.txtEvent.Visible = false;
+            this.txtEvent.TextChanged += new System.EventHandler(this.txtEvent_TextChanged);
+            // 
+            // lblEvent
+            // 
+            this.lblEvent.AutoSize = true;
+            this.lblEvent.Font = new System.Drawing.Font("Roboto Condensed", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEvent.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.lblEvent.Location = new System.Drawing.Point(13, 105);
+            this.lblEvent.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEvent.Name = "lblEvent";
+            this.lblEvent.Size = new System.Drawing.Size(60, 16);
+            this.lblEvent.TabIndex = 36;
+            this.lblEvent.Text = "event name";
+            this.lblEvent.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblEvent.Visible = false;
+            // 
+            // lblLinkLogout
+            // 
+            this.lblLinkLogout.AutoSize = true;
+            this.lblLinkLogout.LinkArea = new System.Windows.Forms.LinkArea(0, 7);
+            this.lblLinkLogout.Location = new System.Drawing.Point(71, 28);
+            this.lblLinkLogout.Name = "lblLinkLogout";
+            this.lblLinkLogout.Size = new System.Drawing.Size(35, 17);
+            this.lblLinkLogout.TabIndex = 37;
+            this.lblLinkLogout.TabStop = true;
+            this.lblLinkLogout.Text = "logout";
+            this.lblLinkLogout.UseCompatibleTextRendering = true;
+            this.lblLinkLogout.Visible = false;
+            this.lblLinkLogout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblLinkLogout_LinkClicked);
+            // 
             // Main
             // 
             this.AcceptButton = this.btnRegistration;
@@ -293,6 +334,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(461, 440);
+            this.Controls.Add(this.lblLinkLogout);
+            this.Controls.Add(this.lblEvent);
+            this.Controls.Add(this.txtEvent);
             this.Controls.Add(this.btnOn);
             this.Controls.Add(this.pctrBoxSettings);
             this.Controls.Add(this.btnRegistrationForm);
@@ -336,6 +380,9 @@
         public System.Windows.Forms.PictureBox pctrBoxSettings;
         public System.Windows.Forms.Button btnOff;
         public System.Windows.Forms.Button btnOn;
+        private System.Windows.Forms.TextBox txtEvent;
+        public System.Windows.Forms.Label lblEvent;
+        public System.Windows.Forms.LinkLabel lblLinkLogout;
     }
 }
 

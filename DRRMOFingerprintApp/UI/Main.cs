@@ -180,6 +180,9 @@ namespace DRRMOFingerprintApp
             // Button btnOn = Off
             Button on = (Button)btnOn;
             on.Enabled = false;
+
+            lblEvent.Visible = false;
+            txtEvent.Visible = false;
         }
 
         private void btnOff_Click(object sender, EventArgs e)
@@ -191,6 +194,26 @@ namespace DRRMOFingerprintApp
             // Button btnOff = Off
             Button off = (Button)btnOff;
             off.Enabled = false;
+
+            lblEvent.Visible = true;
+            txtEvent.Visible = true;
+
+            txtEvent.Focus();
+        }
+
+        private void txtEvent_TextChanged(object sender, EventArgs e)
+        {
+            txtEvent.MaxLength = 24;
+        }
+
+        private void lblLinkLogout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+
+            var login = new Login();
+            login.Show();
+
+            this.Close();
         }
 
         private void btnExit_Click(object sender, EventArgs e)

@@ -109,6 +109,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsAttendance_PrintAll.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS\dsPerson_PrintAll.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPerson_PrintAll.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\Attendance.cs" />
@@ -136,6 +141,18 @@
     </Compile>
     <Compile Include="UI\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PersonPrintAll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PersonPrintAll.Designer.cs">
+      <DependentUpon>PersonPrintAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PersonPrintEach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PersonPrintEach.Designer.cs">
+      <DependentUpon>PersonPrintEach.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Register.cs">
       <SubType>Form</SubType>
@@ -190,6 +207,8 @@
       <DependentUpon>VerifiedPerson.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Report\rptAttendance_PrintAll.rdlc" />
+    <EmbeddedResource Include="Report\rptPerson_PrintAll.rdlc" />
+    <EmbeddedResource Include="Report\rptPerson_PrintEach.rdlc" />
     <EmbeddedResource Include="UI\AttendancePrintAll.resx">
       <DependentUpon>AttendancePrintAll.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,6 +217,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PersonPrintAll.resx">
+      <DependentUpon>PersonPrintAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PersonPrintEach.resx">
+      <DependentUpon>PersonPrintEach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
@@ -240,6 +265,17 @@
     </None>
     <None Include="DS\dsAttendance_PrintAll.xss">
       <DependentUpon>dsAttendance_PrintAll.xsd</DependentUpon>
+    </None>
+    <None Include="DS\dsPerson_PrintAll.xsc">
+      <DependentUpon>dsPerson_PrintAll.xsd</DependentUpon>
+    </None>
+    <None Include="DS\dsPerson_PrintAll.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPerson_PrintAll.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS\dsPerson_PrintAll.xss">
+      <DependentUpon>dsPerson_PrintAll.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

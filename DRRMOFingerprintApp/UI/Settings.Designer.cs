@@ -45,20 +45,20 @@
             this.dgvAttendance = new System.Windows.Forms.DataGridView();
             this.lblTotalPerson = new System.Windows.Forms.Label();
             this.groupBoxPrinting = new System.Windows.Forms.GroupBox();
-            this.txtHeader1 = new System.Windows.Forms.TextBox();
-            this.txtHeader2 = new System.Windows.Forms.TextBox();
-            this.txtHeader3 = new System.Windows.Forms.TextBox();
-            this.txtTitle = new System.Windows.Forms.TextBox();
-            this.lblHeader1 = new System.Windows.Forms.Label();
-            this.lblHeader2 = new System.Windows.Forms.Label();
-            this.lblHeader3 = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.lblHeader3 = new System.Windows.Forms.Label();
+            this.lblHeader2 = new System.Windows.Forms.Label();
+            this.lblHeader1 = new System.Windows.Forms.Label();
+            this.txtTitle = new System.Windows.Forms.TextBox();
+            this.txtHeader3 = new System.Windows.Forms.TextBox();
+            this.txtHeader2 = new System.Windows.Forms.TextBox();
+            this.txtHeader1 = new System.Windows.Forms.TextBox();
             this.gbPhoto = new System.Windows.Forms.GroupBox();
             this.lblHeaderImage = new System.Windows.Forms.Label();
-            this.btnRegisterAccount = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
             this.btnBrowsePhotos = new System.Windows.Forms.Button();
             this.pctrBoxPhotos = new System.Windows.Forms.PictureBox();
+            this.btnRegisterAccount = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnDeleteAll = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
@@ -152,6 +152,7 @@
             this.txtNext.Text = "10";
             this.txtNext.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNext.TextChanged += new System.EventHandler(this.txtNext_TextChanged);
+            this.txtNext.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNext_KeyPress);
             // 
             // txtPrevious
             // 
@@ -166,6 +167,7 @@
             this.txtPrevious.Text = "1";
             this.txtPrevious.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPrevious.TextChanged += new System.EventHandler(this.txtPrevious_TextChanged);
+            this.txtPrevious.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrevious_KeyPress);
             // 
             // lblSearchAttendance
             // 
@@ -235,16 +237,15 @@
             // 
             // lblTotalPerson
             // 
-            this.lblTotalPerson.AutoSize = true;
             this.lblTotalPerson.Font = new System.Drawing.Font("Roboto Thin", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalPerson.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.lblTotalPerson.Location = new System.Drawing.Point(337, 634);
+            this.lblTotalPerson.Location = new System.Drawing.Point(301, 634);
             this.lblTotalPerson.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalPerson.Name = "lblTotalPerson";
-            this.lblTotalPerson.Size = new System.Drawing.Size(15, 18);
+            this.lblTotalPerson.Size = new System.Drawing.Size(190, 18);
             this.lblTotalPerson.TabIndex = 34;
             this.lblTotalPerson.Text = "?";
-            this.lblTotalPerson.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTotalPerson.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBoxPrinting
             // 
@@ -263,54 +264,14 @@
             this.groupBoxPrinting.TabStop = false;
             this.groupBoxPrinting.Text = "PRINTING INFORMATION";
             // 
-            // txtHeader1
+            // lblTitle
             // 
-            this.txtHeader1.Location = new System.Drawing.Point(87, 19);
-            this.txtHeader1.Name = "txtHeader1";
-            this.txtHeader1.Size = new System.Drawing.Size(354, 20);
-            this.txtHeader1.TabIndex = 0;
-            this.txtHeader1.Text = "Republic of the Philippines";
-            // 
-            // txtHeader2
-            // 
-            this.txtHeader2.Location = new System.Drawing.Point(87, 54);
-            this.txtHeader2.Name = "txtHeader2";
-            this.txtHeader2.Size = new System.Drawing.Size(354, 20);
-            this.txtHeader2.TabIndex = 1;
-            this.txtHeader2.Text = "Province of Cebu";
-            // 
-            // txtHeader3
-            // 
-            this.txtHeader3.Location = new System.Drawing.Point(87, 89);
-            this.txtHeader3.Name = "txtHeader3";
-            this.txtHeader3.Size = new System.Drawing.Size(354, 20);
-            this.txtHeader3.TabIndex = 2;
-            this.txtHeader3.Text = "Municipality of Aloguinsan";
-            // 
-            // txtTitle
-            // 
-            this.txtTitle.Location = new System.Drawing.Point(87, 124);
-            this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(354, 20);
-            this.txtTitle.TabIndex = 3;
-            // 
-            // lblHeader1
-            // 
-            this.lblHeader1.AutoSize = true;
-            this.lblHeader1.Location = new System.Drawing.Point(30, 26);
-            this.lblHeader1.Name = "lblHeader1";
-            this.lblHeader1.Size = new System.Drawing.Size(51, 13);
-            this.lblHeader1.TabIndex = 4;
-            this.lblHeader1.Text = "Header 1";
-            // 
-            // lblHeader2
-            // 
-            this.lblHeader2.AutoSize = true;
-            this.lblHeader2.Location = new System.Drawing.Point(30, 61);
-            this.lblHeader2.Name = "lblHeader2";
-            this.lblHeader2.Size = new System.Drawing.Size(51, 13);
-            this.lblHeader2.TabIndex = 5;
-            this.lblHeader2.Text = "Header 2";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Location = new System.Drawing.Point(54, 131);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(27, 13);
+            this.lblTitle.TabIndex = 7;
+            this.lblTitle.Text = "Title";
             // 
             // lblHeader3
             // 
@@ -321,14 +282,55 @@
             this.lblHeader3.TabIndex = 6;
             this.lblHeader3.Text = "Header 3";
             // 
-            // lblTitle
+            // lblHeader2
             // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(54, 131);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(27, 13);
-            this.lblTitle.TabIndex = 7;
-            this.lblTitle.Text = "Title";
+            this.lblHeader2.AutoSize = true;
+            this.lblHeader2.Location = new System.Drawing.Point(30, 61);
+            this.lblHeader2.Name = "lblHeader2";
+            this.lblHeader2.Size = new System.Drawing.Size(51, 13);
+            this.lblHeader2.TabIndex = 5;
+            this.lblHeader2.Text = "Header 2";
+            // 
+            // lblHeader1
+            // 
+            this.lblHeader1.AutoSize = true;
+            this.lblHeader1.Location = new System.Drawing.Point(30, 26);
+            this.lblHeader1.Name = "lblHeader1";
+            this.lblHeader1.Size = new System.Drawing.Size(51, 13);
+            this.lblHeader1.TabIndex = 4;
+            this.lblHeader1.Text = "Header 1";
+            // 
+            // txtTitle
+            // 
+            this.txtTitle.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtTitle.Location = new System.Drawing.Point(87, 124);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.Size = new System.Drawing.Size(354, 20);
+            this.txtTitle.TabIndex = 3;
+            // 
+            // txtHeader3
+            // 
+            this.txtHeader3.Location = new System.Drawing.Point(87, 89);
+            this.txtHeader3.Name = "txtHeader3";
+            this.txtHeader3.Size = new System.Drawing.Size(354, 20);
+            this.txtHeader3.TabIndex = 2;
+            this.txtHeader3.Text = "Municipality of Aloguinsan";
+            // 
+            // txtHeader2
+            // 
+            this.txtHeader2.Location = new System.Drawing.Point(87, 54);
+            this.txtHeader2.Name = "txtHeader2";
+            this.txtHeader2.Size = new System.Drawing.Size(354, 20);
+            this.txtHeader2.TabIndex = 1;
+            this.txtHeader2.Text = "Province of Cebu";
+            // 
+            // txtHeader1
+            // 
+            this.txtHeader1.Location = new System.Drawing.Point(87, 19);
+            this.txtHeader1.Name = "txtHeader1";
+            this.txtHeader1.Size = new System.Drawing.Size(354, 20);
+            this.txtHeader1.TabIndex = 0;
+            this.txtHeader1.Text = "Republic of the Philippines";
             // 
             // gbPhoto
             // 
@@ -350,6 +352,38 @@
             this.lblHeaderImage.Size = new System.Drawing.Size(74, 13);
             this.lblHeaderImage.TabIndex = 1;
             this.lblHeaderImage.Text = "Header Image";
+            // 
+            // btnBrowsePhotos
+            // 
+            this.btnBrowsePhotos.BackColor = System.Drawing.Color.Peru;
+            this.btnBrowsePhotos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBrowsePhotos.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            this.btnBrowsePhotos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
+            this.btnBrowsePhotos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.btnBrowsePhotos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBrowsePhotos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBrowsePhotos.ForeColor = System.Drawing.Color.White;
+            this.btnBrowsePhotos.Image = ((System.Drawing.Image)(resources.GetObject("btnBrowsePhotos.Image")));
+            this.btnBrowsePhotos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBrowsePhotos.Location = new System.Drawing.Point(168, 63);
+            this.btnBrowsePhotos.Name = "btnBrowsePhotos";
+            this.btnBrowsePhotos.Size = new System.Drawing.Size(176, 60);
+            this.btnBrowsePhotos.TabIndex = 0;
+            this.btnBrowsePhotos.Text = "     Bro&wse Photos";
+            this.btnBrowsePhotos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBrowsePhotos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBrowsePhotos.UseVisualStyleBackColor = false;
+            this.btnBrowsePhotos.Click += new System.EventHandler(this.btnBrowsePhotos_Click);
+            // 
+            // pctrBoxPhotos
+            // 
+            this.pctrBoxPhotos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pctrBoxPhotos.Location = new System.Drawing.Point(6, 19);
+            this.pctrBoxPhotos.Name = "pctrBoxPhotos";
+            this.pctrBoxPhotos.Size = new System.Drawing.Size(134, 104);
+            this.pctrBoxPhotos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pctrBoxPhotos.TabIndex = 0;
+            this.pctrBoxPhotos.TabStop = false;
             // 
             // btnRegisterAccount
             // 
@@ -391,38 +425,6 @@
             this.btnExit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // btnBrowsePhotos
-            // 
-            this.btnBrowsePhotos.BackColor = System.Drawing.Color.Peru;
-            this.btnBrowsePhotos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBrowsePhotos.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnBrowsePhotos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
-            this.btnBrowsePhotos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btnBrowsePhotos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBrowsePhotos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBrowsePhotos.ForeColor = System.Drawing.Color.White;
-            this.btnBrowsePhotos.Image = ((System.Drawing.Image)(resources.GetObject("btnBrowsePhotos.Image")));
-            this.btnBrowsePhotos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBrowsePhotos.Location = new System.Drawing.Point(168, 63);
-            this.btnBrowsePhotos.Name = "btnBrowsePhotos";
-            this.btnBrowsePhotos.Size = new System.Drawing.Size(176, 60);
-            this.btnBrowsePhotos.TabIndex = 0;
-            this.btnBrowsePhotos.Text = "     Bro&wse Photos";
-            this.btnBrowsePhotos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBrowsePhotos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBrowsePhotos.UseVisualStyleBackColor = false;
-            this.btnBrowsePhotos.Click += new System.EventHandler(this.btnBrowsePhotos_Click);
-            // 
-            // pctrBoxPhotos
-            // 
-            this.pctrBoxPhotos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pctrBoxPhotos.Location = new System.Drawing.Point(6, 19);
-            this.pctrBoxPhotos.Name = "pctrBoxPhotos";
-            this.pctrBoxPhotos.Size = new System.Drawing.Size(134, 104);
-            this.pctrBoxPhotos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pctrBoxPhotos.TabIndex = 0;
-            this.pctrBoxPhotos.TabStop = false;
             // 
             // btnPrint
             // 

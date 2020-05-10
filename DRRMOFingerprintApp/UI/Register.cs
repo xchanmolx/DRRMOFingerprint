@@ -580,6 +580,27 @@ namespace DRRMOFingerprintApp
             }
         }
 
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string paths = Application.StartupPath.Substring(0, (Application.StartupPath.Length - 10));
+
+                var personPrintEach = new PersonPrintEach(DateTime.Now.ToString("dddd, MMMM dd, yyyy"), (paths + txtPathImage.Text), txtFirstName.Text, txtMiddleName.Text, txtLastName.Text, 
+                    txtExtensionName.Text, txtNickName.Text, lblDateAdded.Text, lblAge.Text, txtIdFingerprint.Text, Convert.ToString(cmbGender.SelectedItem), txtDateOfBirth.Text, txtPhoneNumber.Text,
+                    txtEmailAddress.Text, txtReligion.Text, txtBirthPlace.Text, txtIdentifyingMarks.Text, Convert.ToString(cmbCivilStatus.SelectedItem), txtHeight.Text, txtWeight.Text,
+                    txtHomeAddress.Text, txtTown.Text, txtBarangay.Text, txtSitio.Text, txtProvince.Text, txtCountry.Text, txtZipCode.Text, txtOrganization.Text, txtWorkPosition.Text, txtWorkAddress.Text,
+                    Convert.ToString(cmbDesignation.SelectedItem), txtOfficeName.Text, txtWorkPhoneNumber.Text, Convert.ToString(cmbLevelOfEducation.SelectedItem),
+                    txtNameOfSchool.Text, txtNameOfSpouse.Text, txtNameOfChildren.Text);
+
+                personPrintEach.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error, print personal profile", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             if (btnAddAnotherPerson.Enabled == false)

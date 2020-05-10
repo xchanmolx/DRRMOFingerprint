@@ -379,18 +379,17 @@ namespace DRRMOFingerprintApp.UI
                 {
                     imageUrl = correctFileName;
                 }
-                else if (btnBrowsePhotosWasClicked == false)
+                else
                 {
-                    if (!btnClearPhotosWasClicked)
-                    {
-                        imageUrl = defaultImage;
-                    }
-                    else
-                    {
-                        imageUrl = null;
-                    }
+                    imageUrl = defaultImage;
                 }
-                AttendancePrintAll frm = new AttendancePrintAll(txtHeader1.Text, txtHeader2.Text, txtHeader3.Text, txtTitle.Text, DateTime.Now.ToString("dddd, MMMM dd, yyyy"), paths + defaultPathImage + imageUrl);
+
+                if (btnClearPhotosWasClicked == true)
+                {
+                    imageUrl = null;
+                }
+
+                var frm = new AttendancePrintAll(txtHeader1.Text, txtHeader2.Text, txtHeader3.Text, txtTitle.Text, DateTime.Now.ToString("dddd, MMMM dd, yyyy"), paths + defaultPathImage + imageUrl);
 
                 frm.ShowDialog();
 
@@ -511,6 +510,26 @@ namespace DRRMOFingerprintApp.UI
 
             pctrBoxPhotos.Image = null;
             imageUrl = null;
+        }
+
+        private void txtPrevious_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+
+            if (e.KeyChar == 22)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNext_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+
+            if (e.KeyChar == 22)
+            {
+                e.Handled = true;
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)

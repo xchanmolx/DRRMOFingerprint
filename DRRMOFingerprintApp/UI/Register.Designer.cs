@@ -52,6 +52,7 @@
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.lblPhoneNumber = new System.Windows.Forms.Label();
             this.gbAddress = new System.Windows.Forms.GroupBox();
+            this.txtHomeAddress = new System.Windows.Forms.TextBox();
             this.txtZipCode = new System.Windows.Forms.TextBox();
             this.lblZipCode = new System.Windows.Forms.Label();
             this.txtSitio = new System.Windows.Forms.TextBox();
@@ -130,7 +131,7 @@
             this.lblFingerprintRegister = new System.Windows.Forms.Label();
             this.lblNotYetRegistered = new System.Windows.Forms.Label();
             this.lblAlreadyRegistered = new System.Windows.Forms.Label();
-            this.txtHomeAddress = new System.Windows.Forms.TextBox();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.gbPersonalInformation.SuspendLayout();
             this.gbContact.SuspendLayout();
             this.gbAddress.SuspendLayout();
@@ -390,6 +391,14 @@
             this.gbAddress.TabIndex = 4;
             this.gbAddress.TabStop = false;
             this.gbAddress.Text = "ADDRESS";
+            // 
+            // txtHomeAddress
+            // 
+            this.txtHomeAddress.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtHomeAddress.Location = new System.Drawing.Point(106, 26);
+            this.txtHomeAddress.Name = "txtHomeAddress";
+            this.txtHomeAddress.Size = new System.Drawing.Size(325, 20);
+            this.txtHomeAddress.TabIndex = 0;
             // 
             // txtZipCode
             // 
@@ -655,7 +664,9 @@
             this.cmbDesignation.Items.AddRange(new object[] {
             "SELECT DESIGNATION",
             "JOB ORDER",
-            "REGULAR"});
+            "REGULAR",
+            "VOLUNTEER",
+            "OTHERS"});
             this.cmbDesignation.Location = new System.Drawing.Point(122, 130);
             this.cmbDesignation.Name = "cmbDesignation";
             this.cmbDesignation.Size = new System.Drawing.Size(309, 21);
@@ -1106,6 +1117,7 @@
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(51, 45);
             this.btnExit.TabIndex = 11;
+            this.btnExit.TabStop = false;
             this.btnExit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -1265,13 +1277,27 @@
             this.lblAlreadyRegistered.Text = "already registered";
             this.lblAlreadyRegistered.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // txtHomeAddress
+            // btnPrint
             // 
-            this.txtHomeAddress.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtHomeAddress.Location = new System.Drawing.Point(106, 26);
-            this.txtHomeAddress.Name = "txtHomeAddress";
-            this.txtHomeAddress.Size = new System.Drawing.Size(325, 20);
-            this.txtHomeAddress.TabIndex = 0;
+            this.btnPrint.BackColor = System.Drawing.Color.MidnightBlue;
+            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrint.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Font = new System.Drawing.Font("Roboto Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.ForeColor = System.Drawing.Color.White;
+            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
+            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPrint.Location = new System.Drawing.Point(811, 627);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(396, 41);
+            this.btnPrint.TabIndex = 51;
+            this.btnPrint.TabStop = false;
+            this.btnPrint.Text = "  &Print | 8.5x13 paper size";
+            this.btnPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Visible = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // Register
             // 
@@ -1280,6 +1306,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.lblFingerprintRegister);
             this.Controls.Add(this.txtPathImage);
             this.Controls.Add(this.gbHighestEducationalQualification);
@@ -1436,5 +1463,6 @@
         public System.Windows.Forms.Label lblFingerprintRegister;
         public System.Windows.Forms.Label lblAlreadyRegistered;
         public System.Windows.Forms.TextBox txtHomeAddress;
+        public System.Windows.Forms.Button btnPrint;
     }
 }

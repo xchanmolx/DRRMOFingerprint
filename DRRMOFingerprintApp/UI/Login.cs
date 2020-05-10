@@ -46,6 +46,7 @@ namespace DRRMOFingerprintApp.UI
                             }
                         }
 
+                        main.lblLinkLogout.Visible = true;
                         main.Show();
                     }
                     else

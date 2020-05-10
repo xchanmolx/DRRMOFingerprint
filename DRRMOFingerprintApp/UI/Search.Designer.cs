@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Search));
             this.dgvPeople = new System.Windows.Forms.DataGridView();
             this.btnExit = new System.Windows.Forms.Button();
@@ -40,6 +40,8 @@
             this.txtPrevious = new System.Windows.Forms.TextBox();
             this.btnNext = new System.Windows.Forms.Button();
             this.txtNext = new System.Windows.Forms.TextBox();
+            this.lblTotalPerson = new System.Windows.Forms.Label();
+            this.btnPrint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,37 +52,39 @@
             this.dgvPeople.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvPeople.BackgroundColor = System.Drawing.Color.White;
             this.dgvPeople.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Sienna;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto Condensed Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPeople.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Sienna;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Roboto Condensed Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPeople.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvPeople.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPeople.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvPeople.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvPeople.EnableHeadersVisualStyles = false;
             this.dgvPeople.Location = new System.Drawing.Point(27, 96);
             this.dgvPeople.Name = "dgvPeople";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Sienna;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPeople.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Roboto Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Crimson;
-            this.dgvPeople.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Sienna;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Roboto Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPeople.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Roboto Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Crimson;
+            this.dgvPeople.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvPeople.Size = new System.Drawing.Size(881, 255);
             this.dgvPeople.TabIndex = 0;
             this.dgvPeople.TabStop = false;
             this.dgvPeople.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvPeople_RowHeaderMouseClick);
+            this.dgvPeople.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvPeople_RowsAdded);
+            this.dgvPeople.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgvPeople_RowsRemoved);
             // 
             // btnExit
             // 
@@ -152,6 +156,7 @@
             this.txtPrevious.Text = "1";
             this.txtPrevious.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPrevious.TextChanged += new System.EventHandler(this.txtPrevious_TextChanged);
+            this.txtPrevious.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrevious_KeyPress);
             // 
             // btnNext
             // 
@@ -178,6 +183,40 @@
             this.txtNext.Text = "10";
             this.txtNext.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNext.TextChanged += new System.EventHandler(this.txtNext_TextChanged);
+            this.txtNext.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNext_KeyPress);
+            // 
+            // lblTotalPerson
+            // 
+            this.lblTotalPerson.Font = new System.Drawing.Font("Roboto Thin", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalPerson.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lblTotalPerson.Location = new System.Drawing.Point(158, 367);
+            this.lblTotalPerson.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalPerson.Name = "lblTotalPerson";
+            this.lblTotalPerson.Size = new System.Drawing.Size(340, 18);
+            this.lblTotalPerson.TabIndex = 36;
+            this.lblTotalPerson.Text = "?";
+            this.lblTotalPerson.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.BackColor = System.Drawing.Color.DarkMagenta;
+            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrint.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrint.Font = new System.Drawing.Font("Roboto Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.ForeColor = System.Drawing.Color.White;
+            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
+            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnPrint.Location = new System.Drawing.Point(505, 357);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(204, 38);
+            this.btnPrint.TabIndex = 35;
+            this.btnPrint.TabStop = false;
+            this.btnPrint.Text = "&Print | 8.5x13 paper size";
+            this.btnPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // Search
             // 
@@ -185,6 +224,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.Controls.Add(this.lblTotalPerson);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.txtNext);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.txtPrevious);
@@ -213,5 +254,7 @@
         private System.Windows.Forms.TextBox txtPrevious;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.TextBox txtNext;
+        public System.Windows.Forms.Label lblTotalPerson;
+        private System.Windows.Forms.Button btnPrint;
     }
 }

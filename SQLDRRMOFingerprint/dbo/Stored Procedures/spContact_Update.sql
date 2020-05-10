@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[spContact_Update]
 	@PersonId INT,
-	@PhoneNumber NVARCHAR(20),
+	@PhoneNumber NVARCHAR(200),
 	@EmailAddress NVARCHAR(250)
 AS
 BEGIN

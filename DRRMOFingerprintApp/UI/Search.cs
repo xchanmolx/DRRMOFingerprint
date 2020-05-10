@@ -261,6 +261,7 @@ namespace DRRMOFingerprintApp.UI
                 register.lblNotYetRegistered.Visible = false;
                 register.btnUpdate.Visible = true;
                 register.btnDelete.Visible = true;
+                register.btnPrint.Visible = true;
                 register.errorProviderRegisterForm.Clear();
 
                 personInfos = db.GetPersonInfos().ToList();
@@ -418,6 +419,50 @@ namespace DRRMOFingerprintApp.UI
             txtPrevious.Text = pageNumber.ToString();
 
             txtSearch.Focus();
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var personPrintAll = new PersonPrintAll(DateTime.Now.ToString("dddd, MMMM dd, yyyy"));
+
+                personPrintAll.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error, print all persons", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvPeople_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            lblTotalPerson.Text = "Total Person: " + dgvPeople.Rows.Count.ToString();
+        }
+
+        private void dgvPeople_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            lblTotalPerson.Text = "Total Person: " + dgvPeople.Rows.Count.ToString();
+        }
+
+        private void txtPrevious_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+
+            if (e.KeyChar == 22)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNext_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+
+            if (e.KeyChar == 22)
+            {
+                e.Handled = true;
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)

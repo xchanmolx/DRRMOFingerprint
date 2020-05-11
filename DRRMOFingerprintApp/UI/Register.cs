@@ -193,7 +193,14 @@ namespace DRRMOFingerprintApp
 
                     if (btnBrowseWasClick == true)
                     {
-                        person.StringImage = defaultPathImage + correctFileName;
+                        if (ofd.FileName == "")
+                        {
+                            person.StringImage = defaultPathImage + defaultImage;
+                        }
+                        else
+                        {
+                            person.StringImage = defaultPathImage + correctFileName;
+                        }
                     }
                     else if (btnBrowseWasClick == false)
                     {

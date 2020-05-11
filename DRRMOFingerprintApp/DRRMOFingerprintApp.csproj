@@ -14,6 +14,21 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -27,15 +42,19 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>fingerprint-final.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>DRRMOFingerprintApp.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -108,11 +127,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsAttendance_PrintAll.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DS\dsPerson_PrintAll.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsPerson_PrintAll.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\Address.cs" />
@@ -206,6 +227,7 @@
     <Compile Include="UI\VerifiedPerson.Designer.cs">
       <DependentUpon>VerifiedPerson.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\aloguinsan-logo.png" />
     <EmbeddedResource Include="Report\rptAttendance_PrintAll.rdlc" />
     <EmbeddedResource Include="Report\rptPerson_PrintAll.rdlc" />
     <EmbeddedResource Include="Report\rptPerson_PrintEach.rdlc" />
@@ -257,25 +279,31 @@
     </None>
     <None Include="DS\dsAttendance_PrintAll.xsc">
       <DependentUpon>dsAttendance_PrintAll.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="DS\dsAttendance_PrintAll.xsd">
+    <Content Include="DS\dsAttendance_PrintAll.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>dsAttendance_PrintAll.Designer.cs</LastGenOutput>
-    </None>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="DS\dsAttendance_PrintAll.xss">
       <DependentUpon>dsAttendance_PrintAll.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="DS\dsPerson_PrintAll.xsc">
       <DependentUpon>dsPerson_PrintAll.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="DS\dsPerson_PrintAll.xsd">
+    <Content Include="DS\dsPerson_PrintAll.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>dsPerson_PrintAll.Designer.cs</LastGenOutput>
-    </None>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="DS\dsPerson_PrintAll.xss">
       <DependentUpon>dsPerson_PrintAll.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -296,12 +324,26 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Document\" />
-    <Folder Include="Images\Logos\" />
-    <Folder Include="Images\Persons\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fingerprint-final.ico" />
-    <None Include="Resources\aloguinsan-logo.png" />
+    <Content Include="Images\Logos\abtik-logo.png" />
+    <Content Include="Images\Logos\aloguinsan-logo.png" />
+    <Content Include="Images\Persons\Chiantine250x250.jpg" />
+    <Content Include="Images\Persons\default-image.jpg" />
+    <Content Include="Images\Persons\SirErwin250x250.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -377,7 +377,14 @@ namespace DRRMOFingerprintApp.UI
                 string correctFileName = Path.GetFileName(ofd.FileName);
                 if (btnBrowsePhotosWasClicked == true)
                 {
-                    imageUrl = correctFileName;
+                    if (ofd.FileName == "")
+                    {
+                        imageUrl = defaultImage;
+                    }
+                    else
+                    {
+                        imageUrl = correctFileName;
+                    }
                 }
                 else
                 {

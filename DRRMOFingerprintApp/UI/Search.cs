@@ -102,7 +102,7 @@ namespace DRRMOFingerprintApp.UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Start Realtime Button Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "Service broker warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -262,6 +262,7 @@ namespace DRRMOFingerprintApp.UI
                 register.btnUpdate.Visible = true;
                 register.btnDelete.Visible = true;
                 register.btnPrint.Visible = true;
+                register.btnDeleteFingerprint.Visible = true;
                 register.errorProviderRegisterForm.Clear();
 
                 personInfos = db.GetPersonInfos().ToList();

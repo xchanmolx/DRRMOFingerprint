@@ -157,6 +157,12 @@
       <DependentUpon>CaptureForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\DataAccess.cs" />
+    <Compile Include="UI\Fingerprints.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Fingerprints.Designer.cs">
+      <DependentUpon>Fingerprints.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\CaptureForm.resx">
       <DependentUpon>CaptureForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Fingerprints.resx">
+      <DependentUpon>Fingerprints.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

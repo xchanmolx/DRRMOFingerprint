@@ -91,7 +91,7 @@ namespace DRRMOFingerprintApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Start Realtime Button Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "Service broker warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

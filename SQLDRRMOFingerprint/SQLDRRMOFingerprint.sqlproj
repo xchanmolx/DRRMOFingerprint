@@ -112,6 +112,7 @@
     <Build Include="dbo\Stored Procedures\spAttendance_Update.sql" />
     <Build Include="dbo\Stored Procedures\spAttendance_Delete.sql" />
     <Build Include="dbo\Stored Procedures\spAttendance_SelectAll.sql" />
+    <Build Include="dbo\Stored Procedures\spFingerprint_Delete.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="SQLDRRMOFingerprint.refactorlog" />

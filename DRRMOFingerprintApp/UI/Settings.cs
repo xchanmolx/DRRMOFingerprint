@@ -53,7 +53,10 @@ namespace DRRMOFingerprintApp.UI
 
             GetData();
 
+            // Get accounts
             GetAccounts();
+
+            // Search and pagination
             SearchAndPaginationAttendance();
         }
 
@@ -99,7 +102,7 @@ namespace DRRMOFingerprintApp.UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Start Realtime Button Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "Service broker warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -107,7 +110,7 @@ namespace DRRMOFingerprintApp.UI
         {
             InitializeComponent();
 
-            // Get accounts
+            // Get Accounts
             GetAccounts();
 
             // Search and pagination
@@ -117,6 +120,22 @@ namespace DRRMOFingerprintApp.UI
             RealtimeData();
 
             pctrBoxPhotos.Image = Properties.Resources.aloguinsan_logo;
+        }
+
+        public void GetAccounts()
+        {
+            accounts = db.GetAccounts().ToList();
+            dgvAccount.DataSource = accounts;
+
+            // Change column name
+            dgvAccount.Columns[0].HeaderText = "Account Id";
+            dgvAccount.Columns[1].HeaderText = "First Name";
+            dgvAccount.Columns[2].HeaderText = "Last Name";
+
+            // Hide string image column
+            dgvAccount.Columns["Username"].Visible = false;
+            dgvAccount.Columns["Password"].Visible = false;
+            dgvAccount.Columns["StringImage"].Visible = false;
         }
 
         public void SearchAndPaginationAttendance()
@@ -143,22 +162,6 @@ namespace DRRMOFingerprintApp.UI
 
                 GetAttendancesPagination(pageNumber, pageSize);
             }
-        }
-
-        public void GetAccounts()
-        {
-            accounts = db.GetAccounts().ToList();
-            dgvAccount.DataSource = accounts;
-
-            // Change column name
-            dgvAccount.Columns[0].HeaderText = "Account Id";
-            dgvAccount.Columns[1].HeaderText = "First Name";
-            dgvAccount.Columns[2].HeaderText = "Last Name";
-
-            // Hide string image column
-            dgvAccount.Columns["Username"].Visible = false;
-            dgvAccount.Columns["Password"].Visible = false;
-            dgvAccount.Columns["StringImage"].Visible = false;
         }
 
         public void GetAttendancesPagination(int pageNumber, int pageSize)

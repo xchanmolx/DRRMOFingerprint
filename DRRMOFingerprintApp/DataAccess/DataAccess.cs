@@ -601,6 +601,24 @@ namespace DRRMOFingerprintApp
             }
         }
 
+        public async Task DeleteFingerprint(Fingerprint fingerprint)
+        {
+            try
+            {
+                var parameters = new DynamicParameters();
+                parameters.Add("Id", fingerprint.Id, DbType.Int32);
+
+                using (IDbConnection connection = new SqlConnection(Helper.CnnVal(dbString)))
+                {
+                    await connection.ExecuteAsync("spFingerprint_Delete", parameters, commandType: CommandType.StoredProcedure);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error, delete fingerprint", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         public DataTable PersonsPagination(int pageNumber, int pageSize)
         {
             // Creating data table to hold the data from database temporarily
@@ -665,6 +683,43 @@ namespace DRRMOFingerprintApp
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Search Attendance!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+
+                return dt;
+            }
+        }
+
+        public DataTable FingerprintsPagination(int pageNumber, int pageSize)
+        {
+            // Creating data table to hold the data from database temporarily
+            DataTable dt = new DataTable();
+
+            using (SqlConnection conn = new SqlConnection(Helper.CnnVal(dbString)))
+            {
+                try
+                {
+                    // Sql queries
+                    string sql = $"SELECT Id, PersonId FROM dbo.Fingerprint ORDER BY Id DESC OFFSET {pageNumber - 1} * {pageSize} ROWS FETCH NEXT {pageSize} ROWS ONLY";
+
+                    // Creating SQL Commant to execute the query
+                    SqlCommand cmd = new SqlCommand(Convert.ToString(sql), conn);
+
+                    // Getting data from database
+                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
+
+                    // Open database connection
+                    conn.Open();
+
+                    // Passing values from adapter to Data Table dt
+                    sda.Fill(dt);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Search Fingerprints!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -777,6 +832,43 @@ namespace DRRMOFingerprintApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Search Accounts!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return dt;
+        }
+
+        public DataTable SearchFingerprints(string keywords)
+        {
+            // SQL connection for database connection
+            SqlConnection conn = new SqlConnection(Helper.CnnVal(dbString));
+
+            // Creating data table to hold the data from database temporarily
+            DataTable dt = new DataTable();
+
+            try
+            {
+                // SQL Query to Search items from database
+                String sql = $"SELECT Id, PersonId FROM dbo.Fingerprint WHERE PersonId LIKE '%{keywords}%' ";
+
+                // Creating SQL Commant to execute the query
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                // Getting data from database
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+
+                // Open database connection
+                conn.Open();
+
+                // Passing values from adapter to Data Table dt
+                sda.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Search Fingerprints!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

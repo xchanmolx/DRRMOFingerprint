@@ -16,6 +16,7 @@ namespace DRRMOFingerprintApp
 
         readonly DataAccess db = new DataAccess();
         List<Person> people = new List<Person>();
+        IEnumerable<Fingerprint> paws;
 
         public static DateTime Now { get; }
 
@@ -605,6 +606,20 @@ namespace DRRMOFingerprintApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error, print personal profile", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnDeleteFingerprint_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var fingerprints = new Fingerprints();
+
+                fingerprints.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error, delete fingerprint", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

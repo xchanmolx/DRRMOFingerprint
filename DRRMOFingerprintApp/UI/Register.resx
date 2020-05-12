@@ -193,6 +193,18 @@
         WzX7gcOtmv7E5FbNfuRT5fuZ1Wl2oX5mrauumlck8h81rHEmfBYsIQAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="btnDeleteFingerprint.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAFiSURBVEhL7ZY/S8NQFMWzCIKTLoJOfgJx8wOIm2Mk/41FMjrp4NguFoROLq7FTyAuTlJw09XJ
+        j6C4OCmCngP30fB8vqRNQ5d34Edezrv3niSkJV4dFUWxEEVRL47jd/Bj4As8gW1pmY2SJDkthdh4831/
+        RdqaCwOfZfBtGIZ7uPsdjRR7n1JzIG31lWXZOu5uAK7KlIY+6HsK7H2wButHw15HIv4KBfsouGdzS3TT
+        NN2QuLGwcacVtsGuxI0F8xLwzWyT/9/6PM8X8bIszxIZbRcKT3Blpsc0NTLaLhdM8FM7gu9jPRJvxHP6
+        qoZ94t0oTyGj7TIF499qlXtYD8Ub8py+qkHgJj0cL5SnoF8pF0xcMI88d8H0XDChXykXTOYW3BQZbReu
+        +NDU3IBXGW0XP0FRrL6jG4MbuZbR1cLjPkbTtz5kCl6CIFiTsfWEhi00nuGK+5OCvnPQwdNbknGaPO8X
+        Ol4o76TPo8AAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="btnPrint.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAftJREFUSEvt

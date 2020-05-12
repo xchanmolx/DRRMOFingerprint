@@ -132,6 +132,7 @@
             this.lblNotYetRegistered = new System.Windows.Forms.Label();
             this.lblAlreadyRegistered = new System.Windows.Forms.Label();
             this.btnPrint = new System.Windows.Forms.Button();
+            this.btnDeleteFingerprint = new System.Windows.Forms.Button();
             this.gbPersonalInformation.SuspendLayout();
             this.gbContact.SuspendLayout();
             this.gbAddress.SuspendLayout();
@@ -1284,13 +1285,13 @@
             this.btnPrint.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnPrint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrint.Font = new System.Drawing.Font("Roboto Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Font = new System.Drawing.Font("Roboto Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrint.ForeColor = System.Drawing.Color.White;
             this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
             this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPrint.Location = new System.Drawing.Point(811, 627);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(396, 41);
+            this.btnPrint.Size = new System.Drawing.Size(226, 41);
             this.btnPrint.TabIndex = 51;
             this.btnPrint.TabStop = false;
             this.btnPrint.Text = "  &Print | 8.5x13 paper size";
@@ -1299,6 +1300,28 @@
             this.btnPrint.Visible = false;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
+            // btnDeleteFingerprint
+            // 
+            this.btnDeleteFingerprint.BackColor = System.Drawing.Color.Crimson;
+            this.btnDeleteFingerprint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeleteFingerprint.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnDeleteFingerprint.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnDeleteFingerprint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteFingerprint.Font = new System.Drawing.Font("Roboto Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteFingerprint.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteFingerprint.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteFingerprint.Image")));
+            this.btnDeleteFingerprint.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDeleteFingerprint.Location = new System.Drawing.Point(1043, 627);
+            this.btnDeleteFingerprint.Name = "btnDeleteFingerprint";
+            this.btnDeleteFingerprint.Size = new System.Drawing.Size(161, 41);
+            this.btnDeleteFingerprint.TabIndex = 52;
+            this.btnDeleteFingerprint.TabStop = false;
+            this.btnDeleteFingerprint.Text = "Delete &Fingerprint";
+            this.btnDeleteFingerprint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDeleteFingerprint.UseVisualStyleBackColor = false;
+            this.btnDeleteFingerprint.Visible = false;
+            this.btnDeleteFingerprint.Click += new System.EventHandler(this.btnDeleteFingerprint_Click);
+            // 
             // Register
             // 
             this.AcceptButton = this.btnSave;
@@ -1306,6 +1329,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.Controls.Add(this.btnDeleteFingerprint);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.lblFingerprintRegister);
             this.Controls.Add(this.txtPathImage);
@@ -1464,5 +1488,6 @@
         public System.Windows.Forms.Label lblAlreadyRegistered;
         public System.Windows.Forms.TextBox txtHomeAddress;
         public System.Windows.Forms.Button btnPrint;
+        public System.Windows.Forms.Button btnDeleteFingerprint;
     }
 }

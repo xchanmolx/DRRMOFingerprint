@@ -423,6 +423,8 @@ namespace DRRMOFingerprintApp.UI
                 var personPrintAll = new PersonPrintAll(DateTime.Now.ToString("dddd, MMMM dd, yyyy"));
 
                 personPrintAll.ShowDialog();
+
+                txtSearch.Focus();
             }
             catch (Exception ex)
             {

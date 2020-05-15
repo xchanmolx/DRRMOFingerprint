@@ -140,21 +140,15 @@ namespace DRRMOFingerprintApp.UI
 
         public void SearchAndPaginationAttendance()
         {
-            // Get the keywords
-            string keywords = txtSearchAttendance.Text.Trim();
-
             // Filter the items based on keywords
-            if (keywords.Length > 0)
+            if (txtSearchAttendance.Text.Length > 0 || txtSearchDate.Text.Length > 0)
             {
-                // Use search method to display items
-                DataTable dt = db.SearchAttendances(keywords);
-                dgvAttendance.DataSource = dt;
-
-                DataView dv = dt.DefaultView;
-                dv.Sort = "Id DESC";
-                DataTable sortedDT = dv.ToTable();
+                BindingSource bs = new BindingSource();
+                bs.DataSource = dgvAttendance.DataSource;
+                bs.Filter = "FirstName  LIKE '%" + txtSearchAttendance.Text + "%' AND LocalDate LIKE '%" + txtSearchDate.Text + "%' ";
+                dgvAttendance.DataSource = bs;
             }
-            else if (keywords.Length <= 0)
+            else if (txtSearchAttendance.Text.Length <= 0 || txtSearchDate.Text.Length <= 0)
             {
                 int pageNumber, pageSize;
                 int.TryParse(txtPrevious.Text, out pageNumber);
@@ -184,21 +178,44 @@ namespace DRRMOFingerprintApp.UI
 
         private void txtSearchAttendance_TextChanged(object sender, EventArgs e)
         {
-            // Get the keywords
-            string keywords = txtSearchAttendance.Text.Trim();
-
             // Filter the items based on keywords
-            if (keywords.Length > 0)
+            if (txtSearchAttendance.Text.Length > 0 || txtSearchDate.Text.Length > 0)
             {
-                // Use search method to display items
-                DataTable dt = db.SearchAttendances(keywords);
-                dgvAttendance.DataSource = dt;
-
-                DataView dv = dt.DefaultView;
-                dv.Sort = "Id DESC";
-                DataTable sortedDT = dv.ToTable();
+                BindingSource bs = new BindingSource();
+                bs.DataSource = dgvAttendance.DataSource;
+                bs.Filter = "FirstName  LIKE '%" + txtSearchAttendance.Text + "%' AND LocalDate LIKE '%" + txtSearchDate.Text + "%' ";
+                dgvAttendance.DataSource = bs;
             }
-            else if (keywords.Length <= 0)
+            else if (txtSearchAttendance.Text.Length <= 0 || txtSearchDate.Text.Length <= 0)
+            {
+                int pageNumber, pageSize;
+                int.TryParse(txtPrevious.Text, out pageNumber);
+                int.TryParse(txtNext.Text, out pageSize);
+
+                if (pageNumber <= 0 || pageSize <= 0)
+                {
+                    pageNumber = 1;
+                    pageSize = 10;
+                    dgvAttendance.DataSource = db.AttendancesPagination(pageNumber, pageSize);
+                }
+                else
+                {
+                    dgvAttendance.DataSource = db.AttendancesPagination(pageNumber, pageSize);
+                }
+            }
+        }
+
+        private void txtSearchDate_TextChanged(object sender, EventArgs e)
+        {
+            // Filter the items based on keywords
+            if (txtSearchAttendance.Text.Length > 0 || txtSearchDate.Text.Length > 0)
+            {
+                BindingSource bs = new BindingSource();
+                bs.DataSource = dgvAttendance.DataSource;
+                bs.Filter = "FirstName  LIKE '%" + txtSearchAttendance.Text + "%' AND LocalDate LIKE '%" + txtSearchDate.Text + "%' ";
+                dgvAttendance.DataSource = bs;
+            }
+            else if (txtSearchAttendance.Text.Length <= 0 || txtSearchDate.Text.Length <= 0)
             {
                 int pageNumber, pageSize;
                 int.TryParse(txtPrevious.Text, out pageNumber);

@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
             this.lblSearch = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -66,6 +66,8 @@
             this.btnShow = new System.Windows.Forms.Button();
             this.btnHide = new System.Windows.Forms.Button();
             this.btnClearPhotos = new System.Windows.Forms.Button();
+            this.txtSearchDate = new System.Windows.Forms.TextBox();
+            this.lblSearchDate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAttendance)).BeginInit();
             this.groupBoxPrinting.SuspendLayout();
@@ -106,33 +108,33 @@
             this.dgvAccount.AllowUserToDeleteRows = false;
             this.dgvAccount.BackgroundColor = System.Drawing.Color.White;
             this.dgvAccount.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Sienna;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Roboto Condensed Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAccount.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.Sienna;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Roboto Condensed Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAccount.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dgvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAccount.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvAccount.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvAccount.EnableHeadersVisualStyles = false;
             this.dgvAccount.Location = new System.Drawing.Point(43, 169);
             this.dgvAccount.Name = "dgvAccount";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Sienna;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Roboto Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAccount.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Roboto Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Crimson;
-            this.dgvAccount.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.Sienna;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Roboto Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAccount.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Roboto Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.Crimson;
+            this.dgvAccount.RowsDefaultCellStyle = dataGridViewCellStyle21;
             this.dgvAccount.Size = new System.Drawing.Size(371, 90);
             this.dgvAccount.TabIndex = 3;
             this.dgvAccount.TabStop = false;
@@ -177,9 +179,9 @@
             this.lblSearchAttendance.Location = new System.Drawing.Point(44, 281);
             this.lblSearchAttendance.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSearchAttendance.Name = "lblSearchAttendance";
-            this.lblSearchAttendance.Size = new System.Drawing.Size(240, 33);
+            this.lblSearchAttendance.Size = new System.Drawing.Size(235, 33);
             this.lblSearchAttendance.TabIndex = 22;
-            this.lblSearchAttendance.Text = "Search Attendance";
+            this.lblSearchAttendance.Text = "Search First Name";
             this.lblSearchAttendance.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtSearchAttendance
@@ -190,7 +192,7 @@
             this.txtSearchAttendance.Location = new System.Drawing.Point(43, 317);
             this.txtSearchAttendance.Multiline = true;
             this.txtSearchAttendance.Name = "txtSearchAttendance";
-            this.txtSearchAttendance.Size = new System.Drawing.Size(729, 40);
+            this.txtSearchAttendance.Size = new System.Drawing.Size(365, 40);
             this.txtSearchAttendance.TabIndex = 0;
             this.txtSearchAttendance.TextChanged += new System.EventHandler(this.txtSearchAttendance_TextChanged);
             // 
@@ -201,32 +203,32 @@
             this.dgvAttendance.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvAttendance.BackgroundColor = System.Drawing.Color.White;
             this.dgvAttendance.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Sienna;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Roboto Condensed Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAttendance.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.Sienna;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Roboto Condensed Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAttendance.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dgvAttendance.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAttendance.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvAttendance.EnableHeadersVisualStyles = false;
             this.dgvAttendance.Location = new System.Drawing.Point(43, 363);
             this.dgvAttendance.Name = "dgvAttendance";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Sienna;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Roboto Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAttendance.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Roboto Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Crimson;
-            this.dgvAttendance.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.Sienna;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Roboto Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAttendance.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Roboto Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.Crimson;
+            this.dgvAttendance.RowsDefaultCellStyle = dataGridViewCellStyle24;
             this.dgvAttendance.Size = new System.Drawing.Size(729, 255);
             this.dgvAttendance.TabIndex = 21;
             this.dgvAttendance.TabStop = false;
@@ -369,6 +371,7 @@
             this.btnBrowsePhotos.Name = "btnBrowsePhotos";
             this.btnBrowsePhotos.Size = new System.Drawing.Size(176, 60);
             this.btnBrowsePhotos.TabIndex = 0;
+            this.btnBrowsePhotos.TabStop = false;
             this.btnBrowsePhotos.Text = "     Bro&wse Photos";
             this.btnBrowsePhotos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBrowsePhotos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -555,6 +558,31 @@
             this.btnClearPhotos.UseVisualStyleBackColor = false;
             this.btnClearPhotos.Click += new System.EventHandler(this.btnClearPhotos_Click);
             // 
+            // txtSearchDate
+            // 
+            this.txtSearchDate.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtSearchDate.Font = new System.Drawing.Font("Roboto Condensed", 18.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchDate.ForeColor = System.Drawing.Color.DarkViolet;
+            this.txtSearchDate.Location = new System.Drawing.Point(414, 317);
+            this.txtSearchDate.Multiline = true;
+            this.txtSearchDate.Name = "txtSearchDate";
+            this.txtSearchDate.Size = new System.Drawing.Size(358, 40);
+            this.txtSearchDate.TabIndex = 1;
+            this.txtSearchDate.TextChanged += new System.EventHandler(this.txtSearchDate_TextChanged);
+            // 
+            // lblSearchDate
+            // 
+            this.lblSearchDate.AutoSize = true;
+            this.lblSearchDate.Font = new System.Drawing.Font("Roboto Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearchDate.ForeColor = System.Drawing.Color.DarkViolet;
+            this.lblSearchDate.Location = new System.Drawing.Point(408, 281);
+            this.lblSearchDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSearchDate.Name = "lblSearchDate";
+            this.lblSearchDate.Size = new System.Drawing.Size(159, 33);
+            this.lblSearchDate.TabIndex = 38;
+            this.lblSearchDate.Text = "Search Date";
+            this.lblSearchDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Settings
             // 
             this.AcceptButton = this.btnRegisterAccount;
@@ -562,6 +590,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.Controls.Add(this.lblSearchDate);
+            this.Controls.Add(this.txtSearchDate);
             this.Controls.Add(this.btnClearPhotos);
             this.Controls.Add(this.gbPhoto);
             this.Controls.Add(this.groupBoxPrinting);
@@ -632,5 +662,7 @@
         public System.Windows.Forms.PictureBox pctrBoxPhotos;
         public System.Windows.Forms.Label lblHeaderImage;
         private System.Windows.Forms.Button btnClearPhotos;
+        public System.Windows.Forms.TextBox txtSearchDate;
+        public System.Windows.Forms.Label lblSearchDate;
     }
 }

@@ -20,17 +20,16 @@ namespace DRRMOFingerprintApp.UI
 
         private void PersonPrintAll_Load(object sender, EventArgs e)
         {
-            // Get textboxes from Settings form pass to AttendancePrintAll form
-            TextBox txtPrevious = Application.OpenForms["Search"].Controls["txtPrevious"] as TextBox;
-            TextBox txtNext = Application.OpenForms["Search"].Controls["txtNext"] as TextBox;
+            // Get textboxes from Settings form pass to PersonPrintAll form
+            TextBox txtSearch = Application.OpenForms["Search"].Controls["txtSearch"] as TextBox;
 
-            int pageNumber, pageSize;
-            pageNumber = Convert.ToInt32(txtPrevious.Text);
-            pageSize = Convert.ToInt32(txtNext.Text);
+            txtSearch.Text = txtSearch.Text;
 
             dsPerson_PrintAll dsPPA = new dsPerson_PrintAll();
             SqlConnection connection = new SqlConnection(Helper.CnnVal(dbString));
-            string query = $"SELECT * FROM dbo.Person ORDER BY Id DESC OFFSET {pageNumber - 1} * {pageSize} ROWS FETCH NEXT {pageSize} ROWS ONLY";
+            string query = @"SELECT * FROM dbo.Person WHERE FirstName LIKE '%" + txtSearch.Text + "%' " +
+                "OR MiddleName LIKE '%" + txtSearch.Text + "%' OR LastName LIKE '%" + txtSearch.Text + "%' OR ExtensionName LIKE '%" + txtSearch.Text + "%'" +
+                "OR DateOfBirth LIKE '%" + txtSearch.Text + "%' OR Gender LIKE '%" + txtSearch.Text + "%' ";
             SqlDataAdapter sda = new SqlDataAdapter(query, connection);
             sda.Fill(dsPPA, dsPPA.Tables[0].TableName);
             ReportDataSource rds = new ReportDataSource("dsPerson_PrintAll", dsPPA.Tables[0].DefaultView.ToTable());

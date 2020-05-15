@@ -26,16 +26,15 @@ namespace DRRMOFingerprintApp.UI
         private void AttendancePrintAll_Load(object sender, EventArgs e)
         {
             // Get textboxes from Settings form pass to AttendancePrintAll form
-            TextBox txtPrevious = Application.OpenForms["Settings"].Controls["txtPrevious"] as TextBox;
-            TextBox txtNext = Application.OpenForms["Settings"].Controls["txtNext"] as TextBox;
+            TextBox txtSearchAttendance = Application.OpenForms["Settings"].Controls["txtSearchAttendance"] as TextBox;
+            TextBox txtSearchDate = Application.OpenForms["Settings"].Controls["txtSearchDate"] as TextBox;
 
-            int pageNumber, pageSize;
-            pageNumber = Convert.ToInt32(txtPrevious.Text);
-            pageSize = Convert.ToInt32(txtNext.Text);
+            txtSearchAttendance.Text = txtSearchAttendance.Text;
+            txtSearchDate.Text = txtSearchDate.Text;
 
             dsAttendance_PrintAll dsAPA = new dsAttendance_PrintAll();
             SqlConnection connection = new SqlConnection(Helper.CnnVal(dbString));
-            string query = $"SELECT * FROM dbo.Attendance ORDER BY Id DESC OFFSET {pageNumber - 1} * {pageSize} ROWS FETCH NEXT {pageSize} ROWS ONLY";
+            string query = "SELECT * FROM dbo.Attendance WHERE FirstName LIKE '%" + txtSearchAttendance.Text + "%' AND LocalDate LIKE '%" + txtSearchDate.Text + "%' ";
             SqlDataAdapter sda = new SqlDataAdapter(query, connection);
             sda.Fill(dsAPA, dsAPA.Tables[0].TableName);
             ReportDataSource rds = new ReportDataSource("dsAttendance_PrintAll", dsAPA.Tables[0].DefaultView.ToTable());

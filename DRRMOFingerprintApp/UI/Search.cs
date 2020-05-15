@@ -110,21 +110,18 @@ namespace DRRMOFingerprintApp.UI
         {
             InitializeComponent();
 
-            // Get the keywords
-            string keywords = txtSearch.Text.Trim();
-
             // Filter the items based on keywords
-            if (keywords.Length > 0)
+            if (txtSearch.Text.Length > 0)
             {
-                // Use search method to display items
-                DataTable dt = db.SearchPersons(keywords);
-                dgvPeople.DataSource = dt;
-
-                DataView dv = dt.DefaultView;
-                dv.Sort = "Id DESC";
-                DataTable sortedDT = dv.ToTable();
+                BindingSource bs = new BindingSource();
+                bs.DataSource = dgvPeople.DataSource;
+                bs.Filter = @"FirstName LIKE '%" + txtSearch.Text + "%' " +
+                "OR MiddleName LIKE '%" + txtSearch.Text + "%' OR LastName LIKE '%" + txtSearch.Text + "%' " +
+                "OR ExtensionName LIKE '%" + txtSearch.Text + "%'" +
+                "OR DateOfBirth LIKE '%" + txtSearch.Text + "%' OR Gender LIKE '%" + txtSearch.Text + "%' ";
+                dgvPeople.DataSource = bs;
             }
-            else if (keywords.Length <= 0)
+            else if (txtSearch.Text.Length <= 0)
             {
                 int pageNumber, pageSize;
                 int.TryParse(txtPrevious.Text, out pageNumber);
@@ -158,21 +155,18 @@ namespace DRRMOFingerprintApp.UI
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            // Get the keywords
-            string keywords = txtSearch.Text.Trim();
-
             // Filter the items based on keywords
-            if (keywords.Length > 0)
+            if (txtSearch.Text.Length > 0)
             {
-                // Use search method to display items
-                DataTable dt = db.SearchPersons(keywords);
-                dgvPeople.DataSource = dt;
-
-                DataView dv = dt.DefaultView;
-                dv.Sort = "Id DESC";
-                DataTable sortedDT = dv.ToTable();
+                BindingSource bs = new BindingSource();
+                bs.DataSource = dgvPeople.DataSource;
+                bs.Filter = @"FirstName LIKE '%" + txtSearch.Text + "%' " +
+                "OR MiddleName LIKE '%" + txtSearch.Text + "%' OR LastName LIKE '%" + txtSearch.Text + "%' " +
+                "OR ExtensionName LIKE '%" + txtSearch.Text + "%'" +
+                "OR DateOfBirth LIKE '%" + txtSearch.Text + "%' OR Gender LIKE '%" + txtSearch.Text + "%' ";
+                dgvPeople.DataSource = bs;
             }
-            else if (keywords.Length <= 0)
+            else if (txtSearch.Text.Length <= 0)
             {
                 int pageNumber, pageSize;
                 int.TryParse(txtPrevious.Text, out pageNumber);
